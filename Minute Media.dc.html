@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  </style>
+</helmet>
+
+<nav ref="{{ navRef }}" class="nav" style="position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--color-divider),0 10px 24px rgba(32,31,29,0.025);flex-wrap:wrap;row-gap:10px;padding:16px clamp(20px,5vw,64px)">
+  <span class="nav-brand">Itai Steinberg</span>
+  <a href="Portfolio Redesign.dc.html">Home</a>
+  <a href="Portfolio Redesign.dc.html#about">About Me</a>
+  <a href="Portfolio Redesign.dc.html#projects" aria-current="location">My Projects</a>
+  <a href="Portfolio Redesign.dc.html#posts">Posts</a>
+  <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-left:8px">Contact me</a>
+</nav>
+
+<main style="max-width:940px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 168px">
+
+  <a href="Portfolio Redesign.dc.html#projects" class="btn btn-ghost" style="padding-inline:0;margin-top:32px">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+    Back to My Projects
+  </a>
+
+  <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin:28px 0 12px">Internal Communication · Internship</span>
+  <h1 style="font-size:clamp(36px,4.8vw,54px);font-weight:400;letter-spacing:-0.015em;line-height:1.06;margin:0 0 22px">Minute Media</h1>
+
+  <figure class="plate" style="margin:0 0 40px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 24px 48px rgba(32,31,29,0.025)">
+    <image-slot id="mm-cover" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Project cover" src="https://static.wixstatic.com/media/310b09_f424e256d07b4f0b9e5b1f616b38b16b~mv2.jpg"></image-slot>
+  </figure>
+
+  <div ref="{{ contentRef }}">
+  <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="5">
+    <section style="{{ phase.panelStyle }}">
+      <div style="display:flex;align-items:baseline;gap:14px;margin:0 0 26px;padding-bottom:14px;border-bottom:1px solid var(--color-accent-200)">
+        <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-700);flex:none;padding-bottom:4px">{{ phase.stepTag }}</span>
+        <h2 style="font-size:29px;font-weight:400;letter-spacing:-0.01em;line-height:1.15;margin:0">{{ phase.heading }}</h2>
+      </div>
+      <sc-for list="{{ phase.blocks }}" as="block" hint-placeholder-count="3">
+        <sc-if value="{{ block.isText }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:14.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">{{ block.text }}</p>
+        </sc-if>
+        <sc-if value="{{ block.isList }}" hint-placeholder-val="{{ false }}">
+          <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 12px">{{ block.lead }}</p>
+          <ol style="margin:0 0 24px;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:10px">
+            <sc-for list="{{ block.items }}" as="item" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:14.5px;line-height:1.7;color:color-mix(in srgb, var(--color-text) 85%, transparent)">
+                <span style="font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:0.06em;color:var(--color-accent-700);padding-top:3px">{{ item.n }}</span>
+                <span>{{ item.text }}</span>
+              </li>
+            </sc-for>
+          </ol>
+        </sc-if>
+      </sc-for>
+      <sc-if value="{{ phase.hasPlates }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:4px 0 12px">
+          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent)">{{ phase.plateLabel }}</div>
+          <div style="display:flex;align-items:center;gap:10px;flex:none">
+            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:color-mix(in srgb, var(--color-text) 50%, transparent)">{{ phase.plateCount }}</span>
+            <sc-if value="{{ phase.isCarousel }}" hint-placeholder-val="{{ false }}">
+              <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous plates" onClick="{{ scrollPlatesBack }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+              </button>
+              <button type="button" class="btn btn-secondary btn-icon" aria-label="Next plates" onClick="{{ scrollPlatesForward }}">
+                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+              </button>
+            </sc-if>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ phase.hasStrips }}" hint-placeholder-val="{{ false }}">
+        <div style="display:grid;gap:30px;margin:2px 0 30px">
+          <sc-for list="{{ phase.strips }}" as="wide" hint-placeholder-count="1">
+            <figure style="margin:0;max-width:760px">
+              <div class="plate" style="background:var(--color-surface, #fbfaf9);box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
+                <image-slot id="{{ wide.id }}" shape="rect" fit="contain" style="{{ wide.slotStyle }}" placeholder="Project screen" src="{{ wide.src }}"></image-slot>
+              </div>
+              <figcaption style="margin:0;padding:10px 0 12px;border-bottom:1px solid var(--color-divider)">
+                <span style="display:block;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-bottom:4px">{{ wide.figTag }}</span>
+                <span style="font-size:12.5px;line-height:1.6;font-style:italic;letter-spacing:0.01em;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ wide.caption }}</span>
+              </figcaption>
+              <sc-if value="{{ wide.hasDesc }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px;padding:12px 14px;border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:color-mix(in srgb, var(--color-accent) 4%, transparent)">
+                  <span style="display:block;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Note</span>
+                  <span style="font-size:12.5px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ wide.desc }}</span>
+                </div>
+              </sc-if>
+            </figure>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ phase.hasRow }}" hint-placeholder-val="{{ false }}">
+        <div style="{{ phase.gridStyle }}">
+          <sc-for list="{{ phase.gallery }}" as="shot" hint-placeholder-count="2">
+            <figure style="{{ shot.figStyle }}">
+              <div class="plate" style="background:var(--color-surface, #fbfaf9);box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
+                <image-slot id="{{ shot.id }}" shape="rect" fit="contain" style="{{ shot.slotStyle }}" placeholder="Project screen" src="{{ shot.src }}"></image-slot>
+              </div>
+              <sc-if value="{{ shot.hasCaption }}" hint-placeholder-val="{{ true }}">
+                <figcaption style="margin:0;padding:10px 0 12px;border-bottom:1px solid var(--color-divider)">
+                <span style="display:block;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-bottom:4px">{{ shot.figTag }}</span>
+                <span style="font-size:12.5px;line-height:1.6;font-style:italic;letter-spacing:0.01em;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ shot.caption }}</span>
+              </figcaption>
+              </sc-if>
+              <sc-if value="{{ shot.hasDesc }}" hint-placeholder-val="{{ false }}">
+                <div style="margin-top:12px;padding:12px 14px;border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:color-mix(in srgb, var(--color-accent) 4%, transparent)">
+                  <span style="display:block;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Note</span>
+                  <span style="font-size:12.5px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ shot.desc }}</span>
+                </div>
+              </sc-if>
+            </figure>
+          </sc-for>
+        </div>
+      </sc-if>
+      <sc-if value="{{ phase.hasBullets }}" hint-placeholder-val="{{ false }}">
+        <ul style="margin:0 0 24px;padding-left:22px">
+          <sc-for list="{{ phase.bullets }}" as="b" hint-placeholder-count="3">
+            <li style="font-size:14px;line-height:1.72;max-width:66ch;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px">{{ b }}</li>
+          </sc-for>
+        </ul>
+      </sc-if>
+      <sc-if value="{{ phase.hasImage }}" hint-placeholder-val="{{ false }}">
+        <figure class="plate" style="margin:0 0 24px;box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
+          <image-slot id="{{ phase.imgId }}" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Reference image" src="{{ phase.image }}"></image-slot>
+        </figure>
+      </sc-if>
+    </section>
+  </sc-for>
+  </div>
+
+  <hr class="hr" style="margin:48px 0 0" />
+  <footer style="padding:40px 0 0;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;margin-bottom:6px">Itai Steinberg</div>
+      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">UX Research &amp; Design</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+      <a href="tel:+972523018080" style="color:var(--color-text)">Phone: +972 52 301 8080</a>
+      <div style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Tel Aviv, IL</div>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+</main>
+
+<div ref="{{ barRef }}" style="position:fixed;left:0;right:0;bottom:0;z-index:30;border-top:1px solid var(--color-divider);box-shadow:0 -6px 24px rgba(32,31,29,0.06),0 -1px 2px rgba(32,31,29,0.025);padding:12px clamp(20px,5vw,64px) 14px">
+  <div style="max-width:940px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:10px">
+    <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
+      <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
+        <button type="button" style="{{ step.style }}" onClick="{{ step.onClick }}" aria-current="{{ step.current }}">
+          <span style="{{ step.numStyle }}">{{ step.numDisplay }}</span>{{ step.label }}
+        </button>
+      </sc-for>
+    </div>
+    <div style="display:flex;align-items:center;gap:14px">
+      <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous step" onClick="{{ goPrev }}" disabled="{{ isFirst }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+      </button>
+      <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent);white-space:nowrap;font-feature-settings:'tnum' 1;min-width:104px;text-align:center">{{ progressLabel }}</span>
+      <button type="button" class="btn btn-primary btn-icon" aria-label="Next step" onClick="{{ goNext }}" disabled="{{ isLast }}">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+      </button>
+    </div>
+  </div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f6f2ea&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Page&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#eef1f5&quot;,&quot;#e6ebf2&quot;,&quot;#f6f2ea&quot;]},&quot;wizardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Numbered pills&quot;,&quot;options&quot;:[&quot;Numbered pills&quot;,&quot;Compact dots&quot;,&quot;Labels only&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Step bar&quot;},&quot;showCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;},&quot;showDescriptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;}}">
+const PHASES = [
+  {
+    num: '1', label: 'Discover', heading: 'Introduction & The Problem',
+    paragraphs: [
+      "In this project, our primary objective was to clarify the purpose behind improving communication processes within the organization, identify the key challenges posed by the Voltax system and inter-user collaboration, and explore how these factors impact the company's overall productivity. Ultimately, we focused on developing actionable strategies to enhance the existing system and ensure it meets the company's key performance indicators (KPIs).",
+      "Minute Media, founded in 2011, is a global media and technology company operating as a digital platform for sports content. Its mission is to empower fans with tools to create, share, and engage around sports. Among its brands are DBLTAP, Mental Floss, and 90min. By blending professional journalism with user-generated contributions and leveraging technology, Minute Media caters to diverse fan interests while fostering a strong community.",
+      "As part of our internship, which lasted about eight weeks, our role was to enhance communication in the company's writer and editor system, known as Voltax. We needed to pinpoint where the issue was occurring and, through research and the tools we had learned, identify the root problem and propose a solution that would improve communication among the system's users."
+    ]
+  },
+  {
+    num: '2', label: 'Research', heading: 'Discover — Research Strategy',
+    paragraphs: [
+      "We utilized the Double Diamond method, consistent with Minute Media's research approach, under the guidance of our mentors. Hypothesis: communication and collaboration issues exist among different platform users. Reception: acknowledged by the product team, leading us to perform competitor and user research. Research Plan: we operationalized the issues into a structured research plan focusing on communication and collaboration.",
+      "Competitor research — we assessed the usability of different systems across key criteria such as collaboration, CMS, rich text editors, project management, and role management, focusing on Voltax's primary usage. Our research involved analyzing major market players, assuming their success due to significant resource investment. We identified recurring patterns and drew insights from positive ones while checking for negative patterns in Voltax."
+    ],
+    hasBullets: true,
+    bullets: [
+      'Minimalist design that displays only relevant information reduces cognitive load.',
+      'Dashboards and analytics drive user action.',
+      'Reflecting system status to users (task statuses, prioritization, deadlines) matters.',
+      'Feedback on every action is crucial for keeping users informed of all activity.'
+    ]
+  },
+  {
+    num: '3a', label: 'Interviews', heading: 'Discover — User Interviews',
+    paragraphs: [
+      "To address the key issue of collaboration between editors and writers, we developed specific interview questions for each role. We wanted to understand their daily routines, how they use the system, and how they communicate. Here's how we conducted the interviews: Introduction — we introduced ourselves and let the interviewee introduce themselves. Questions — we asked about their role and daily tasks. Follow-up — if needed, we asked more detailed questions and had them show us how they use the system. Feedback — we responded to keep the conversation relaxed. Closing — we thanked them for helping with our research. Afterward, we analyzed the interviews to identify key themes, focusing on common challenges and how both primary and secondary system features are used.",
+      "Writer perspective — lack of immediacy: important work-related tasks and messages may get lost due to communication gaps. For instance, Slack is used for general discussions, and email for urgent tasks, but neither provides immediate notifications. Using multiple platforms like Google Sheets, Slack, Mail, and Voltax simultaneously leads to wasted time. Lack of notifications: the absence of system alerts or feedback creates uncertainty and inefficiency, as users must search for updates manually, such as when an editor makes corrections or assigns articles.",
+      "Editor perspective — platform usage and transition: significant time is lost switching between platforms like Google Sheets, Slack, Mail, and Voltax. Tracking activities and using different tools for communication and task management like Monday.com for complex issues adds inefficiency. Optimizing collaborative work: lack of real-time notifications disrupts synchronization between editors and writers, extending work processes. There's a need for a system that supports remote brainstorming and content creation to improve feedback efficiency and task management."
+    ],
+  },
+  {
+    num: '3b', label: 'Personas', heading: 'Discover — Personas',
+    hasBullets: true,
+    bullets: [
+      "Editor motivation — publish as many articles as possible to support company goals; streamline work management, status updates, and logistics to allow more time for editing; maintain efficient communication with writers.",
+      "Editor pain points — switching between different systems creates confusion and relies heavily on memory; the system does not reflect task statuses, so editors must check Google Sheets; there is no dedicated task management system; communication difficulties between editors and writers hinder real-time feedback.",
+      "Writer motivation — write as many articles as possible to ensure a stable income; focus on producing quality content that generates high viewership.",
+      "Writer pain points — platform usage and transition wastes time and can cause high-importance tasks to get lost; lack of notifications leads to uncertainty; communication gaps hinder effective collaboration."
+    ]
+  },
+  {
+    num: '4', label: 'Define', heading: 'Define — How Might We & KPIs',
+    paragraphs: [
+      'How Might We is a process where we reframe the central theoretical problem into operational questions. We convened a brainstorming session to generate a wide range of effective and creative ideas. Along the process we focused on the pain points, motivations, and objectives derived from interviews and personas, then attempted to translate these needs into a broad "how might we" question to define the solution.',
+      "Our findings: How might we improve writers and editors collaboration on the Voltax platform? How might we create one place for collaborative work and communication between writers and editors? How might we create a faster quality way to publish articles? How might we consolidate the users' collaboration and management of various systems to one organized and convenient system?",
+      "And by the end we chose: How might we improve writers and editors collaboration on the Voltax platform?",
+      "At this stage, we defined KPIs — the parameters we measure and determine what will be considered a \"success\" at the organizational-business and product characteristic levels.",
+      "Define — User Flow. Editor: opening the homepage on the platform + an overview of the tasks + brainstorming with team members → creating a new article topic / editing a received article → review + feedback → responding to the writer for revisions → receiving the revised article → publishing the article. Writer: opening the homepage on the platform + task overview → creating a new article / editing an existing article with editor review → sending the article for editor's review → receiving feedback → publishing the article."
+    ],
+    hasBullets: true,
+    bullets: [
+      'Maximize the working time of editors and writers on the platform.',
+      'Reduce task management time and minimize transitions between platforms.',
+      'Decrease the number of tasks that get lost in other tools.',
+      'Reduce the response time to system activity.'
+    ]
+  },
+  {
+    num: '5', label: 'Deliver', heading: 'Develop & Deliver',
+    paragraphs: [
+      "Initially, we proposed two possible solutions: Collaboration and work management — we focused on this solution because it aligned well with our user research outcomes and the problem definition (HMW). Chat and instant communication on the platform — after team discussions and consulting with the company's product team, we ultimately decided not to develop this solution due to existing efficient tools like Slack and Gmail. However, we considered how to integrate these existing solutions into our product, specifically aiming for a smart integration between Slack and similar tools with the Voltax system.",
+      "Subsequently, we focused on resolving the collaboration and work management issues on the platform, using two main principles: Prioritization and Workload Management — the main issue repeatedly highlighted was the inefficient daily routine that wastes the time of editors and writers, delaying their actual work; an integrated system that supports these processes can reduce unnecessary workload and maximize actual work. System Status Visibility — the platform will display the status of articles and tasks, considering key parameters, thereby creating a clear hierarchy of importance.",
+      "Using an \"Overview\" display based on Miller's \"7 +/- 2\" principle in a content management system helps a writing team keep track of their tasks simply and clearly. This method makes it easier to manage tasks without overwhelming the team with too much information.",
+      "Article creation fields: 1. Title — input the title of the article, such as \"Jude Bellingham passes Real Madrid medical.\" 2. Prioritization — choose a priority level (High, Medium, Low) to indicate the urgency of the task. 3. Assign Writer(s) — select a writer from the dropdown menu or set the task as \"Free to assign\" if no specific writer is needed immediately. 4. Due Date — set a deadline for when the task should be completed. 5. Notes — add any relevant details or special instructions for the writer in this field.",
+      "Integrating a variety of notifications into the tools our users work with to maintain convenience and flexibility, but also to connect them to the workflow on the platform — for example, creating notifications that send information and calls to action to Slack and Gmail based on actions in the system, alongside alerts within the product itself."
+    ]
+  },
+  {
+    num: '6', label: 'Conclusions', heading: 'Conclusions & Next Steps',
+    paragraphs: [
+      "Feedback from the Minute Media team: \"Very impressive, both the volume of work and its quality, also the attention to detail and the depth of thought behind it, your presentation is very beautiful. The presentation was both visual and in terms of its storytelling, well organized, there are a lot of interesting ideas that you suggested. You took the project with both hands and squeezed all the juice out of it. It makes me very excited to see it. You were confronted not only with the collaboration in terms of transferring the tasks from one to the other, but also through the reinforcements and thinking about analytics and how everything must be backed up by data and rewards for users. I really liked the prototype, its story. The integration with Slack is very clever, I don't think we even thought about it when we were talking about the notifications all the time - so inhale.\"",
+      "Next Steps — Usability Testing: this process helps identify usability issues, navigation challenges, or areas needing user experience improvement. Editor Trends: incorporating trends for editors and writers to identify new topics and popular sports categories for generating articles. Continued Research and Application: further research in behavioral psychology and its applications on the platform to understand motivations and preferences, aiming to enhance user engagement and satisfaction."
+    ]
+  }
+];
+
+const GALLERIES = {"0":[{"src":"https://static.wixstatic.com/media/310b09_b61250638783421fa07013355a1444ea~mv2.png","caption":"Voltax main frame","tall":false},{"src":"https://static.wixstatic.com/media/310b09_032a7db6600c49d8aebe522610bbac9d~mv2.png","caption":"The system as it stood","tall":false}],"1":[{"src":"https://static.wixstatic.com/media/310b09_c531999689d74354905ca9916996074d~mv2.png","caption":"The Double Diamond method","tall":false},{"src":"https://static.wixstatic.com/media/310b09_d6ecc8a4460e42449bafec056f6080ac~mv2.png","caption":"Competitor research board","tall":false},{"src":"https://static.wixstatic.com/media/310b09_a3073ecfc6714f09a330e95fc879f048~mv2.png","caption":"Competitor research results","tall":false}],"2":[{"src":"https://static.wixstatic.com/media/310b09_b162a45b833e4b889d13a271adeae763~mv2.png","caption":"Writer perspective","tall":false},{"src":"https://static.wixstatic.com/media/310b09_fe9d21a226a446caad98a3555495ceea~mv2.jpg","caption":"Editor perspective","tall":false}],"3":[{"src":"https://static.wixstatic.com/media/310b09_1b672a66c8fd436294cda5db4a712bc7~mv2.png","caption":"Our How Might We map","tall":false},{"src":"https://static.wixstatic.com/media/310b09_504b9cb100ed43338fcc94131e4ae271~mv2.png","caption":"Our KPI's","tall":false},{"src":"https://static.wixstatic.com/media/310b09_dac89d1c1d544623948ebb67ab446e2e~mv2.png","caption":"User flow — Editor","tall":false},{"src":"https://static.wixstatic.com/media/310b09_511d57e888ac450daa47cf33c4619967~mv2.png","caption":"User flow — Writer","tall":false}],"4":[{"src":"https://static.wixstatic.com/media/310b09_a75fabd9a36546aea6a28aa964f74443~mv2.png","caption":"MVP","tall":false},{"src":"https://static.wixstatic.com/media/310b09_6344664a5dbd47fcb4c811c63103cb4a~mv2.png","caption":"MVP","tall":false},{"src":"https://static.wixstatic.com/media/310b09_a7ed36281aa54ae3a2923f2ea1017333~mv2.png","caption":"Kanban overview","tall":false},{"src":"https://static.wixstatic.com/media/310b09_9e79714c3dc845b7b4e5adfad72cbf35~mv2.png","caption":"Article creation fields","tall":false},{"src":"https://static.wixstatic.com/media/310b09_37575ef496ed41c19ec926265b3120f9~mv2.png","caption":"Notification integrations","tall":false},{"src":"https://static.wixstatic.com/media/310b09_064f88cc52ee4209919a24a9765f2ec6~mv2.jpg","caption":"Prototype screens","tall":false},{"src":"https://static.wixstatic.com/media/310b09_b9e339ebcf4a4137981b25e0b6a62194~mv2.jpg","caption":"Prototype screens","tall":false},{"src":"https://static.wixstatic.com/media/310b09_63eeb0b3ec0447f9bd69919b780de0e2~mv2.jpg","caption":"Prototype screens","tall":false},{"src":"https://static.wixstatic.com/media/310b09_7902ddbb8bb84c0bbe88951945b1ba4c~mv2.png","caption":"Prototype screens","tall":false}]};
+const DESCS = {"https://static.wixstatic.com/media/310b09_c531999689d74354905ca9916996074d~mv2.png":"We utilized the Double Diamond method, consistent with Minute Media's research approach, under the guidance of our mentors.","https://static.wixstatic.com/media/310b09_a7ed36281aa54ae3a2923f2ea1017333~mv2.png":"Using an \"Overview\" display based on Miller's \"7 +/- 2\" principle in a content management system helps a writing team keep track of their tasks simply and clearly. This method makes it easier to manage tasks without overwhelming the team with too much information.","https://static.wixstatic.com/media/310b09_9e79714c3dc845b7b4e5adfad72cbf35~mv2.png":"1. Title: Input the title of the article. 2. Prioritization: Choose a priority level (High, Medium, Low). 3. Assign Writer(s): Select a writer from the dropdown menu or set the task as \"Free to assign\". 4. Due Date: Set a deadline for when the task should be completed. 5. Notes: Add any relevant details or special instructions for the writer.","https://static.wixstatic.com/media/310b09_37575ef496ed41c19ec926265b3120f9~mv2.png":"Integrating a variety of notifications into the tools our users work with to maintain convenience and flexibility, but also to connect them to the workflow on the platform.","https://static.wixstatic.com/media/310b09_c1f32f73f305437f8e7c4f8a2e84da17~mv2.png":"Feedback from the Minute Media team."};
+const SLUG = "mm";
+// a phase was inserted at index 3 (Personas) — shift the plate sets that follow
+GALLERIES[6] = [{"src":"https://static.wixstatic.com/media/310b09_c1f32f73f305437f8e7c4f8a2e84da17~mv2.png","caption":"Feedback from the Minute Media team","tall":false}];
+GALLERIES[5] = GALLERIES[4]; GALLERIES[4] = GALLERIES[3]; GALLERIES[3] = [];
+
+const toBlocks = (paras) => (paras || []).flatMap((t) => {
+  const m = t.match(/(^|[\s—:])1\.\s/);
+  if (!m) return [{ isText: true, text: t }];
+  const cut = m.index + m[0].length - 3;
+  const lead = t.slice(0, cut).trim().replace(/[:—]\s*$/, '');
+  const rest = t.slice(cut);
+  const parts = rest.split(/(?=\d+\.\s)/).map(x => x.trim()).filter(Boolean);
+  if (parts.length < 2) return [{ isText: true, text: t }];
+  const items = parts.map((p) => {
+    const mm = p.match(/^(\d+)\.\s*([\s\S]*)$/);
+    return { n: mm ? mm[1] : '', text: (mm ? mm[2] : p).replace(/\s*$/, '') };
+  });
+  const out = [];
+  if (lead) out.push({ isText: true, text: lead + ':' });
+  out.push({ isList: true, lead: '', items });
+  return out;
+});
+
+const stepRatio = (i) => {
+  const g = GALLERIES[i] || [];
+  return (g.filter(x => x.tall).length > (g.length / 2)) ? '9/17' : '16/10';
+};
+// research splits into strategy and findings, its plates dividing with it
+(function () {
+  const i = PHASES.findIndex((p) => p.label === 'Research');
+  if (i < 0) return;
+  const p = PHASES[i];
+  const paras = p.paragraphs || [];
+  const strat = Object.assign({}, p, { label: 'Strategy', heading: "Discover — Research Strategy", paragraphs: paras.slice(0, 1) });
+  const find = Object.assign({}, p, { label: 'Findings', heading: "Discover — Competitor Findings", paragraphs: paras.slice(1) });
+  delete strat.bullets;
+  strat.num = "2a"; find.num = "2b";
+  PHASES.splice(i, 1, strat, find);
+  const plates = GALLERIES[i] || [];
+  const keys = Object.keys(GALLERIES).map(Number).filter((k) => k > i).sort((a, b) => b - a);
+  keys.forEach((k) => { GALLERIES[k + 1] = GALLERIES[k]; delete GALLERIES[k]; });
+  GALLERIES[i] = plates.slice(0, 2);
+  GALLERIES[i + 1] = plates.slice(2);
+  if (!GALLERIES[i].length) delete GALLERIES[i];
+  if (!GALLERIES[i + 1].length) delete GALLERIES[i + 1];
+})();
+
+// journeys, flows and maps are wide artifacts — they get a full-width plate
+const isWide = (shot) => !shot.tall && /journey|flow|map|kanban|overview|timeline/i.test(shot.caption) && !/screen/i.test(shot.caption);
+
+const plateW = (i) => (((GALLERIES[i] || []).filter(x => x.tall).length > ((GALLERIES[i] || []).length / 2)) ? 186 : 300);
+const gridFor = (n) => n > 3
+  ? 'display:flex;align-items:flex-start;gap:28px;margin:8px 0 30px;overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-left:2px;padding-bottom:10px;scrollbar-width:thin'
+  : 'display:flex;flex-wrap:wrap;align-items:flex-start;gap:28px;margin:8px 0 30px';
+const plateH = (i, R) => {
+  const g = rowOf(i, R);
+  return (g.filter((x) => ratioOf(x, R) < 0.62).length > (g.length / 2)) ? 520 : 400;
+};
+const MIN_W = 150, MAX_W = 760;
+const ratioOf = (shot, R) => {
+  const r = R && R[shot.src] ? +R[shot.src] : 0;
+  return r || (shot.tall ? 0.52 : 1.6);
+};
+// a very wide artifact (a flow, a journey, a progress bar) gets its own full-width plate
+// anything not portrait reads at full width on its own row
+const isStripShot = (shot, R) => ratioOf(shot, R) > 0.95;
+const rowOf = (i, R) => (GALLERIES[i] || []).filter((x) => !isStripShot(x, R));
+const stripsOf = (i, R) => (GALLERIES[i] || []).filter((x) => isStripShot(x, R));
+// an unusually tall artifact (a whole scrolling screen) reads at its own taller height
+const isTower = (shot, R) => ratioOf(shot, R) < 0.62;
+const plateWidth = (i, shot, R) => Math.min(MAX_W, Math.round(plateH(i, R) * ratioOf(shot, R)));
+const FIG_BASE = 'margin:0;min-width:0;display:grid;grid-template-rows:auto auto 1fr;align-content:start;';
+const figFor = (i, shot, R, n) => n > 3
+  ? FIG_BASE + 'flex:0 0 ' + plateWidth(i, shot, R) + 'px;scroll-snap-align:start'
+  : FIG_BASE + 'flex:' + ratioOf(shot, R).toFixed(3) + ' 1 0;max-width:400px';
+
+const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:6px 14px 6px 6px;border-radius:999px;font-family:var(--font-body);font-size:13px;letter-spacing:0.01em;white-space:nowrap;cursor:pointer;';
+const NUM_BASE = 'width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;flex:none;font-variant-numeric:tabular-nums;font-family:var(--font-body);';
+const STYLES = {
+  done: { btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);', num: NUM_BASE + 'background:var(--color-accent-500);color:#fff;' },
+  active: { btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);box-shadow:0 1px 3px rgba(182,130,53,0.2);', num: NUM_BASE + 'background:var(--color-accent);color:#fff;' },
+  upcoming: { btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 55%, transparent);', num: NUM_BASE + 'border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 55%, transparent);' }
+};
+
+class Component extends DCLogic {
+  state = { active: 0 };
+  contentRef = React.createRef();
+  navRef = React.createRef();
+  barRef = React.createRef();
+
+  componentDidUpdate() { this.applyTint(); }
+
+  applyTint() {
+    const T = this.props.bgTint || '#f3f2f2';
+    document.body.style.background = T;
+    const glass = 'color-mix(in srgb, ' + T + ' 80%, transparent)';
+    if (this.navRef.current) { this.navRef.current.style.background = glass; this.navRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)'; this.navRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)'; }
+    if (this.barRef.current) { this.barRef.current.style.background = glass; this.barRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)'; this.barRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)'; }
+  }
+
+  componentDidMount() {
+    this.applyTint();
+    this.loadRatios();
+    this._onKey = (e) => {
+      if (e.target.matches('input, textarea')) return;
+      if (e.key === 'ArrowRight') this.go(this.state.active + 1);
+      if (e.key === 'ArrowLeft') this.go(this.state.active - 1);
+    };
+    window.addEventListener('keydown', this._onKey);
+  }
+  scrollPlates(dir) {
+    const root = this.contentRef.current;
+    if (!root) return;
+    const el = [...root.querySelectorAll('div[style*="scroll-snap-type"]')].find(t => t.clientWidth > 0);
+    if (!el) return;
+    const step = (el.firstElementChild ? el.firstElementChild.getBoundingClientRect().width : 280) + 28;
+    // snap + animated scrolling are both unreliable here — step synchronously
+    const max = el.scrollWidth - el.clientWidth;
+    const prev = el.style.scrollSnapType;
+    el.style.scrollSnapType = 'none';
+    el.scrollLeft = Math.max(0, Math.min(max, el.scrollLeft + dir * step * 2));
+    el.style.scrollSnapType = prev;
+  }
+
+  loadRatios() {
+    const seen = {};
+    Object.keys(GALLERIES).forEach((k) => GALLERIES[k].forEach((shot) => {
+      if (seen[shot.src]) return;
+      seen[shot.src] = 1;
+      const im = new Image();
+      im.onload = () => {
+        if (!im.naturalWidth || !im.naturalHeight) return;
+        const r = (im.naturalWidth / im.naturalHeight).toFixed(4);
+        this.setState((st) => ({ ratios: Object.assign({}, st.ratios, { [shot.src]: r }) }));
+      };
+      im.src = shot.src;
+    }));
+  }
+
+  componentWillUnmount() { window.removeEventListener('keydown', this._onKey); }
+
+  go(i) {
+    if (i < 0 || i >= PHASES.length) return;
+    this.setState({ active: i }, () => {
+      const el = this.contentRef.current;
+      if (!el) return;
+      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+    });
+  }
+
+  renderVals() {
+    const idx = this.state.active;
+    const R = this.state.ratios || {};
+    const showCaptions = this.props.showCaptions ?? true;
+    const showDescriptions = this.props.showDescriptions ?? true;
+    const wizard = this.props.wizardStyle || 'Numbered pills';
+    const steps = PHASES.map((p, i) => {
+      const status = i < idx ? 'done' : i === idx ? 'active' : 'upcoming';
+      let btn = STYLES[status].btn, numStyle = STYLES[status].num, label = p.label;
+      if (wizard === 'Compact dots') { label = ''; btn = btn.replace('padding:6px 14px 6px 6px', 'padding:6px'); }
+      if (wizard === 'Labels only') { numStyle += 'display:none;'; btn = btn.replace('padding:6px 14px 6px 6px', 'padding:7px 15px'); }
+      return { label, numDisplay: status === 'done' ? '✓' : (p.num || String(i + 1)), onClick: () => this.go(i), style: btn, numStyle };
+    });
+    const phases = PHASES.map((p, i) => ({
+      ...p,
+      panelStyle: i === idx ? 'display:block' : 'display:none',
+      hasBullets: !!p.bullets,
+      blocks: toBlocks(p.paragraphs),
+      hasGallery: !!(GALLERIES[i] && GALLERIES[i].length),
+      stepTag: 'Step ' + (p.num || (i + 1)),
+      stepTag: 'Step ' + (p.num || (i + 1)), plateLabel: 'Plates — ' + p.heading.replace(/^[^—]*—\s*/, ''),
+      gridStyle: gridFor(rowOf(i, R).length), isCarousel: rowOf(i, R).length > 3, plateCount: (GALLERIES[i] || []).length + ((GALLERIES[i] || []).length === 1 ? ' plate' : ' plates'), hasStrips: stripsOf(i, R).length > 0, strips: stripsOf(i, R).map((s, j) => ({ src: s.src, caption: s.caption, id: SLUG + '-w' + i + '-' + j, figTag: 'Fig. ' + (p.num || (i + 1)) + '.' + (j + 1), slotStyle: 'width:100%;aspect-ratio:' + ratioOf(s, R).toFixed(3), desc: DESCS[s.src] || '', hasDesc: !!DESCS[s.src] })), hasRow: rowOf(i, R).length > 0, hasPlates: (GALLERIES[i] || []).length > 0,
+      gallery: rowOf(i, R).map((s, j) => ({ src: s.src, caption: s.caption, id: SLUG + '-s' + i + '-' + j, figTag: 'Fig. ' + (p.num || (i + 1)) + '.' + (stripsOf(i, R).length + j + 1), figStyle: figFor(i, s, R, rowOf(i, R).length), slotStyle: rowOf(i, R).length > 3 ? 'width:' + plateWidth(i, s, R) + 'px;height:' + plateH(i, R) + 'px' : 'width:100%;aspect-ratio:' + ratioOf(s, R).toFixed(3), desc: DESCS[s.src] || '', hasDesc: showDescriptions && !!DESCS[s.src], hasCaption: showCaptions })),
+      hasImage: !!p.image
+    }));
+    return {
+      phases, steps,
+      scrollPlatesBack: () => this.scrollPlates(-1),
+      scrollPlatesForward: () => this.scrollPlates(1), contentRef: this.contentRef, navRef: this.navRef, barRef: this.barRef,
+      progressLabel: 'Step ' + (PHASES[idx].num || (idx + 1)) + ' of 6',
+      goPrev: () => this.go(idx - 1),
+      goNext: () => this.go(idx + 1),
+      isFirst: idx === 0,
+      isLast: idx === PHASES.length - 1
+    };
+  }
+}
+</script>
+</body>
+</html>

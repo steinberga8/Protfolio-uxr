@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; background: #e6ebf2; }
+    .nav { background: #e6ebf2; }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  </style>
+</helmet>
+
+<nav class="nav" style="position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--color-divider),0 10px 24px rgba(32,31,29,0.025);flex-wrap:wrap;row-gap:10px;padding:16px clamp(20px,5vw,64px)">
+  <span class="nav-brand">Itai Steinberg</span>
+  <a href="Portfolio Redesign.dc.html">Home</a>
+  <a href="Portfolio Redesign.dc.html#about">About Me</a>
+  <a href="Portfolio Redesign.dc.html#projects">My Projects</a>
+  <a href="Portfolio Redesign.dc.html#posts" aria-current="location">Posts</a>
+  <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-left:8px">Contact me</a>
+</nav>
+
+<main style="max-width:720px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 80px">
+  <a href="Portfolio Redesign.dc.html#posts" class="btn btn-ghost" style="padding-inline:0;margin-top:32px">
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+    Back to My Posts
+  </a>
+  <span style="display:block;font-size:13px;letter-spacing:0.08em;text-transform:uppercase;color:var(--color-accent-700);margin:28px 0 12px">Writing</span>
+  <h1 style="font-size:clamp(32px,4.2vw,46px);line-height:1.1;margin:0 0 28px">Applying The Six Thinking Hats Method To UX Design</h1>
+
+  <figure class="plate" style="margin:0 0 32px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 16px 32px rgba(32,31,29,0.025)">
+    <image-slot id="hats-cover" shape="rect" style="width:100%;aspect-ratio:16/7" placeholder="Post banner" src="https://static.wixstatic.com/media/310b09_7bc56f20893f486ab7da2b41c0e01d2c~mv2.avif"></image-slot>
+  </figure>
+
+  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">As a teenager, like many others my age, I participated in a youth movement. In preparation for an event we initiated in our community, the head of the movement asked each team responsible for a specific part of the project to conduct a discussion about their area of responsibility using different thinking approaches — one for each team member (six in each team). To guide the discussions, our instructor introduced us to Edward de Bono's thinking method.</p>
+  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">De Bono, a philosopher, published the book Six Thinking Hats in the 1980s, where he presented an approach to decision-making. The method involves a group of people analyzing a problem and seeking solutions using diverse thinking styles. Each participant wears a different colored hat, with each color representing a distinct perspective:</p>
+
+  <ul style="margin:0 0 24px;padding-left:22px">
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">White Hat</strong> — neutral thinking based on facts and existing information.</li>
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">Red Hat</strong> — focuses on the emotions the problem may evoke, with decisions based mainly on intuition.</li>
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">Black Hat</strong> — identifies problems and obstacles, offering criticism of the logic behind the proposed ideas.</li>
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">Yellow Hat</strong> — looks for advantages and maintains a positive outlook on the process.</li>
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">Green Hat</strong> — encourages creativity and innovative ideas to address the problem.</li>
+    <li style="font-size:16px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px"><strong style="color:var(--color-text)">Blue Hat</strong> — organizes and summarizes the thinking process and discussion outcomes.</li>
+  </ul>
+
+  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">I recalled this thinking approach during my academic studies and throughout my professional career. First, this method helps overcome rigid thinking patterns that often arise when an individual faces problems alone. Additionally, I believe that in the field of user experience, where Design Thinking processes are applied, incorporating these different perspectives within teams can refine solutions and inspire creative and innovative ways to find the best approach.</p>
+
+  <hr class="hr" style="margin:32px 0" />
+  <a href="The Art Of Motorcycle And UX.dc.html" class="btn btn-ghost" style="padding-inline:0">Read my other post
+    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
+
+  <hr class="hr" style="margin:40px 0 0" />
+  <footer style="padding:40px 0 0;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;margin-bottom:6px">Itai Steinberg</div>
+      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">UX Research &amp; Design</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+      <a href="tel:+972523018080" style="color:var(--color-text)">Phone: +972 52 301 8080</a>
+      <div style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Tel Aviv, IL</div>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+</main>
+</x-dc>
+</body>
+</html>

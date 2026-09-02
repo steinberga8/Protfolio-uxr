@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./image-slot.js"></script>
+  <style>
+    body { margin: 0; text-wrap: pretty; }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+  </style>
+</helmet>
+
+<div ref="{{ pageRef }}" style="min-height:100vh">
+<nav ref="{{ navRef }}" class="nav" style="position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--color-divider),0 10px 24px rgba(32,31,29,0.025);flex-wrap:wrap;row-gap:10px;padding:16px clamp(20px,5vw,64px)">
+  <span class="nav-brand">Itai Steinberg</span>
+  <a href="#home" aria-current="location">Home</a>
+  <a href="#about">About Me</a>
+  <a href="#projects">My Projects</a>
+  <a href="#posts">Posts</a>
+  <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-left:8px">Contact me</a>
+</nav>
+
+<main style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+
+  <section id="home" style="padding:96px 0 64px;display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:64px;align-items:center">
+    <div>
+      <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:16px">UX Research &amp; Design</span>
+      <h1 style="font-size:clamp(42px,5.4vw,68px);font-weight:400;line-height:1.02;margin:0 0 22px;letter-spacing:-0.02em">Itai Steinberg</h1>
+      <p style="font-size:17.5px;line-height:1.7;max-width:52ch;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin:0 0 28px">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+      <div style="display:flex;gap:12px;flex-wrap:wrap">
+        <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary">Contact me</a>
+        <a href="https://wa.me/972523018080" target="_blank" rel="noopener" class="btn btn-ghost">Message on WhatsApp</a>
+      </div>
+    </div>
+    <figure class="plate" style="margin:0;justify-self:end;width:100%;max-width:380px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 24px 48px rgba(32,31,29,0.025)">
+      <image-slot id="hero-portrait" shape="rect" fit="contain" style="width:100%;aspect-ratio:1/1" placeholder="Portrait photo" src="https://static.wixstatic.com/media/310b09_637a93088f764d0fbe865a2400e41d80~mv2.png"></image-slot>
+    </figure>
+  </section>
+
+  <section aria-label="Site notice" style="display:flex;align-items:flex-start;gap:12px;padding:16px 20px;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:color-mix(in srgb, var(--color-accent) 5%, transparent);margin-bottom:56px">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent-700);flex:none;margin-top:2px"><path d="M21.73 18 13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb, var(--color-text) 78%, transparent)">This site is under construction — a few sections are still being finished. For the best experience, please view on a desktop.</p>
+  </section>
+
+  <hr class="hr" style="margin:0 0 56px" />
+
+  <section id="projects" style="padding-bottom:64px">
+    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px">Selected Work</span>
+    <h2 style="font-size:36px;font-weight:400;letter-spacing:-0.015em;line-height:1.12;margin:0 0 36px;padding-bottom:16px;border-bottom:1px solid var(--color-accent-200)">My Projects</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:32px">
+      <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
+        <article class="card" style="padding:0;border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:0 1px 2px rgba(45,43,43,0.06),0 20px 44px rgba(32,31,29,0.025);overflow:hidden;gap:0;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-3px);box-shadow:0 2px 6px rgba(45,43,43,0.1),0 28px 56px rgba(32,31,29,0.06)">
+          <a href="{{ project.link }}" style="display:block"><figure class="plate" style="margin:0;border-width:0 0 6px 0">
+            <image-slot id="{{ project.imgId }}" shape="rect" style="width:100%;aspect-ratio:16/10" placeholder="Project cover image" src="{{ project.img }}"></image-slot>
+          </figure></a>
+          <div style="padding:24px 24px 8px;flex:1">
+            <span class="card-kicker">{{ project.kicker }}</span>
+            <h3 style="font-size:23px;margin:8px 0 12px"><a href="{{ project.link }}" style="color:inherit;text-decoration:none">{{ project.title }}</a></h3>
+            <p style="font-size:15px;line-height:1.6;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 80%, transparent);margin:0 0 16px">{{ project.body }}</p>
+            <a href="{{ project.link }}" class="btn btn-ghost" style="padding-inline:0;align-self:flex-start">{{ project.linkLabel }}
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+          <div style="border-top:1px solid var(--color-divider);padding:16px 24px 20px;background:color-mix(in srgb, var(--color-text) 2%, transparent)">
+            <div style="display:flex;flex-wrap:wrap;gap:8px">
+              <sc-for list="{{ project.steps }}" as="step" hint-placeholder-count="5">
+                <button type="button" onClick="{{ step.onClick }}" style="{{ step.style }}" aria-current="{{ step.current }}">
+                  <span style="{{ step.numStyle }}">{{ step.numDisplay }}</span>{{ step.label }}
+                </button>
+              </sc-for>
+            </div>
+            <p style="font-size:13px;line-height:1.5;margin:12px 0 0;color:color-mix(in srgb, var(--color-text) 72%, transparent)"><strong style="color:var(--color-text);font-weight:600">{{ project.activeLabel }}: </strong>{{ project.activeDesc }}</p>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 56px" />
+
+  <section id="about" style="padding-bottom:64px">
+    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px">About Me</span>
+    <h2 style="font-size:36px;font-weight:400;letter-spacing:-0.015em;line-height:1.12;margin:0 0 36px;padding-bottom:16px;border-bottom:1px solid var(--color-accent-200)">Psychology, HCI, and a camera</h2>
+    <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start">
+      <figure class="plate" style="margin:0;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 20px 44px rgba(32,31,29,0.025)">
+        <image-slot id="about-portrait" shape="rect" style="width:100%;aspect-ratio:140/177" placeholder="Portrait" src="https://static.wixstatic.com/media/310b09_81fb21260d3b4409b7dfb6ecbf6d7bcb~mv2.jpg"></image-slot>
+      </figure>
+      <div>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">I'm a UX enthusiast with a B.A. in Psychology and Human-Computer Interaction, passionate about blending psychological insights with research to design intuitive, engaging experiences. I love uncovering what drives user behavior and using that understanding to create designs that feel effortless and human-centered.</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">Outside of UX, I'm a dedicated cinephile who enjoys analyzing films almost as much as watching them. One of my favorite design analogies comes from Inception of Christopher Nolan:</p>
+        <blockquote style="margin:0 0 20px;padding:0 0 0 20px;border-left:2px solid var(--color-accent);font-family:var(--font-heading);font-size:22px;font-weight:400;line-height:1.4;font-style:italic;color:var(--color-text)">
+          <p style="margin:0 0 8px">"We create the world of the dream. We bring the subject into that dream, and we fill it with their subconscious."</p>
+          <footer style="font-family:var(--font-body);font-style:normal;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent)">Dom Cobb</footer>
+        </blockquote>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">To me, great UX is just like that — building a world shaped by the user's needs, then guiding them through it seamlessly.</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">In my free time, I enjoy the mental challenge and social energy of board games, the calming rhythm of early-morning water sports, and capturing candid human moments through photography during my travels. The lens helps me see the world — and people — in a more intentional, creative way.</p>
+      </div>
+    </div>
+
+    <h3 style="font-size:22px;margin:56px 0 8px">Some Pictures I Have Taken</h3>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-top:28px">
+      <figure style="margin:0">
+        <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 36px rgba(32,31,29,0.025)">
+          <image-slot id="about-photo-1" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Sapa, Vietnam" src="https://static.wixstatic.com/media/310b09_7da319a6362d4c12b402fa4f1b384014~mv2.jpg"></image-slot>
+        </div>
+        <figcaption style="font-size:13px;line-height:1.65;font-style:italic;text-align:left;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:14px">Several years ago, I traveled through Southeast Asia. During my time in Vietnam, I spent three days in Sapa province and took a trek from the backpacker town down into the villages in the valley below. Along the way, I came across children playing together and captured this moment. This photograph remains one of my favorites.</figcaption>
+      </figure>
+      <figure style="margin:0">
+        <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 36px rgba(32,31,29,0.025)">
+          <image-slot id="about-photo-2" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Vigeland Park, Oslo" src="https://static.wixstatic.com/media/310b09_f8f29dba6c654cfdb0e5f70fc38203ec~mv2.jpg"></image-slot>
+        </div>
+        <figcaption style="font-size:13px;line-height:1.65;font-style:italic;text-align:left;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:14px">I captured this photo during my visit to Oslo, Norway several years ago. The sculpture is located in the renowned Vigeland Park, one of the city's most famous attractions. What drew me to this particular piece was its intimate portrayal of two figures embracing, and I composed the shot to emphasize their tender, affectionate pose.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 56px" />
+
+  <section id="posts" style="padding-bottom:88px">
+    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px">Writing</span>
+    <h2 style="font-size:36px;font-weight:400;letter-spacing:-0.015em;line-height:1.12;margin:0 0 36px;padding-bottom:16px;border-bottom:1px solid var(--color-accent-200)">My Posts</h2>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px">
+      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="2">
+        <article class="card" style="padding:0;border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:0 1px 2px rgba(45,43,43,0.06),0 16px 36px rgba(32,31,29,0.025);overflow:hidden;gap:0;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-3px);box-shadow:0 2px 6px rgba(45,43,43,0.1),0 24px 48px rgba(32,31,29,0.06)">
+          <a href="{{ post.link }}" style="display:block"><figure class="plate" style="margin:0;border-width:0 0 6px 0">
+            <image-slot id="{{ post.imgId }}" shape="rect" style="width:100%;aspect-ratio:3/2" placeholder="Post cover image" src="{{ post.img }}"></image-slot>
+          </figure></a>
+          <div style="padding:22px 24px 26px;flex:1">
+            <h3 style="font-size:19px;margin:0 0 10px"><a href="{{ post.link }}" style="color:inherit;text-decoration:none">{{ post.title }}</a></h3>
+            <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0 0 14px">{{ post.body }}</p>
+            <a href="{{ post.link }}" class="btn btn-ghost" style="padding-inline:0">Read post
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0" />
+
+  <footer style="padding:40px 0 48px;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;margin-bottom:6px">Itai Steinberg</div>
+      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">UX Research &amp; Design</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+      <a href="tel:+972523018080" style="display:flex;align-items:center;gap:8px;color:var(--color-text)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 16.6 15h3.4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3.4a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384Z"/></svg>
+        Phone: +972 52 301 8080
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Tel Aviv, IL
+      </div>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.4A5 5 0 0 1 16 8Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+      <a href="#home">Home</a>
+      <a href="#about">About Me</a>
+      <a href="#projects">My Projects</a>
+      <a href="#posts">Posts</a>
+    </nav>
+  </footer>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f3f2f2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#eef1f5&quot;,&quot;#e9edf3&quot;,&quot;#e6ebf2&quot;],&quot;section&quot;:&quot;Background&quot;}}">
+const STEP_DEFS = [
+  { label: 'Research', desc: 'Interviews, competitive audits and data review to frame the real problem.' },
+  { label: 'Define', desc: "Synthesizing findings into problem statements and success metrics." },
+  { label: 'Ideate', desc: 'Exploring directions through sketches, flows and design principles.' },
+  { label: 'Design', desc: 'High-fidelity UI and interaction design refined through iteration.' },
+  { label: 'Test', desc: 'Usability testing and feedback loops to validate and refine the solution.' }
+];
+
+const PROJECTS = [
+  {
+    id: 'minute-media', imgId: 'proj-minute',
+    kicker: 'Internal Communication · Internship',
+    title: 'Minute Media',
+    body: "During my internship at Minute Media, I led a project focused on optimizing internal communication. My team and I conducted extensive research to redefine and enhance Voltax, the company's internal communication and collaboration system.",
+    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg'
+  },
+  {
+    id: 'healthsme', imgId: 'proj-health',
+    kicker: 'Healthcare',
+    title: "Health'sme",
+    body: "Health'sme connects patients with a network of doctors nationwide, streamlining appointment bookings and follow-ups. It empowers users with quick access to their medical status, supporting informed health decisions.",
+    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg'
+  },
+  {
+    id: 'wolt', imgId: 'proj-wolt',
+    kicker: 'Payments & Purchasing',
+    title: 'Wolt Case Study',
+    body: "In my Wolt case study, I explored innovative strategies to enhance the payment and purchasing experience within the app. My recommendations stem from user research and hands-on support experiences, ensuring they reflect real user needs.",
+    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png'
+  },
+  {
+    id: 'bankme', imgId: 'proj-bankme',
+    kicker: 'Digital Banking',
+    title: 'Bankme',
+    body: "In my digital banking case study, I explored minimalist design strategies to simplify complex financial data and reduce cognitive load within the app. Drawing from my background in psychology and HCI, my design decisions stem from a deep understanding of human behavior, ensuring the interface reflects real user needs and prevents critical errors.",
+    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg'
+  }
+];
+
+const POSTS = [
+  { id: 'motorcycle', imgId: 'post-moto', title: 'The Art Of Motorcycle And UX', body: 'The art of motorcycle and User Experience.', link: 'The Art Of Motorcycle And UX.dc.html', img: 'https://static.wixstatic.com/media/310b09_111b35c40d574c51933a03379f2da38d~mv2.jpg' },
+  { id: 'six-hats', imgId: 'post-hats', title: 'Applying the Six Thinking Hats Method to UX Design', body: 'A look at applying the Six Thinking Hats method within a UX design process.', link: 'Six Thinking Hats.dc.html', img: 'https://static.wixstatic.com/media/310b09_7bc56f20893f486ab7da2b41c0e01d2c~mv2.avif' }
+];
+
+const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 5px;border-radius:999px;font-family:var(--font-body);font-size:12px;letter-spacing:0.01em;cursor:pointer;';
+const NUM_BASE = 'width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex:none;font-family:var(--font-body);';
+
+const STYLES = {
+  done: {
+    btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);',
+    num: NUM_BASE + 'background:var(--color-accent-500);color:#fff;'
+  },
+  active: {
+    btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);box-shadow:0 1px 3px rgba(182,130,53,0.2);',
+    num: NUM_BASE + 'background:var(--color-accent);color:#fff;'
+  },
+  upcoming: {
+    btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 55%, transparent);',
+    num: NUM_BASE + 'border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 55%, transparent);'
+  }
+};
+
+class Component extends DCLogic {
+  state = { active: {} };
+  pageRef = React.createRef();
+  navRef = React.createRef();
+
+  setStep(id, i) {
+    this.setState(s => ({ active: { ...s.active, [id]: i } }));
+  }
+
+  applyBg() {
+    const tint = this.props.bgTint ?? '#eef1f5';
+    if (this.pageRef.current) this.pageRef.current.style.background = tint;
+    if (this.navRef.current) this.navRef.current.style.background = tint;
+    document.body.style.background = tint;
+  }
+  componentDidMount() { this.applyBg(); }
+  componentDidUpdate() { this.applyBg(); }
+
+  renderVals() {
+    const active = this.state.active;
+    const projects = PROJECTS.map(p => {
+      const idx = active[p.id] ?? 0;
+      const steps = STEP_DEFS.map((s, i) => {
+        const status = i < idx ? 'done' : i === idx ? 'active' : 'upcoming';
+        return {
+          label: s.label,
+          numDisplay: status === 'done' ? '✓' : String(i + 1),
+          current: i === idx ? 'step' : undefined,
+          onClick: () => this.setStep(p.id, i),
+          style: STYLES[status].btn,
+          numStyle: STYLES[status].num
+        };
+      });
+      return { ...p, steps, activeLabel: STEP_DEFS[idx].label, activeDesc: STEP_DEFS[idx].desc };
+    });
+    return { projects, posts: POSTS, pageRef: this.pageRef, navRef: this.navRef };
+  }
+}
+</script>
+</body>
+</html>
