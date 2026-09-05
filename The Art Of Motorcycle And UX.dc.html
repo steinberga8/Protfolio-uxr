@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  window.__resources = {
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
+  };
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -12,8 +18,8 @@
   <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
   <script src="./image-slot.js"></script>
   <style>
-    body { margin: 0; text-wrap: pretty; background: #e6ebf2; }
-    .nav { background: #e6ebf2; }
+    body { margin: 0; text-wrap: pretty; background: var(--color-bg); }
+    .nav { background: color-mix(in srgb, var(--color-bg) 80%, transparent); backdrop-filter: blur(14px) saturate(1.2); -webkit-backdrop-filter: blur(14px) saturate(1.2); }
     a { color: var(--color-accent-700); text-decoration: none; }
     a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
     ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
@@ -39,12 +45,12 @@
   <h1 style="font-size:clamp(32px,4.2vw,46px);line-height:1.1;margin:0 0 28px">Motorcycle And The Art Of User Experience</h1>
 
   <figure class="plate" style="width:180px;margin:0 0 32px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 16px 32px rgba(32,31,29,0.025)">
-    <image-slot id="moto-cover" shape="rect" style="width:100%;aspect-ratio:2/3" placeholder="Book cover" src="https://static.wixstatic.com/media/310b09_111b35c40d574c51933a03379f2da38d~mv2.jpg"></image-slot>
+    <image-slot id="moto-cover" shape="rect" fit="contain" style="width:100%;aspect-ratio:2/3" placeholder="Book cover" src="https://static.wixstatic.com/media/310b09_111b35c40d574c51933a03379f2da38d~mv2.jpg"></image-slot>
   </figure>
 
-  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">During my military service, when I was between roles, I had the opportunity to read books for most of the day. One of these books was Zen and the Art of Motorcycle Maintenance by Robert M. Pirsig. The book tells the story of a motorcycle trip of a father and his son along with a couple of friends, and is primarily a philosophical book that discusses the concept and meaning of "quality."</p>
-  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">Relatively early in the book, when the characters stop at a motel, the narrator named Phaedrus (after Plato's book) observes his friend fixing a part that fell off his motorcycle. Phaedrus describes his anger towards his friend and the mistake, in his opinion, of "gluing" it back on, turning it into a parable about the mistake in solving problems that does not offer a root solution and basic repair. According to Phaedrus, one should first address the cause of the problem rather than sticking a solution on top of it, as a new problem might emerge from the previous solution.</p>
-  <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">With my knowledge in User Experience (UX), I can apply Phaedrus' parable from the book to the research field of user experience. When I come to start a research and find a solution to an existing problem, it is wrong to merely slap a solution (like a feature) onto an existing problem in the product. It is necessary to understand what the real issue is among the users during their interaction with the product and based on that to build the right solution.</p>
+  <p style="font-size:17px;line-height:1.75;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">During my military service, when I was between roles, I had the opportunity to read books for most of the day. One of these books was Zen and the Art of Motorcycle Maintenance by Robert M. Pirsig. The book tells the story of a motorcycle trip of a father and his son along with a couple of friends, and is primarily a philosophical book that discusses the concept and meaning of "quality."</p>
+  <p style="font-size:17px;line-height:1.75;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">Relatively early in the book, when the characters stop at a motel, the narrator named Phaedrus (after Plato's book) observes his friend fixing a part that fell off his motorcycle. Phaedrus describes his anger towards his friend and the mistake, in his opinion, of "gluing" it back on, turning it into a parable about the mistake in solving problems that does not offer a root solution and basic repair. According to Phaedrus, one should first address the cause of the problem rather than sticking a solution on top of it, as a new problem might emerge from the previous solution.</p>
+  <p style="font-size:17px;line-height:1.75;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 22px">With my knowledge in User Experience (UX), I can apply Phaedrus' parable from the book to the research field of user experience. When I come to start a research and find a solution to an existing problem, it is wrong to merely slap a solution (like a feature) onto an existing problem in the product. It is necessary to understand what the real issue is among the users during their interaction with the product and based on that to build the right solution.</p>
 
   <hr class="hr" style="margin:32px 0" />
   <a href="Six Thinking Hats.dc.html" class="btn btn-ghost" style="padding-inline:0">Read my next post

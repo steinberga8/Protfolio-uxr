@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  window.__resources = {
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
+  };
+</script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -40,7 +46,7 @@
   <h1 style="font-size:clamp(36px,4.8vw,54px);font-weight:400;letter-spacing:-0.015em;line-height:1.06;margin:0 0 22px">Wolt Case Study</h1>
 
   <figure class="plate" style="margin:0 0 40px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 24px 48px rgba(32,31,29,0.025)">
-    <image-slot id="wolt-cover" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Project cover" src="https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png"></image-slot>
+    <image-slot id="wolt-cover" shape="rect" fit="contain" style="width:100%;aspect-ratio:16/9" placeholder="Project cover" src="https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png"></image-slot>
   </figure>
 
   <div ref="{{ contentRef }}">
@@ -48,11 +54,11 @@
     <section style="{{ phase.panelStyle }}">
       <div style="display:flex;align-items:baseline;gap:14px;margin:0 0 26px;padding-bottom:14px;border-bottom:1px solid var(--color-accent-200)">
         <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-700);flex:none;padding-bottom:4px">{{ phase.stepTag }}</span>
-        <h2 style="font-size:29px;font-weight:400;letter-spacing:-0.01em;line-height:1.15;margin:0">{{ phase.heading }}</h2>
+        <h2 style="font-size:29px;font-weight:700;letter-spacing:-0.01em;line-height:1.15;margin:0">{{ phase.heading }}</h2>
       </div>
       <sc-for list="{{ phase.blocks }}" as="block" hint-placeholder-count="3">
         <sc-if value="{{ block.isText }}" hint-placeholder-val="{{ true }}">
-          <p style="font-size:14.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">{{ block.text }}</p>
+          <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">{{ block.text }}</p>
         </sc-if>
         <sc-if value="{{ block.isList }}" hint-placeholder-val="{{ false }}">
           <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 12px">{{ block.lead }}</p>
@@ -234,7 +240,8 @@ const PHASES = [
   }
 ];
 
-const GALLERIES = {"0":[{"src":"https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png","caption":"Wolt venue shopping","tall":false}],"1":[{"src":"https://static.wixstatic.com/media/310b09_24e6ec5e20d04be49b449815fac88c22~mv2.png","caption":"Before my design","tall":true},{"src":"https://static.wixstatic.com/media/310b09_0c9aa850fa42499ca49f25819dd09d85~mv2.png","caption":"First screen — purchase confirmation","tall":true},{"src":"https://static.wixstatic.com/media/310b09_e95a347cbc7444ee83d331922dde9ad2~mv2.png","caption":"Second screen — substitution","tall":true},{"src":"https://static.wixstatic.com/media/310b09_75ea5d8f12294b4da955ff3dff7a0661~mv2.jpg","caption":"How it looks now — the current flow","tall":false}],"2":[{"src":"https://static.wixstatic.com/media/310b09_5be2827c28f948058468aea07c1cd09a~mv2.jpeg","caption":"The current purchase screen — six competing sections","tall":true},{"src":"https://static.wixstatic.com/media/310b09_e9fa942d1b2d487fbe963f5138bb7ef5~mv2.png","caption":"Based on the article from NN/g","tall":false}],"4":[{"src":"https://static.wixstatic.com/media/310b09_d2fcf7d2ce364f53be07cd82d72adbce~mv2.png","caption":"NN/g — modal vs. non-modal dialogs","tall":false},{"src":"https://static.wixstatic.com/media/310b09_14c4019edbac40c6bfb3cdb68af71015~mv2.jpg","caption":"Mindesign, episode 58","tall":false}],"5":[{"src":"https://static.wixstatic.com/media/310b09_48a89c19fb294822822bdcffe00bc984~mv2.png","caption":"First screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_735c28c1238749448ac4bca24351b121~mv2.png","caption":"Second screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_d271eb0e17a34605bef9df59273cddd7~mv2.jpg","caption":"Third screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_7c0fbc45272d416eb21170833cbe1ab3~mv2.jpg","caption":"Fourth screen","tall":true}]};
+const GALLERIES = {"0":[{"src":"https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png","caption":"Wolt venue shopping","tall":false}],"1":[{"src":"https://static.wixstatic.com/media/310b09_24e6ec5e20d04be49b449815fac88c22~mv2.png","caption":"Before my design","tall":true},{"src":"https://static.wixstatic.com/media/310b09_0c9aa850fa42499ca49f25819dd09d85~mv2.png","caption":"First screen — purchase confirmation","tall":true},{"src":"https://static.wixstatic.com/media/310b09_e95a347cbc7444ee83d331922dde9ad2~mv2.png","caption":"Second screen — substitution","tall":true},{"src":"https://static.wixstatic.com/media/310b09_75ea5d8f12294b4da955ff3dff7a0661~mv2.jpg","caption":"How it looks now — the current flow","tall":false}],"2":[{"src":"https://static.wixstatic.com/media/310b09_5be2827c28f948058468aea07c1cd09a~mv2.jpeg","caption":"The current purchase screen — six competing sections","tall":true},{"src":"https://static.wixstatic.com/media/310b09_e9fa942d1b2d487fbe963f5138bb7ef5~mv2.png","caption":"Based on the article from NN/g","tall":false}],"4":[{"src":"https://static.wixstatic.com/media/310b09_d2fcf7d2ce364f53be07cd82d72adbce~mv2.png","caption":"NN/g — modal vs. non-modal dialogs","tall":false},{"src":"https://static.wixstatic.com/media/310b09_14c4019edbac40c6bfb3cdb68af71015~mv2.jpg","caption":"Mindesign, episode 58","tall":false}]};
+const FINAL_DESIGN_PLATES = [{"src":"https://static.wixstatic.com/media/310b09_48a89c19fb294822822bdcffe00bc984~mv2.png","caption":"First screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_735c28c1238749448ac4bca24351b121~mv2.png","caption":"Second screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_d271eb0e17a34605bef9df59273cddd7~mv2.jpg","caption":"Third screen","tall":true},{"src":"https://static.wixstatic.com/media/310b09_7c0fbc45272d416eb21170833cbe1ab3~mv2.jpg","caption":"Fourth screen","tall":true}];
 const DESCS = {"https://static.wixstatic.com/media/310b09_0c9aa850fa42499ca49f25819dd09d85~mv2.png":"This is the current purchase confirmation screen presented to Wolt users. The substitution option is located at the top of the screen, but from my experience, users rarely notice it.","https://static.wixstatic.com/media/310b09_e95a347cbc7444ee83d331922dde9ad2~mv2.png":"This is what the substitution screen looks like after a user clicks \"Substitution\" on the previous screen. As you can see, \"Replace\" is the default setting. Users can also write down their replacement preferences, although in my experience, most users are not aware this option exists.","https://static.wixstatic.com/media/310b09_75ea5d8f12294b4da955ff3dff7a0661~mv2.jpg":"User enters Wolt-app → chooses a venue for delivery → creates a grocery list based on his needs → goes to preview order → overlooks substitution preferences edit → pays for the order → receives order with substitutions → reaches Wolt support for a refund for the exchanged items.","https://static.wixstatic.com/media/310b09_e9fa942d1b2d487fbe963f5138bb7ef5~mv2.png":"Source: \"Scanning Patterns on the Web Are Optimized for the Current Task\" (NN/g).","https://static.wixstatic.com/media/310b09_d2fcf7d2ce364f53be07cd82d72adbce~mv2.png":"Source: NN/g article on modal and non-modal dialogs.","https://static.wixstatic.com/media/310b09_14c4019edbac40c6bfb3cdb68af71015~mv2.jpg":"Source: Mindesign, episode 58 (Spotify).","https://static.wixstatic.com/media/310b09_48a89c19fb294822822bdcffe00bc984~mv2.png":"First screen — I designed the screen using the same font and brand colors as the Wolt app. The main changes I introduced were merging the message and substitution into a single section and making recommendations optional. These adjustments help reduce cognitive load and create a cleaner, more focused interface.","https://static.wixstatic.com/media/310b09_735c28c1238749448ac4bca24351b121~mv2.png":"Second screen — this screen explains the purpose of leaving a note or preferences for the venue regarding the order. While the text is slightly longer than before, it delivers a clearer and more inviting message, supported by a call-to-action button below.","https://static.wixstatic.com/media/310b09_d271eb0e17a34605bef9df59273cddd7~mv2.jpg":"Third screen — this screen presents a grocery list highlighting items that are likely to be out of stock at the store. It allows the user to select which of these items they would like to have substituted if they are unavailable. Any items not selected for substitution will be automatically refunded. At the bottom of the screen, the user can also leave comments for the store.","https://static.wixstatic.com/media/310b09_7c0fbc45272d416eb21170833cbe1ab3~mv2.jpg":"Fourth screen — this screen shows the result of a user selecting an item for potential substitution. The design aligns with Nielsen's heuristic of \"Visibility of system status,\" as it immediately reflects the user's action. By splitting the list into two clear sections, the system may increase the user's trust and confidence in the process."};
 const SLUG = "wolt";
 
@@ -278,6 +285,16 @@ const stepRatio = (i) => {
   GALLERIES[i + 1] = plates.slice(1);
   if (!GALLERIES[i].length) delete GALLERIES[i];
   if (!GALLERIES[i + 1].length) delete GALLERIES[i + 1];
+})();
+
+// a standalone step showing the finished product on its own — inserted right before Test (or Conclusion, if there's no Test)
+(function () {
+  const tIdx = PHASES.findIndex((p) => p.label === 'Test');
+  const idx = tIdx >= 0 ? tIdx : PHASES.findIndex((p) => p.label === 'Conclusion' || p.label === 'Conclusions');
+  const keys2 = Object.keys(GALLERIES).map(Number).filter((k) => k >= idx).sort((a, b) => b - a);
+  keys2.forEach((k) => { GALLERIES[k + 1] = GALLERIES[k]; delete GALLERIES[k]; });
+  GALLERIES[idx] = FINAL_DESIGN_PLATES;
+  PHASES.splice(idx, 0, { label: 'Final Design', heading: 'The Final Design', paragraphs: ["Here's the redesigned Wolt checkout flow on its own — the four screens from message and substitution through confirmation, shown together as the finished design."] });
 })();
 
 // journeys, flows and maps are wide artifacts — they get a full-width plate
@@ -326,7 +343,7 @@ class Component extends DCLogic {
   componentDidUpdate() { this.applyTint(); }
 
   applyTint() {
-    const T = '#e6ebf2';
+    const T = 'var(--color-bg)';
     document.body.style.background = T;
     const glass = 'color-mix(in srgb, ' + T + ' 80%, transparent)';
     if (this.navRef.current) { this.navRef.current.style.background = glass; this.navRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)'; this.navRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)'; }

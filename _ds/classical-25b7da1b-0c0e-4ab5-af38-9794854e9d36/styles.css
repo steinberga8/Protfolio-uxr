@@ -42,9 +42,7 @@
   --color-accent-2-900: #382810;
 
   --font-heading: "Cormorant Garamond", system-ui, sans-serif;
-  --font-heading-weight: 600; /* review round 3: bold retired — semibold is the
-     interface headings' ceiling (they need the weight at small sizes); display
-     text goes lighter still, to the normal cut (see the deck) */
+  --font-heading-weight: 600;
   --font-body: "Lora", system-ui, sans-serif;
 
   --space-1: 4.6px;
