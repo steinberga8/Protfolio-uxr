@@ -264,7 +264,7 @@ const PHASES = [
     bullets: ['Easy money transfer', 'Quick pay', 'Checking account balance', 'Recurring transfers', 'Spending overviews and control']
   },
   {
-    label: 'Design', heading: 'Design Guide',
+    label: 'Final Design', heading: 'Design Guide & The Final Design',
     paragraphs: [
       "Inputs — background #F5F4EF, 0.5px solid #D6D4CC border, 8px radius, 10px/14px padding, with a 12px muted label above the field.",
       "Cards & sections — section header on an #E8E7E1 background, centered, 14px medium; cards on white with a 0.5px border, 10px radius, 14px padding; insight rows in 12px text with a muted color.",
@@ -282,8 +282,7 @@ const PHASES = [
   }
 ];
 
-const GALLERIES = {"0":[{"src":"https://static.wixstatic.com/media/310b09_3be1710f7f564b14b80d952f60419a18~mv2.png","caption":"Bankme","tall":true},{"src":"https://static.wixstatic.com/media/310b09_397ca55e1ffc418080e0887621ae8341~mv2.png","caption":"Bankme","tall":true},{"src":"https://static.wixstatic.com/media/310b09_f6b79dd520b54a778f5ad47aaac95048~mv2.png","caption":"Bankme","tall":true}],"2":[{"src":"https://static.wixstatic.com/media/310b09_15ef08eb5f724337ae02ee3af77e9dd7~mv2.png","caption":"Financial users","tall":false},{"src":"https://static.wixstatic.com/media/310b09_0e1e4c09aba442529d986b3814eebdc7~mv2.jpg","caption":"User journey","tall":false},{"src":"https://static.wixstatic.com/media/310b09_3167d0111d984f4f8896ff05bb31af0b~mv2.jpg","caption":"Journey screen","tall":true}],"3":[],"4":[{"src":"https://static.wixstatic.com/media/310b09_22f961cfe37b4990a0b69746912621e0~mv2.png","caption":"Screen before user testing","tall":true},{"src":"https://static.wixstatic.com/media/310b09_9c0fb888cc934ba7bf93ffa37e2d5191~mv2.png","caption":"After testing","tall":false},{"src":"https://static.wixstatic.com/media/310b09_095a6b1de1a34e67bf0471b882e474c4~mv2.png","caption":"Survey results after testing","tall":true},{"src":"https://static.wixstatic.com/media/310b09_64aafcafca494804ae32ad5aee288335~mv2.png","caption":"Redesign after research","tall":true}]};
-const FINAL_DESIGN_PLATES = [{"src":"https://static.wixstatic.com/media/310b09_5e30c1fe6f314b799b57d8d0d9429cf8~mv2.jpg","caption":"Payment","tall":true},{"src":"https://static.wixstatic.com/media/310b09_8c0813f1f5d7472fb440832d9b65d929~mv2.png","caption":"Transfers","tall":true},{"src":"https://static.wixstatic.com/media/310b09_1095aa506f524ae080dce2736949fc96~mv2.jpg","caption":"Banker appointment","tall":true},{"src":"https://static.wixstatic.com/media/310b09_c7042cef2c084e4aad56351299736275~mv2.jpg","caption":"Payment","tall":true}];
+const GALLERIES = {"0":[{"src":"https://static.wixstatic.com/media/310b09_3be1710f7f564b14b80d952f60419a18~mv2.png","caption":"Bankme","tall":true},{"src":"https://static.wixstatic.com/media/310b09_397ca55e1ffc418080e0887621ae8341~mv2.png","caption":"Bankme","tall":true},{"src":"https://static.wixstatic.com/media/310b09_f6b79dd520b54a778f5ad47aaac95048~mv2.png","caption":"Bankme","tall":true}],"2":[{"src":"https://static.wixstatic.com/media/310b09_15ef08eb5f724337ae02ee3af77e9dd7~mv2.png","caption":"Financial users","tall":false},{"src":"https://static.wixstatic.com/media/310b09_0e1e4c09aba442529d986b3814eebdc7~mv2.jpg","caption":"User journey","tall":false},{"src":"https://static.wixstatic.com/media/310b09_3167d0111d984f4f8896ff05bb31af0b~mv2.jpg","caption":"Journey screen","tall":true}],"3":[{"src":"https://static.wixstatic.com/media/310b09_5e30c1fe6f314b799b57d8d0d9429cf8~mv2.jpg","caption":"Payment","tall":true},{"src":"https://static.wixstatic.com/media/310b09_8c0813f1f5d7472fb440832d9b65d929~mv2.png","caption":"Transfers","tall":true},{"src":"https://static.wixstatic.com/media/310b09_1095aa506f524ae080dce2736949fc96~mv2.jpg","caption":"Banker appointment","tall":true},{"src":"https://static.wixstatic.com/media/310b09_c7042cef2c084e4aad56351299736275~mv2.jpg","caption":"Payment","tall":true}],"4":[{"src":"https://static.wixstatic.com/media/310b09_22f961cfe37b4990a0b69746912621e0~mv2.png","caption":"Screen before user testing","tall":true},{"src":"https://static.wixstatic.com/media/310b09_9c0fb888cc934ba7bf93ffa37e2d5191~mv2.png","caption":"After testing","tall":false},{"src":"https://static.wixstatic.com/media/310b09_095a6b1de1a34e67bf0471b882e474c4~mv2.png","caption":"Survey results after testing","tall":true},{"src":"https://static.wixstatic.com/media/310b09_64aafcafca494804ae32ad5aee288335~mv2.png","caption":"Redesign after research","tall":true}]};
 const DESCS = {"https://static.wixstatic.com/media/310b09_9c0fb888cc934ba7bf93ffa37e2d5191~mv2.png":"While all participants successfully completed the task within 30 seconds, their post-test feedback revealed that the feature's location lacked discoverability.","https://static.wixstatic.com/media/310b09_64aafcafca494804ae32ad5aee288335~mv2.png":"After the research conclusions I decided to create a redesign for the bottom bar and adjust a few changes."};
 const SLUG = "bm";
 
@@ -327,16 +326,6 @@ const stepRatio = (i) => {
   GALLERIES[i + 1] = plates.slice(0);
   if (!GALLERIES[i].length) delete GALLERIES[i];
   if (!GALLERIES[i + 1].length) delete GALLERIES[i + 1];
-})();
-
-// a standalone step showing the finished product on its own — inserted right before Test (or Conclusion, if there's no Test)
-(function () {
-  const tIdx = PHASES.findIndex((p) => p.label === 'Test');
-  const idx = tIdx >= 0 ? tIdx : PHASES.findIndex((p) => p.label === 'Conclusion' || p.label === 'Conclusions');
-  const keys2 = Object.keys(GALLERIES).map(Number).filter((k) => k >= idx).sort((a, b) => b - a);
-  keys2.forEach((k) => { GALLERIES[k + 1] = GALLERIES[k]; delete GALLERIES[k]; });
-  GALLERIES[idx] = FINAL_DESIGN_PLATES;
-  PHASES.splice(idx, 0, { label: 'Final Design', heading: 'The Final Design', paragraphs: ["Here's Bankme's finished design on its own — the core banking screens brought together as a single, connected flow for payments, transfers and scheduling a banker appointment."] });
 })();
 
 const plateW = (i) => (((GALLERIES[i] || []).filter(x => x.tall).length > ((GALLERIES[i] || []).length / 2)) ? 186 : 300);

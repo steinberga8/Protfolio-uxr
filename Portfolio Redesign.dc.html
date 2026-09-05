@@ -23,6 +23,9 @@
     a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
     ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
     button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    @keyframes tools-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+    .tools-marquee:hover { animation-play-state: paused; }
+    @media (prefers-reduced-motion: reduce) { .tools-marquee { animation: none !important; } }
   </style>
 </helmet>
 
@@ -89,6 +92,23 @@
           </div>
         </article>
       </sc-for>
+    </div>
+  </section>
+
+  <hr class="hr" style="margin:0 0 40px" />
+
+  <section aria-label="Tools" style="padding-bottom:64px">
+    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px;text-align:center">Toolkit</span>
+    <h3 style="font-size:20px;font-weight:400;letter-spacing:-0.01em;margin:0 0 28px;text-align:center;color:color-mix(in srgb, var(--color-text) 75%, transparent)">Tools I Work With</h3>
+    <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent)">
+      <div class="tools-marquee" style="display:flex;width:max-content;gap:20px;animation:tools-scroll 26s linear infinite">
+        <sc-for list="{{ toolsLoop }}" as="tool" hint-placeholder-count="10">
+          <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--color-divider);border-radius:999px;background:var(--color-bg);white-space:nowrap">
+            <span style="{{ tool.iconWrap }}">{{ tool.icon }}</span>
+            <span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:var(--color-text)">{{ tool.name }}</span>
+          </div>
+        </sc-for>
+      </div>
     </div>
   </section>
 
@@ -205,9 +225,8 @@ const PROJECTS = [
       { num: '3a', label: 'Interviews', desc: 'Writer and editor interviews on daily workflows.' },
       { num: '3b', label: 'Personas', desc: 'Motivations and pain points for each role.' },
       { num: '4', label: 'Define', desc: 'How Might We questions and success KPIs.' },
-      { num: '5', label: 'Deliver', desc: 'Building the collaboration and workload solution.' },
-      { num: '6', label: 'Final Design', desc: "The finished Voltax prototype on its own." },
-      { num: '7', label: 'Conclusions', desc: 'Team feedback and next steps.' }
+      { num: '5', label: 'Final Design', desc: 'Building the solution, and the finished Voltax prototype on its own.' },
+      { num: '6', label: 'Conclusions', desc: 'Team feedback and next steps.' }
     ]
   },
   {
@@ -221,8 +240,7 @@ const PROJECTS = [
       { label: 'Strategy', desc: 'The research plan behind the project.' },
       { label: 'Findings', desc: 'What the research and surveys revealed.' },
       { label: 'Define', desc: 'Persona and user flows.' },
-      { label: 'Design', desc: 'UI guide and design rationale.' },
-      { label: 'Final Design', desc: "The finished interface on its own." },
+      { label: 'Final Design', desc: 'The UI guide, design rationale, and the finished interface on its own.' },
       { label: 'Test', desc: 'Usability testing and conclusions.' }
     ]
   },
@@ -254,8 +272,7 @@ const PROJECTS = [
       { label: 'Strategy', desc: 'Research on motivation and Open Banking.' },
       { label: 'Findings', desc: 'What the research revealed.' },
       { label: 'Ideate', desc: 'Defining the integrated assistant solution.' },
-      { label: 'Design', desc: 'Design guide and UI rationale.' },
-      { label: 'Final Design', desc: "Bankme's finished design on its own." },
+      { label: 'Final Design', desc: "The design guide and Bankme's finished screens on their own." },
       { label: 'Test', desc: 'User testing and conclusions.' }
     ]
   }
@@ -264,6 +281,33 @@ const PROJECTS = [
 const POSTS = [
   { id: 'motorcycle', imgId: 'post-moto', title: 'The Art Of Motorcycle And UX', body: 'The art of motorcycle and User Experience.', link: 'The Art Of Motorcycle And UX.dc.html', img: 'https://static.wixstatic.com/media/310b09_111b35c40d574c51933a03379f2da38d~mv2.jpg' },
   { id: 'six-hats', imgId: 'post-hats', title: 'Applying the Six Thinking Hats Method to UX Design', body: 'A look at applying the Six Thinking Hats method within a UX design process.', link: 'Six Thinking Hats.dc.html', img: 'https://static.wixstatic.com/media/310b09_7bc56f20893f486ab7da2b41c0e01d2c~mv2.avif' }
+];
+
+const svgProps = (extra) => Object.assign({ viewBox: '0 0 24 24', width: 22, height: 22 }, extra);
+const ICONS = {
+  figma: () => React.createElement('svg', svgProps({ fill: 'none', stroke: 'currentColor', strokeWidth: 1.5, strokeLinejoin: 'round' }),
+    React.createElement('path', { key: 1, d: 'M8 2h4a3 3 0 0 1 0 6H8V2Z' }),
+    React.createElement('path', { key: 2, d: 'M8 8h4a3 3 0 0 1 0 6H8V8Z' }),
+    React.createElement('path', { key: 3, d: 'M8 14h4a3 3 0 0 1 0 6H8v-6Z' }),
+    React.createElement('circle', { key: 4, cx: 16, cy: 11, r: 3 }),
+    React.createElement('path', { key: 5, d: 'M8 2a3 3 0 0 0 0 6' })
+  ),
+  claude: () => React.createElement('svg', svgProps({ fill: 'none', stroke: 'currentColor', strokeWidth: 1.8, strokeLinecap: 'round' }),
+    React.createElement('path', { d: 'M12 3v18M4.5 7.5l15 9M4.5 16.5l15-9' })
+  ),
+  gpt: () => React.createElement('svg', svgProps({ fill: 'currentColor' }),
+    React.createElement('path', { d: 'M12 2c.6 3.6 2.4 5.4 6 6-3.6.6-5.4 2.4-6 6-.6-3.6-2.4-5.4-6-6 3.6-.6 5.4-2.4 6-6Z' })
+  ),
+  github: () => React.createElement('svg', svgProps({ fill: 'currentColor' }),
+    React.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z' })
+  )
+};
+const TOOLS = [
+  { name: 'Figma', icon: ICONS.figma },
+  { name: 'Claude Code', icon: ICONS.claude },
+  { name: 'Claude Design', icon: ICONS.claude },
+  { name: 'ChatGPT', icon: ICONS.gpt },
+  { name: 'GitHub', icon: ICONS.github }
 ];
 
 const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 5px;border-radius:999px;font-family:var(--font-body);font-size:12px;letter-spacing:0.01em;cursor:pointer;';
@@ -324,7 +368,8 @@ class Component extends DCLogic {
       });
       return { ...p, steps, activeLabel: p.stepDefs[idx].label, activeDesc: p.stepDefs[idx].desc };
     });
-    return { projects, posts: POSTS, pageRef: this.pageRef, navRef: this.navRef };
+    const toolsLoop = [...TOOLS, ...TOOLS].map((t, i) => ({ name: t.name, icon: t.icon(), iconWrap: 'display:inline-flex;color:var(--color-text)' }));
+    return { projects, posts: POSTS, toolsLoop, pageRef: this.pageRef, navRef: this.navRef };
   }
 }
 </script>
