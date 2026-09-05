@@ -190,42 +190,75 @@
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f3f2f2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#f6f2ea&quot;,&quot;#efe9df&quot;,&quot;#e9e2d3&quot;],&quot;section&quot;:&quot;Background&quot;}}">
-const STEP_DEFS = [
-  { label: 'Research', desc: 'Interviews, competitive audits and data review to frame the real problem.' },
-  { label: 'Define', desc: "Synthesizing findings into problem statements and success metrics." },
-  { label: 'Ideate', desc: 'Exploring directions through sketches, flows and design principles.' },
-  { label: 'Design', desc: 'High-fidelity UI and interaction design refined through iteration.' },
-  { label: 'Test', desc: 'Usability testing and feedback loops to validate and refine the solution.' }
-];
-
+// each project's mini step-wizard mirrors that project's own page — same steps, same order, same count
 const PROJECTS = [
   {
     id: 'minute-media', imgId: 'proj-minute',
     kicker: 'Internal Communication · Internship',
     title: 'Minute Media',
     body: "During my internship at Minute Media, I led a project focused on optimizing internal communication. My team and I conducted extensive research to redefine and enhance Voltax, the company's internal communication and collaboration system.",
-    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg'
+    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg',
+    stepDefs: [
+      { num: '1', label: 'Discover', desc: 'Understanding the communication problem within Voltax and the company.' },
+      { num: '2a', label: 'Strategy', desc: 'The Double Diamond approach and competitor research plan.' },
+      { num: '2b', label: 'Findings', desc: 'What the competitor research revealed.' },
+      { num: '3a', label: 'Interviews', desc: 'Writer and editor interviews on daily workflows.' },
+      { num: '3b', label: 'Personas', desc: 'Motivations and pain points for each role.' },
+      { num: '4', label: 'Define', desc: 'How Might We questions and success KPIs.' },
+      { num: '5', label: 'Deliver', desc: 'Building the collaboration and workload solution.' },
+      { num: '6', label: 'Final Design', desc: "The finished Voltax prototype on its own." },
+      { num: '7', label: 'Conclusions', desc: 'Team feedback and next steps.' }
+    ]
   },
   {
     id: 'healthsme', imgId: 'proj-health',
     kicker: 'Healthcare',
     title: "Health'sme",
     body: "Health'sme connects patients with a network of doctors nationwide, streamlining appointment bookings and follow-ups. It empowers users with quick access to their medical status, supporting informed health decisions.",
-    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg'
+    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg',
+    stepDefs: [
+      { label: 'Intro', desc: 'What an mHealth system is and the problem it solves.' },
+      { label: 'Strategy', desc: 'The research plan behind the project.' },
+      { label: 'Findings', desc: 'What the research and surveys revealed.' },
+      { label: 'Define', desc: 'Persona and user flows.' },
+      { label: 'Design', desc: 'UI guide and design rationale.' },
+      { label: 'Final Design', desc: "The finished interface on its own." },
+      { label: 'Test', desc: 'Usability testing and conclusions.' }
+    ]
   },
   {
     id: 'wolt', imgId: 'proj-wolt',
     kicker: 'Payments & Purchasing',
     title: 'Wolt Case Study',
     body: "In my Wolt case study, I explored innovative strategies to enhance the payment and purchasing experience within the app. My recommendations stem from user research and hands-on support experiences, ensuring they reflect real user needs.",
-    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png'
+    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png',
+    stepDefs: [
+      { label: 'Intro', desc: 'What Wolt is and where the case study comes from.' },
+      { label: 'Problem', desc: 'Defining the substitution and refund problem.' },
+      { label: 'Strategy', desc: 'What may be causing the problem.' },
+      { label: 'Findings', desc: 'Research findings behind the problem.' },
+      { label: 'Persona', desc: 'Meet Tami, the user persona.' },
+      { label: 'Ideate', desc: 'Suggested solutions and direction.' },
+      { label: 'Design', desc: 'Design rationale for the new screens.' },
+      { label: 'Final Design', desc: 'The redesigned checkout flow on its own.' },
+      { label: 'Conclusion', desc: 'Next steps and conclusion.' }
+    ]
   },
   {
     id: 'bankme', imgId: 'proj-bankme',
     kicker: 'Digital Banking',
     title: 'Bankme',
     body: "In my digital banking case study, I explored minimalist design strategies to simplify complex financial data and reduce cognitive load within the app. Drawing from my background in psychology and HCI, my design decisions stem from a deep understanding of human behavior, ensuring the interface reflects real user needs and prevents critical errors.",
-    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg'
+    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg',
+    stepDefs: [
+      { label: 'Background', desc: "The problem with today's financial apps." },
+      { label: 'Strategy', desc: 'Research on motivation and Open Banking.' },
+      { label: 'Findings', desc: 'What the research revealed.' },
+      { label: 'Ideate', desc: 'Defining the integrated assistant solution.' },
+      { label: 'Design', desc: 'Design guide and UI rationale.' },
+      { label: 'Final Design', desc: "Bankme's finished design on its own." },
+      { label: 'Test', desc: 'User testing and conclusions.' }
+    ]
   }
 ];
 
@@ -279,18 +312,18 @@ class Component extends DCLogic {
     const active = this.state.active;
     const projects = PROJECTS.map(p => {
       const idx = active[p.id] ?? 0;
-      const steps = STEP_DEFS.map((s, i) => {
+      const steps = p.stepDefs.map((s, i) => {
         const status = i < idx ? 'done' : i === idx ? 'active' : 'upcoming';
         return {
           label: s.label,
-          numDisplay: status === 'done' ? '✓' : String(i + 1),
+          numDisplay: status === 'done' ? '✓' : (s.num || String(i + 1)),
           current: i === idx ? 'step' : undefined,
           onClick: () => this.setStep(p.id, i),
           style: STYLES[status].btn,
           numStyle: STYLES[status].num
         };
       });
-      return { ...p, steps, activeLabel: STEP_DEFS[idx].label, activeDesc: STEP_DEFS[idx].desc };
+      return { ...p, steps, activeLabel: p.stepDefs[idx].label, activeDesc: p.stepDefs[idx].desc };
     });
     return { projects, posts: POSTS, pageRef: this.pageRef, navRef: this.navRef };
   }
