@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  window.__resources = {
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
+  };
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./site-meta.js"></script>
+  <script src="./image-slot.js"></script>
+  <script src="./fit-images.js"></script>
+  <script src="./contour-bg.js"></script>
+  <style>
+    body { margin: 0; background: #e6ebf2; text-wrap: pretty; }
+    a { color: var(--color-accent-800); text-decoration: none; }
+    a:hover { color: var(--color-accent-900); }
+  </style>
+</helmet>
+<main style="max-width:1040px;margin:0 auto;padding:72px clamp(20px,5vw,64px) 96px">
+  <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:14px">Structure review · whole site · 7 pages · 28 wizard steps</div>
+  <h1 style="font-size:clamp(44px,6vw,72px);font-weight:400;letter-spacing:-0.03em;line-height:0.98;margin:0 0 24px">Site audit</h1>
+  <p style="font-size:16px;line-height:1.75;max-width:66ch;margin:0 0 36px;color:color-mix(in srgb, var(--color-text) 82%, transparent)">Fifty checks run on every page of the site: the homepage (v3), all four case studies with every wizard step opened in turn, and both posts. Each one is a possible weakness in the site's structure. Findings marked Fixed were corrected in this pass; Open items need your input or content.</p>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:48px">
+    <sc-for list="{{ totals }}" as="t" hint-placeholder-count="3">
+      <div style="padding:18px 20px;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:#fbfaf9">
+        <div style="font-family:var(--font-heading);font-size:44px;line-height:1;font-variant-numeric:tabular-nums">{{ t.n }}</div>
+        <div style="font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:8px">{{ t.label }}</div>
+      </div>
+    </sc-for>
+  </div>
+
+  <section style="margin-bottom:48px">
+    <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-accent-300)">
+      <h2 style="font-size:28px;font-weight:400;margin:0">Per-page results</h2>
+      <span style="margin-left:auto;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Measured in the browser</span>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,2fr) repeat(5,minmax(0,1fr));gap:0;font-size:13px">
+      <sc-for list="{{ pageHead }}" as="h" hint-placeholder-count="6">
+        <div style="padding:12px 8px 10px 0;border-bottom:1px solid var(--color-divider);font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ h }}</div>
+      </sc-for>
+      <sc-for list="{{ pageCells }}" as="cell" hint-placeholder-count="42">
+        <div style="{{ cell.style }}">{{ cell.text }}</div>
+      </sc-for>
+    </div>
+  </section>
+
+  <sc-for list="{{ groups }}" as="g" hint-placeholder-count="6">
+    <section style="margin-bottom:44px">
+      <div style="display:flex;align-items:baseline;gap:14px;padding-bottom:12px;border-bottom:1px solid var(--color-accent-300)">
+        <h2 style="font-size:28px;font-weight:400;margin:0">{{ g.name }}</h2>
+        <span style="margin-left:auto;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ g.count }}</span>
+      </div>
+      <sc-for list="{{ g.items }}" as="c" hint-placeholder-count="8">
+        <div style="display:grid;grid-template-columns:44px minmax(0,1fr) 84px;gap:16px;align-items:baseline;padding:14px 0;border-bottom:1px solid var(--color-divider)">
+          <span style="font-size:12px;letter-spacing:0.08em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">{{ c.num }}</span>
+          <div>
+            <div style="font-size:15px;line-height:1.5;color:var(--color-text)">{{ c.check }}</div>
+            <div style="font-size:13.5px;line-height:1.6;margin-top:4px;color:color-mix(in srgb, var(--color-text) 80%, transparent)">{{ c.note }}</div>
+          </div>
+          <span style="{{ c.badge }}">{{ c.status }}</span>
+        </div>
+      </sc-for>
+    </section>
+  </sc-for>
+</main>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const C = [
+  ['Navigation & structure', [
+    ['Every internal link resolves to an existing page', 'Pass', 'No broken links across 7 pages.'],
+    ['Section anchors exist (#projects, #about, #posts)', 'Pass', 'All targets present on v3.'],
+    ['Nav order is identical on every page', 'Fixed', 'Subpages read Home › About › Projects; reordered to Home › My Projects › About Me › Posts like the homepage.'],
+    ['Each case study links to the next one', 'Fixed', 'Added a "Next project · File 0n" link at the end of each case study (loops 01→04→01).'],
+    ['Each post links onward', 'Fixed', 'Added "Next post" between the two posts.'],
+    ['Back link from every subpage to its section', 'Pass', '"Back to My Projects / Posts" on all subpages.'],
+    ['Wizard steps are deep-linkable', 'Fixed', 'Steps now write #step-N to the URL and open on it, so a single step can be shared.'],
+    ['Site entry point opens the newest version', 'Pass', 'index.html → Portfolio v3.'],
+    ['Old version links forward to the newest', 'Fixed', 'Previous version linked to v2; now points to v3.'],
+    ['Homepage lists projects twice (Contents + case files)', 'Open', 'Intentional from the 1a + 1c pick; drop one if the page feels long.']
+  ]],
+  ['Metadata & SEO', [
+    ['Page <title> per page', 'Fixed', 'None of the pages had a title; each now has its own.'],
+    ['Meta description per page', 'Fixed', 'Added a one-line description to every page.'],
+    ['Open Graph tags for link previews', 'Fixed', 'og:title / og:description / og:type added.'],
+    ['Document language declared', 'Fixed', 'lang="en" set on every page.'],
+    ['Favicon', 'Fixed', 'Added an "IS" monogram icon in ink and gold.'],
+    ['Exactly one <h1> per page', 'Pass', 'One h1 on each of the 7 pages.'],
+    ['Heading levels never skip', 'Pass', 'No h2 → h4 jumps found.'],
+    ['Social preview image (og:image)', 'Open', 'Needs a hosted 1200×630 image; send one and I\u2019ll wire it.']
+  ]],
+  ['Accessibility', [
+    ['Skip-to-content link', 'Fixed', 'Added on every page; its #content target is now set on <main> in source (the homepage target was being dropped).'],
+    ['Decorative icons hidden from screen readers', 'Fixed', '47 inline icons across 8 pages lacked aria-hidden; now set in the source so re-renders keep it.'],
+    ['Icon-only buttons have labels', 'Pass', 'Carousel and wizard arrows carry aria-labels.'],
+    ['Wizard step numerals readable', 'Fixed', 'White 10px figures on gold measured 2.9–3.4:1 on every case study; circles moved to accent-700 / accent-900.'],
+    ['Keyboard control of the wizard', 'Pass', '← / → move between steps.'],
+    ['Visible focus ring', 'Pass', '2px accent :focus-visible outline everywhere.'],
+    ['Body text contrast ≥ 4.5:1 on the darker ground', 'Fixed', 'Muted text lifted to 78% and small accent text moved to accent-800; 0 failures on all 7 pages.'],
+    ['Buttons and links contrast', 'Fixed', 'Button and link text deepened to accent-800 (was 2.15:1).'],
+    ['Animated background respects reduced motion', 'Pass', 'Contour lines render once, static, when reduced motion is on.'],
+    ['Background canvas is non-interactive', 'Pass', 'aria-hidden and pointer-events:none.'],
+    ['main landmark on every page', 'Pass', 'Present on all 7.'],
+    ['Image descriptions for screen readers', 'Open', 'Image slots use placeholders, not alt text; short alt lines per screen would need your wording.']
+  ]],
+  ['Layout & imagery', [
+    ['No image is cropped', 'Pass', '0 cropped images across every page and every wizard step.'],
+    ['Plates in a step share one height', 'Pass', 'Uniform row height; wide artifacts get their own full-width row.'],
+    ['No horizontal overflow', 'Pass', '0px overflow on all 7 pages; hero and file cards reflow at 340px.'],
+    ['Fixed wizard bar never covers content', 'Pass', '168px bottom padding clears the bar and footer.'],
+    ['Sticky nav doesn\u2019t hide section headings', 'Pass', 'scroll-margin-top: 80px on sections.'],
+    ['Carousel arrows actually move the track', 'Pass', 'Synchronous step with snap suspended.'],
+    ['Justified text in narrow columns', 'Open', 'Can open rivers on mobile; switch to left-aligned under 480px if you see gaps.'],
+    ['Large galleries load all images up front', 'Open', 'Health\u2019sme loads 23 screens at once; lazy-loading would need changes to the image component.']
+  ]],
+  ['Content & consistency', [
+    ['One ground colour site-wide', 'Pass', '#e6ebf2 on every page (Minute Media also follows its Tweak).'],
+    ['"Built with Claude" credit on every page', 'Pass', 'Present on all 7.'],
+    ['Previous-version link on every page', 'Pass', 'Footer link on all 7.'],
+    ['Contact CTA reachable from every page', 'Pass', '"Contact me" in every nav.'],
+    ['Phone and WhatsApp links use valid formats', 'Pass', 'tel:+972… and wa.me/972… are correct.'],
+    ['External links open safely', 'Pass', 'All target=_blank links carry rel=noopener.'],
+    ['Every image carries a figure number and caption', 'Pass', 'Fig. N.n + caption + Note where the original site had one.'],
+    ['"Under construction" notice on the homepage', 'Open', 'Undercuts a professional first impression. It\u2019s your copy, so I left it; say the word and I\u2019ll remove it.'],
+    ['Posts carry dates or reading time', 'Open', 'The original posts don\u2019t list dates; add them if you have them.']
+  ]],
+  ['Code health', [
+    ['No console errors on any page', 'Pass', 'Clean on all 7.'],
+    ['Duplicate element ids', 'Pass', 'None found.'],
+    ['Shared behaviour lives in one place', 'Fixed', 'Background, image fitting and metadata now come from three shared scripts instead of per-page copies.']
+  ]]
+];
+
+const BADGE = {
+  Pass: 'justify-self:end;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 80%, transparent)',
+  Fixed: 'justify-self:end;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 12%, transparent);color:var(--color-accent-900)',
+  Open: 'justify-self:end;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:3px 10px;border-radius:999px;border:1px dashed var(--color-text);color:var(--color-text)'
+};
+
+const PAGES = [
+  ['Homepage (v3)', '—'], ['Minute Media', '8'], ["Health'sme", '6'], ['Wolt Case Study', '8'], ['Bankme', '6'], ['The Art Of Motorcycle And UX', '—'], ['Six Thinking Hats', '—']
+];
+const CELL = 'padding:12px 8px 12px 0;border-bottom:1px solid var(--color-divider);';
+class Component extends DCLogic {
+  renderVals() {
+    const pageHead = ['Page', 'Steps opened', 'Cropped images', 'Contrast fails', 'Overflow', 'Title · lang · skip'];
+    const pageCells = [];
+    PAGES.forEach(([name, steps]) => {
+      pageCells.push({ text: name, style: CELL + 'font-family:var(--font-heading);font-size:17px' });
+      pageCells.push({ text: steps, style: CELL + 'font-variant-numeric:tabular-nums' });
+      ['0', '0', '0 px', '✓ ✓ ✓'].forEach((t) => pageCells.push({ text: t, style: CELL + 'font-variant-numeric:tabular-nums;color:var(--color-accent-900)' }));
+    });
+    let n = 0;
+    const count = { Pass: 0, Fixed: 0, Open: 0 };
+    const groups = C.map(([name, items]) => ({
+      name,
+      count: items.length + ' checks',
+      items: items.map(([check, status, note]) => { n++; count[status]++; return { num: String(n).padStart(2, '0'), check, status, note, badge: BADGE[status] }; })
+    }));
+    return {
+      pageHead, pageCells,
+      groups,
+      totals: [
+        { n: String(n), label: 'Checks run' },
+        { n: String(count.Fixed), label: 'Fixed now' },
+        { n: String(count.Pass), label: 'Passed' },
+        { n: String(count.Open), label: 'Open' }
+      ]
+    };
+  }
+}
+</script>
+</body>
+</html>

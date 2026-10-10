@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  window.__resources = {
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
+  };
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="canvas">
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./site-meta.js"></script>
+  <script src="./image-slot.js"></script>
+  <script src="./fit-images.js"></script>
+  <script src="./contour-bg.js"></script>
+  <style>
+    body { margin: 0; background: #e9e7e4; text-wrap: pretty; }
+    a { color: var(--color-accent-700); text-decoration: none; }
+    a:hover { color: var(--color-accent); }
+  </style>
+</helmet>
+
+<section style="padding:64px 56px 96px">
+  <div style="display:flex;align-items:baseline;gap:18px;margin-bottom:12px">
+    <span style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700)">Turn 1</span>
+    <h1 style="font-size:44px;font-weight:400;letter-spacing:-0.02em;margin:0">Five site themes</h1>
+  </div>
+  <p style="font-size:15px;line-height:1.7;max-width:76ch;margin:0 0 48px;color:color-mix(in srgb, var(--color-text) 80%, transparent)">Each one is a whole-site direction: homepage hero and project index, built from your real content and the Classical system (gold accent, Cormorant over Lora, hairlines, matted plates). Rated out of 10 for fit with your work, readability, and how well it holds up across the case-study pages.</p>
+
+  <div style="display:flex;flex-wrap:wrap;gap:64px 56px;align-items:flex-start">
+
+    <!-- 1a Folio -->
+    <div id="1a" style="display:flex;flex-direction:column;gap:18px;width:1200px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:13px;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent-800)">1a</span>
+        <h2 style="font-size:28px;font-weight:400;margin:0">Folio</h2>
+        <span style="margin-left:auto;font-family:var(--font-heading);font-size:30px;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">9 / 10</span>
+      </div>
+      <div style="width:1200px;height:1000px;overflow:hidden;position:relative;border:1px solid var(--color-divider);background:repeating-linear-gradient(176deg, transparent 0 33px, rgba(182,130,53,0.07) 33px 34px), #f3f2f2;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 30px 60px rgba(32,31,29,0.06)">
+        <div style="display:flex;align-items:center;gap:28px;padding:22px 64px;border-bottom:1px solid var(--color-divider);font-size:13px">
+          <span style="font-family:var(--font-heading);font-size:20px">Itai Steinberg</span>
+          <span style="margin-left:auto">Projects</span><span>About</span><span>Posts</span>
+          <span class="btn btn-primary" style="padding:6px 14px">Contact me</span>
+        </div>
+        <div style="padding:64px 64px 0">
+          <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:18px">UX Research &amp; Design · Tel Aviv</div>
+          <div style="font-family:var(--font-heading);font-size:132px;font-weight:400;line-height:0.92;letter-spacing:-0.035em;margin-bottom:34px">Itai Steinberg</div>
+          <p style="column-count:2;column-gap:56px;font-size:16px;line-height:1.75;text-align:justify;hyphens:auto;margin:0 0 48px;max-width:900px;color:color-mix(in srgb, var(--color-text) 84%, transparent)">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+          <div style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent);padding-bottom:10px;border-bottom:1px solid var(--color-accent-300)">Contents</div>
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:70px 1fr 300px 30px;align-items:baseline;gap:20px;padding:20px 0;border-bottom:1px solid var(--color-divider)">
+              <span style="font-size:12px;letter-spacing:0.12em;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">{{ p.num }}</span>
+              <span style="font-family:var(--font-heading);font-size:38px;line-height:1">{{ p.title }}</span>
+              <span style="font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">{{ p.kicker }}</span>
+              <span style="color:var(--color-accent)">→</span>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;max-width:110ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)"><strong style="font-weight:600">Why 9:</strong> reads like the opening of a monograph. A huge display name and a contents list make the projects the table of contents, which is the most honest structure for a research portfolio. It's the strictest fit with the system (hairlines carry the whole layout) and the contour background sits behind it. It loses a point because images only appear once you open a project, so the first impression is all type.</p>
+    </div>
+
+    <!-- 1b Colophon -->
+    <div id="1b" style="display:flex;flex-direction:column;gap:18px;width:1200px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:13px;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent-800)">1b</span>
+        <h2 style="font-size:28px;font-weight:400;margin:0">Colophon (dark)</h2>
+        <span style="margin-left:auto;font-family:var(--font-heading);font-size:30px;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">7 / 10</span>
+      </div>
+      <div style="width:1200px;height:1000px;overflow:hidden;position:relative;border:1px solid #2a2724;background:#161412;color:#f3f2f2;box-shadow:0 30px 60px rgba(0,0,0,0.25)">
+        <div style="display:flex;align-items:center;gap:28px;padding:22px 64px;border-bottom:1px solid rgba(243,242,242,0.12);font-size:13px;color:rgba(243,242,242,0.75)">
+          <span style="font-family:var(--font-heading);font-size:20px;color:#f3f2f2">Itai Steinberg</span>
+          <span style="margin-left:auto">Projects</span><span>About</span><span>Posts</span>
+          <span style="padding:6px 14px;border:1px solid var(--color-accent);border-radius:var(--radius-sm);color:var(--color-accent-300)">Contact me</span>
+        </div>
+        <div style="position:absolute;right:40px;top:70px;font-family:var(--font-heading);font-size:420px;line-height:1;color:transparent;-webkit-text-stroke:1px rgba(182,130,53,0.35)">04</div>
+        <div style="position:relative;padding:80px 64px 0">
+          <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-300);margin-bottom:18px">UX Research &amp; Design · Tel Aviv</div>
+          <div style="font-family:var(--font-heading);font-size:88px;font-weight:400;line-height:1;letter-spacing:-0.02em;margin-bottom:24px">Research that<br><em>reads people.</em></div>
+          <p style="font-size:16px;line-height:1.75;max-width:52ch;margin:0 0 56px;color:rgba(243,242,242,0.78)">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px">
+            <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+              <div style="border-top:1px solid var(--color-accent);padding-top:14px">
+                <div style="font-size:11.5px;letter-spacing:0.12em;font-variant-numeric:tabular-nums;color:var(--color-accent-300);margin-bottom:8px">{{ p.num }}</div>
+                <div style="font-family:var(--font-heading);font-size:28px;margin-bottom:6px">{{ p.title }}</div>
+                <div style="font-size:12.5px;color:rgba(243,242,242,0.6)">{{ p.kicker }}</div>
+              </div>
+            </sc-for>
+          </div>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;max-width:110ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)"><strong style="font-weight:600">Why 7:</strong> the most striking of the five. A warm near-black ground, paper type and gold ghost numerals feel premium and confident. But the system only uses this dark ground for section-divider pages, so taking the whole site dark goes against it. Long case-study text and pale research screenshots also read worse on dark. Best used as an accent (hero or section breaks) rather than for the whole site. Note the headline "Research that reads people." is new copy I wrote for this preview.</p>
+    </div>
+
+    <!-- 1c Dossier -->
+    <div id="1c" style="display:flex;flex-direction:column;gap:18px;width:1200px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:13px;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent-800)">1c</span>
+        <h2 style="font-size:28px;font-weight:400;margin:0">Research Dossier</h2>
+        <span style="margin-left:auto;font-family:var(--font-heading);font-size:30px;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">7.5 / 10</span>
+      </div>
+      <div style="width:1200px;height:1000px;overflow:hidden;position:relative;border:1px solid var(--color-divider);background:#f3f2f2;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 30px 60px rgba(32,31,29,0.06)">
+        <div style="display:flex;align-items:center;gap:28px;padding:22px 64px;border-bottom:1px solid var(--color-divider);font-size:13px">
+          <span style="font-family:var(--font-heading);font-size:20px">Itai Steinberg</span>
+          <span style="margin-left:auto">Projects</span><span>About</span><span>Posts</span>
+          <span class="btn btn-primary" style="padding:6px 14px">Contact me</span>
+        </div>
+        <div style="padding:48px 64px 0;display:grid;grid-template-columns:1fr 320px;gap:48px;align-items:end;border-bottom:1px solid var(--color-divider);padding-bottom:36px">
+          <div>
+            <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:14px">Case files · 04</div>
+            <div style="font-family:var(--font-heading);font-size:64px;line-height:1;letter-spacing:-0.02em;margin-bottom:16px">Itai Steinberg</div>
+            <p style="font-size:15px;line-height:1.7;max-width:60ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+          </div>
+          <div style="display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:13px;border-left:1px solid var(--color-accent-300);padding-left:20px">
+            <span style="color:color-mix(in srgb, var(--color-text) 55%, transparent)">Discipline</span><span>UX Research &amp; Design</span>
+            <span style="color:color-mix(in srgb, var(--color-text) 55%, transparent)">Background</span><span>Psychology &amp; HCI</span>
+            <span style="color:color-mix(in srgb, var(--color-text) 55%, transparent)">Based in</span><span>Tel Aviv, IL</span>
+          </div>
+        </div>
+        <div style="padding:32px 64px;display:grid;grid-template-columns:1fr 1fr;gap:24px">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:160px 1fr;gap:20px;padding:18px;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:#fbfaf9">
+              <div class="plate" style="margin:0"><image-slot id="{{ p.idC }}" shape="rect" style="width:100%;aspect-ratio:1/1" placeholder="Cover" src="{{ p.img }}"></image-slot></div>
+              <div>
+                <div style="display:flex;gap:10px;align-items:baseline;margin-bottom:6px"><span style="font-size:11px;letter-spacing:0.12em;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">FILE {{ p.num }}</span><span class="tag tag-accent">{{ p.kicker }}</span></div>
+                <div style="font-family:var(--font-heading);font-size:26px;margin-bottom:6px">{{ p.title }}</div>
+                <p style="font-size:13px;line-height:1.6;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ p.lead }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;max-width:110ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)"><strong style="font-weight:600">Why 7.5:</strong> presents each project as a research file: a cover, a category tag and the opening line. A small fact panel puts your Psychology and HCI background up front. It's the most scannable for recruiters. It scores lower because cards in a 2×2 grid are the most familiar portfolio pattern, so it looks the least like you.</p>
+    </div>
+
+    <!-- 1d Gallery -->
+    <div id="1d" style="display:flex;flex-direction:column;gap:18px;width:1200px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:13px;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent-800)">1d</span>
+        <h2 style="font-size:28px;font-weight:400;margin:0">Gallery of Plates</h2>
+        <span style="margin-left:auto;font-family:var(--font-heading);font-size:30px;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">8 / 10</span>
+      </div>
+      <div style="width:1200px;height:1000px;overflow:hidden;position:relative;border:1px solid var(--color-divider);background:#f3f2f2;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 30px 60px rgba(32,31,29,0.06)">
+        <div style="display:flex;align-items:center;gap:28px;padding:22px 64px;font-size:13px">
+          <span style="font-family:var(--font-heading);font-size:20px">Itai Steinberg</span>
+          <span style="margin-left:auto">Projects</span><span>About</span><span>Posts</span>
+        </div>
+        <div style="text-align:center;padding:24px 0 40px">
+          <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:12px">Selected Work</div>
+          <div style="font-family:var(--font-heading);font-size:48px;font-style:italic;line-height:1.1">A catalogue of four projects</div>
+        </div>
+        <div style="padding:0 64px;display:grid;grid-template-columns:1fr 1fr;gap:44px 48px">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <figure style="margin:0">
+              <div class="plate" style="margin:0;box-shadow:0 1px 2px rgba(45,43,43,0.12),0 20px 40px rgba(32,31,29,0.05)"><image-slot id="{{ p.idD }}" shape="rect" style="width:100%;aspect-ratio:16/8" placeholder="Cover" src="{{ p.img }}"></image-slot></div>
+              <figcaption style="display:flex;align-items:baseline;gap:12px;padding-top:12px">
+                <span style="font-family:var(--font-heading);font-size:15px;font-style:italic;color:var(--color-accent-700)">Plate {{ p.roman }}</span>
+                <span style="font-family:var(--font-heading);font-size:22px">{{ p.title }}</span>
+                <span style="margin-left:auto;font-size:12px;color:color-mix(in srgb, var(--color-text) 60%, transparent)">{{ p.kicker }}</span>
+              </figcaption>
+            </figure>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;max-width:110ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)"><strong style="font-weight:600">Why 8:</strong> treats the project covers as numbered museum plates (Plate I–IV). It's image-first, with the most visual appeal for anyone browsing, and uses the system's matted-plate treatment as the main idea. It loses points because your intro and research focus move below the fold, and it depends on every cover being strong; Bankme's and Wolt's covers are weaker than the others. "A catalogue of four projects" is new heading copy for this preview.</p>
+    </div>
+
+    <!-- 1e Spread -->
+    <div id="1e" style="display:flex;flex-direction:column;gap:18px;width:1200px">
+      <div style="display:flex;align-items:center;gap:14px">
+        <span style="font-size:13px;letter-spacing:0.1em;padding:4px 10px;border:1px solid var(--color-accent);border-radius:999px;color:var(--color-accent-800)">1e</span>
+        <h2 style="font-size:28px;font-weight:400;margin:0">Book Spread</h2>
+        <span style="margin-left:auto;font-family:var(--font-heading);font-size:30px;font-variant-numeric:tabular-nums;color:var(--color-accent-700)">8.5 / 10</span>
+      </div>
+      <div style="width:1200px;height:1000px;overflow:hidden;position:relative;border:1px solid var(--color-divider);background:#f3f2f2;display:grid;grid-template-columns:400px 1fr;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 30px 60px rgba(32,31,29,0.06)">
+        <aside style="padding:48px 44px;border-right:1px solid var(--color-accent-300);display:flex;flex-direction:column;gap:22px;background:#f6f5f4">
+          <div class="plate" style="margin:0;width:150px"><image-slot id="te-portrait" shape="rect" style="width:100%;aspect-ratio:1/1" placeholder="Portrait" src="https://static.wixstatic.com/media/310b09_637a93088f764d0fbe865a2400e41d80~mv2.png"></image-slot></div>
+          <div style="font-family:var(--font-heading);font-size:46px;line-height:1;letter-spacing:-0.02em">Itai<br>Steinberg</div>
+          <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700)">UX Research &amp; Design</div>
+          <p style="font-size:14.5px;line-height:1.75;text-align:justify;hyphens:auto;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+          <div style="display:grid;gap:8px;font-size:13.5px;margin-top:auto;padding-top:18px;border-top:1px solid var(--color-divider)">
+            <span>Projects</span><span>About Me</span><span>Posts</span><span style="color:var(--color-accent-700)">LinkedIn ↗</span>
+          </div>
+        </aside>
+        <div style="padding:48px 56px;display:grid;gap:30px;align-content:start">
+          <sc-for list="{{ projects }}" as="p" hint-placeholder-count="4">
+            <div style="display:grid;grid-template-columns:260px 1fr;gap:28px;align-items:center;padding-bottom:30px;border-bottom:1px solid var(--color-divider)">
+              <div class="plate" style="margin:0"><image-slot id="{{ p.idE }}" shape="rect" style="width:100%;aspect-ratio:16/10" placeholder="Cover" src="{{ p.img }}"></image-slot></div>
+              <div>
+                <div style="font-size:11.5px;letter-spacing:0.12em;font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-bottom:6px">{{ p.num }} · {{ p.kicker }}</div>
+                <div style="font-family:var(--font-heading);font-size:32px;line-height:1.05;margin-bottom:8px">{{ p.title }}</div>
+                <p style="font-size:13.5px;line-height:1.65;margin:0;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ p.lead }}</p>
+              </div>
+            </div>
+          </sc-for>
+        </div>
+      </div>
+      <p style="font-size:14px;line-height:1.7;max-width:110ch;margin:0;color:color-mix(in srgb, var(--color-text) 82%, transparent)"><strong style="font-weight:600">Why 8.5:</strong> laid out like an open book. On the left a fixed page carries your portrait, bio and navigation; on the right the projects scroll as entries with a cover and opening line. Who you are stays visible the whole time, which suits a portfolio built on psychology. It also carries straight into the case-study pages: the left page becomes the step list and the right holds the content. It's slightly behind 1a because the fixed left page needs a mobile fallback and narrows the content column.</p>
+    </div>
+
+  </div>
+
+  <div style="margin-top:64px;padding-top:24px;border-top:1px solid var(--color-accent-300);max-width:110ch">
+    <div style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:10px">Recommendation</div>
+    <p style="font-size:15px;line-height:1.75;margin:0">Choose between <a href="#1a">1a</a> Folio and <a href="#1e">1e</a> Book Spread. Folio is the more distinctive first impression; Book Spread works best across the whole site, because its two-page structure carries into every case study. You could also use <a href="#1b">1b</a>'s dark ground only for section dividers, which is how the system intends it.</p>
+  </div>
+</section>
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const ROMAN = ['I', 'II', 'III', 'IV'];
+const PROJECTS = [
+  { title: 'Minute Media', kicker: 'Internal Communication', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg', lead: "During my internship at Minute Media, I led a project focused on optimizing internal communication." },
+  { title: "Health'sme", kicker: 'Healthcare', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg', lead: "Health'sme connects patients with a network of doctors nationwide, streamlining appointment bookings and follow-ups." },
+  { title: 'Wolt Case Study', kicker: 'Payments & Purchasing', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png', lead: 'In my Wolt case study, I explored innovative strategies to enhance the payment and purchasing experience within the app.' },
+  { title: 'Bankme', kicker: 'Digital Banking', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg', lead: 'In my digital banking case study, I explored minimalist design strategies to simplify complex financial data and reduce cognitive load within the app.' }
+];
+
+class Component extends DCLogic {
+  renderVals() {
+    return {
+      projects: PROJECTS.map((p, i) => ({ ...p, num: String(i + 1).padStart(2, '0'), roman: ROMAN[i], idC: 'tc-' + i, idD: 'td-' + i, idE: 'tee-' + i }))
+    };
+  }
+}
+</script>
+</body>
+</html>

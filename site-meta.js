@@ -4,6 +4,7 @@
   window.__siteMeta = true;
   var PAGES = {
     'Portfolio v3': ['Itai Steinberg — UX Research & Design', 'UX designer and user experience researcher. Selected work with a focus on research and psychology.'],
+    'Portfolio Redesign': ['Itai Steinberg — UX Research & Design', 'UX designer and user experience researcher. Selected work with a focus on research and psychology.'],
     'Minute Media': ['Minute Media — Itai Steinberg', 'Redefining Voltax, Minute Media\u2019s internal communication and collaboration system.'],
     'Healthsme': ['Health\u2019sme — Itai Steinberg', 'An mHealth system connecting patients with doctors, appointments and follow-ups.'],
     'Wolt Case Study': ['Wolt Case Study — Itai Steinberg', 'Improving the payment and substitution experience in the Wolt app.'],

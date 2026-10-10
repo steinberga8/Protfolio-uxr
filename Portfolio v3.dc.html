@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+  window.__resources = {
+    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
+    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
+  };
+</script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
+  <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./site-meta.js"></script>
+  <script src="./image-slot.js"></script>
+  <script src="./fit-images.js"></script>
+  <script src="./contour-bg.js"></script>
+  <style>
+    html, body { margin: 0; background: #e6ebf2; text-wrap: pretty; }
+    a { color: var(--color-accent-800); text-decoration: none; }
+    a:hover { color: var(--color-accent-900); }
+    ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
+    button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    /* darker-ground contrast */
+    .btn-primary, .btn-secondary, .btn-ghost { color: var(--color-accent-800); }
+    .btn-primary:hover, .btn-secondary:hover, .btn-ghost:hover { color: var(--color-accent-900); }
+  </style>
+</helmet>
+
+<canvas ref="{{ canvasRef }}" aria-hidden="true" style="position:fixed;inset:0;width:100vw;height:100vh;z-index:0;pointer-events:none;display:block"></canvas>
+
+<div style="position:relative;z-index:1;min-height:100vh">
+
+<nav class="nav" style="position:sticky;top:0;z-index:20;background:color-mix(in srgb, #e6ebf2 78%, transparent);backdrop-filter:blur(14px) saturate(1.2);-webkit-backdrop-filter:blur(14px) saturate(1.2);border-bottom:1px solid var(--color-divider);flex-wrap:wrap;row-gap:10px;padding:14px clamp(20px,5vw,64px)">
+  <span class="nav-brand">Itai Steinberg</span>
+  <a href="#home">Home</a>
+  <a href="#projects">My Projects</a>
+  <a href="#about">About Me</a>
+  <a href="#posts">Posts</a>
+  <a href="Portfolio Redesign.dc.html" style="margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:12.5px;letter-spacing:0.04em;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
+    <svg aria-hidden="true" focusable="false" width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+    Previous version
+  </a>
+  <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary">Contact me</a>
+</nav>
+
+<main id="content" style="max-width:1180px;margin:0 auto;padding:0 clamp(20px,5vw,64px)">
+
+  <section id="home" style="padding:clamp(64px,9vw,112px) 0 64px">
+    <div data-intro="1" style="font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-800);margin-bottom:20px">UX Research &amp; Design · Tel Aviv</div>
+    <h1 data-intro="2" style="font-size:clamp(64px,11vw,148px);font-weight:400;line-height:0.92;letter-spacing:-0.035em;margin:0 0 44px">Itai Steinberg</h1>
+    <div data-intro="3" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:40px 56px;align-items:start">
+      <p style="font-size:17px;line-height:1.75;text-align:justify;hyphens:auto;margin:0;grid-column:1/-1;max-width:68ch;color:color-mix(in srgb, var(--color-text) 84%, transparent)">My name is Itai Steinberg, I am a UX designer and user experience researcher. I create and develop various projects with a focus on research and integration with psychology.</p>
+      <dl style="display:grid;grid-template-columns:auto 1fr;gap:10px 18px;margin:0;font-size:14px;border-left:1px solid var(--color-accent-300);padding-left:22px">
+        <dt style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Discipline</dt><dd style="margin:0">UX Research &amp; Design</dd>
+        <dt style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Background</dt><dd style="margin:0">B.A. Psychology &amp; HCI</dd>
+        <dt style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Based in</dt><dd style="margin:0">Tel Aviv, IL</dd>
+      </dl>
+    </div>
+    <div data-intro="4" style="display:flex;gap:12px;flex-wrap:wrap;margin-top:40px">
+      <a href="#projects" class="btn btn-primary">View my projects
+        <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+      </a>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener" class="btn btn-ghost">Message on WhatsApp</a>
+    </div>
+  </section>
+
+  <nav aria-label="Contents" data-reveal="1" style="margin-bottom:32px">
+    <div style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent);padding-bottom:12px;border-bottom:1px solid var(--color-accent-300)">Contents</div>
+    <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
+      <a href="{{ project.link }}" style="display:grid;grid-template-columns:64px minmax(0,1fr) minmax(0,260px) 24px;align-items:baseline;gap:20px;padding:22px 0;border-bottom:1px solid var(--color-divider);color:var(--color-text);transition:padding .3s cubic-bezier(.2,.7,.2,1),color .2s ease" style-hover="padding-left:14px;color:var(--color-accent-800)">
+        <span style="font-size:12px;letter-spacing:0.12em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">{{ project.num }}</span>
+        <span style="font-family:var(--font-heading);font-size:clamp(28px,3.4vw,40px);line-height:1">{{ project.title }}</span>
+        <span style="font-size:13.5px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ project.kicker }}</span>
+        <span style="color:var(--color-accent-800)">→</span>
+      </a>
+    </sc-for>
+  </nav>
+
+  <section aria-label="Site notice" data-reveal="1" style="display:flex;align-items:flex-start;gap:10px;padding:2px 0 0;margin-bottom:96px">
+    <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent-800);flex:none;margin-top:2px"><path d="M21.73 18 13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <p style="margin:0;font-size:13px;line-height:1.55;color:color-mix(in srgb, var(--color-text) 78%, transparent)">This site is under construction — a few sections are still being finished. For the best experience, please view on a desktop.</p>
+  </section>
+
+  <section id="projects" style="padding-bottom:112px;scroll-margin-top:80px">
+    <header data-reveal="1" style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:44px;border-bottom:1px solid var(--color-accent-200)">
+      <span style="font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">01</span>
+      <h2 style="font-size:clamp(34px,4vw,46px);font-weight:400;letter-spacing:-0.02em;line-height:1.05;margin:0">My Projects</h2>
+      <span style="margin-left:auto;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Case files · 04</span>
+    </header>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,520px),1fr));gap:28px">
+      <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
+        <article data-reveal="1" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,180px),1fr));gap:26px;padding:22px;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:color-mix(in srgb, #fbfaf9 88%, transparent);box-shadow:0 1px 2px rgba(45,43,43,0.05),0 18px 40px rgba(32,31,29,0.025);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .3s ease" style-hover="transform:translateY(-3px);border-color:var(--color-accent-300);box-shadow:0 2px 6px rgba(45,43,43,0.08),0 28px 56px rgba(32,31,29,0.06)">
+          <a href="{{ project.link }}" class="plate" style="display:block;margin:0;align-self:start"><image-slot id="{{ project.imgId }}" shape="rect" style="width:100%;aspect-ratio:1/1" placeholder="Project cover image" src="{{ project.img }}"></image-slot></a>
+          <div style="display:flex;flex-direction:column;min-width:0">
+            <div style="display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin-bottom:10px">
+              <span style="font-size:11px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">FILE {{ project.num }}</span>
+              <span class="tag tag-accent">{{ project.kicker }}</span>
+            </div>
+            <h3 style="font-size:30px;font-weight:400;letter-spacing:-0.01em;line-height:1.05;margin:0 0 12px"><a href="{{ project.link }}" style="color:inherit">{{ project.title }}</a></h3>
+            <p style="font-size:14.5px;line-height:1.68;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 80%, transparent);margin:0 0 16px">{{ project.body }}</p>
+            <a href="{{ project.link }}" class="btn btn-ghost" style="padding-inline:0;align-self:flex-start;margin-top:auto">{{ project.linkLabel }}
+              <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <section id="about" style="padding-bottom:112px;scroll-margin-top:80px">
+    <header data-reveal="1" style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:44px;border-bottom:1px solid var(--color-accent-200)">
+      <span style="font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">02</span>
+      <h2 style="font-size:clamp(34px,4vw,46px);font-weight:400;letter-spacing:-0.02em;line-height:1.05;margin:0">Psychology, HCI, and a camera</h2>
+      <span style="margin-left:auto;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">About Me</span>
+    </header>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:56px;align-items:start">
+      <figure data-reveal="1" class="plate" style="margin:0;width:100%;box-shadow:0 1px 2px rgba(45,43,43,0.12),0 24px 48px rgba(32,31,29,0.04)">
+        <image-slot id="about-portrait" shape="rect" style="width:100%;aspect-ratio:140/177" placeholder="Portrait" src="https://static.wixstatic.com/media/310b09_81fb21260d3b4409b7dfb6ecbf6d7bcb~mv2.jpg"></image-slot>
+      </figure>
+      <div data-reveal="1" style="display:flex;flex-direction:column;gap:20px">
+        <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;max-width:64ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">I'm a UX enthusiast with a B.A. in Psychology and Human-Computer Interaction, passionate about blending psychological insights with research to design intuitive, engaging experiences. I love uncovering what drives user behavior and using that understanding to create designs that feel effortless and human-centered.</p>
+        <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;max-width:64ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">Outside of UX, I'm a dedicated cinephile who enjoys analyzing films almost as much as watching them. One of my favorite design analogies comes from Inception of Christopher Nolan:</p>
+        <blockquote style="margin:8px 0;padding:4px 0 4px 24px;border-left:1px solid var(--color-accent);font-family:var(--font-heading);font-size:26px;font-weight:400;line-height:1.35;font-style:italic;color:var(--color-text)">
+          <p style="margin:0 0 10px">"We create the world of the dream. We bring the subject into that dream, and we fill it with their subconscious."</p>
+          <footer style="font-family:var(--font-body);font-style:normal;font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Dom Cobb</footer>
+        </blockquote>
+        <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;max-width:64ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">To me, great UX is just like that — building a world shaped by the user's needs, then guiding them through it seamlessly.</p>
+        <p style="font-size:16px;line-height:1.8;text-align:justify;hyphens:auto;max-width:64ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">In my free time, I enjoy the mental challenge and social energy of board games, the calming rhythm of early-morning water sports, and capturing candid human moments through photography during my travels. The lens helps me see the world — and people — in a more intentional, creative way.</p>
+      </div>
+    </div>
+
+    <div data-reveal="1" style="display:flex;align-items:baseline;gap:14px;margin:80px 0 28px">
+      <span style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--color-accent-800)">Photography</span>
+      <h3 style="font-size:26px;font-weight:400;margin:0">Some Pictures I Have Taken</h3>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,320px),1fr));gap:40px">
+      <figure data-reveal="1" style="margin:0">
+        <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 18px 40px rgba(32,31,29,0.04)">
+          <image-slot id="about-photo-1" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Sapa, Vietnam" src="https://static.wixstatic.com/media/310b09_7da319a6362d4c12b402fa4f1b384014~mv2.jpg"></image-slot>
+        </div>
+        <figcaption style="font-size:13.5px;line-height:1.7;font-style:italic;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:16px">Several years ago, I traveled through Southeast Asia. During my time in Vietnam, I spent three days in Sapa province and took a trek from the backpacker town down into the villages in the valley below. Along the way, I came across children playing together and captured this moment. This photograph remains one of my favorites.</figcaption>
+      </figure>
+      <figure data-reveal="1" style="margin:0">
+        <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 18px 40px rgba(32,31,29,0.04)">
+          <image-slot id="about-photo-2" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Vigeland Park, Oslo" src="https://static.wixstatic.com/media/310b09_f8f29dba6c654cfdb0e5f70fc38203ec~mv2.jpg"></image-slot>
+        </div>
+        <figcaption style="font-size:13.5px;line-height:1.7;font-style:italic;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:16px">I captured this photo during my visit to Oslo, Norway several years ago. The sculpture is located in the renowned Vigeland Park, one of the city's most famous attractions. What drew me to this particular piece was its intimate portrayal of two figures embracing, and I composed the shot to emphasize their tender, affectionate pose.</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <section id="posts" style="padding-bottom:112px;scroll-margin-top:80px">
+    <header data-reveal="1" style="display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;padding-bottom:18px;margin-bottom:44px;border-bottom:1px solid var(--color-accent-200)">
+      <span style="font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">03</span>
+      <h2 style="font-size:clamp(34px,4vw,46px);font-weight:400;letter-spacing:-0.02em;line-height:1.05;margin:0">My Posts</h2>
+      <span style="margin-left:auto;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent)">Writing</span>
+    </header>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,340px),1fr));gap:36px;align-items:stretch">
+      <sc-for list="{{ posts }}" as="post" hint-placeholder-count="2">
+        <article data-reveal="1" class="card" style="padding:0;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:color-mix(in srgb, #fbfaf9 86%, transparent);box-shadow:0 1px 2px rgba(45,43,43,0.05),0 16px 36px rgba(32,31,29,0.025);overflow:hidden;gap:0;display:flex;flex-direction:column;height:100%;transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease" style-hover="transform:translateY(-4px);box-shadow:0 2px 6px rgba(45,43,43,0.08),0 26px 52px rgba(32,31,29,0.07)">
+          <a href="{{ post.link }}" style="display:block"><figure class="plate" data-bare="1" style="margin:0;padding:22px 26px;border-width:0 0 1px 0;border-style:solid;border-color:var(--color-divider);background:transparent">
+            <image-slot id="{{ post.imgId }}" data-fill="1" fit="contain" shape="rounded" radius="4" style="width:100%;height:236px;display:block" placeholder="Post cover image" src="{{ post.img }}"></image-slot>
+          </figure></a>
+          <div style="padding:24px 28px 26px;flex:1;display:flex;flex-direction:column">
+            <h3 style="font-size:22px;font-weight:400;line-height:1.25;margin:0 0 10px;min-height:2.5em"><a href="{{ post.link }}" style="color:inherit">{{ post.title }}</a></h3>
+            <p style="font-size:14.5px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0 0 14px">{{ post.body }}</p>
+            <a href="{{ post.link }}" class="btn btn-ghost" style="padding-inline:0;margin-top:auto;align-self:flex-start">Read post
+              <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+            </a>
+          </div>
+        </article>
+      </sc-for>
+    </div>
+  </section>
+
+  <footer data-reveal="1" style="border-top:1px solid var(--color-divider);padding:48px 0 0;display:flex;flex-wrap:wrap;gap:40px;justify-content:space-between">
+    <div>
+      <div style="font-family:var(--font-heading);font-size:26px;margin-bottom:6px">Itai Steinberg</div>
+      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">UX Research &amp; Design</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+      <a href="tel:+972523018080" style="display:flex;align-items:center;gap:8px;color:var(--color-text)">
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 16.6 15h3.4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3.4a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384Z"/></svg>
+        Phone: +972 52 301 8080
+      </a>
+      <div style="display:flex;align-items:center;gap:8px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        Tel Aviv, IL
+      </div>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        WhatsApp
+      </a>
+      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.4A5 5 0 0 1 16 8Z"/></svg>
+        LinkedIn
+      </a>
+    </div>
+    <nav style="display:flex;flex-direction:column;gap:8px;font-size:14px">
+      <a href="#home">Home</a>
+      <a href="#projects">My Projects</a>
+      <a href="#about">About Me</a>
+      <a href="#posts">Posts</a>
+    </nav>
+  </footer>
+
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:40px;padding:20px 0 32px;border-top:1px solid var(--color-divider);font-size:12px;letter-spacing:0.04em;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
+    <span style="display:inline-flex;align-items:center;gap:8px">
+      <span style="width:5px;height:5px;border-radius:50%;background:var(--color-accent)"></span>
+      Built with Claude
+    </span>
+    <a href="Portfolio Redesign.dc.html" style="color:inherit;display:inline-flex;align-items:center;gap:6px" style-hover="color:var(--color-accent-800)">
+      <svg aria-hidden="true" focusable="false" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+      View the previous version
+    </a>
+  </div>
+
+</main>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;bgTheme&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Dot wave&quot;,&quot;options&quot;:[&quot;Dot wave&quot;,&quot;Contour lines&quot;,&quot;Drifting dust&quot;,&quot;Ruled paper&quot;,&quot;Constellation&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Background&quot;},&quot;waveStrength&quot;:{&quot;editor&quot;:&quot;range&quot;,&quot;default&quot;:1.6,&quot;min&quot;:0,&quot;max&quot;:1.6,&quot;step&quot;:0.1,&quot;tsType&quot;:&quot;number&quot;,&quot;section&quot;:&quot;Background&quot;}}">
+const STEP_DEFS = [
+  { label: 'Research', desc: 'Interviews, competitive audits and data review to frame the real problem.' },
+  { label: 'Define', desc: 'Synthesizing findings into problem statements and success metrics.' },
+  { label: 'Ideate', desc: 'Exploring directions through sketches, flows and design principles.' },
+  { label: 'Design', desc: 'High-fidelity UI and interaction design refined through iteration.' },
+  { label: 'Test', desc: 'Usability testing and feedback loops to validate and refine the solution.' }
+];
+
+const PROJECTS = [
+  { id: 'minute-media', imgId: 'proj-minute', kicker: 'Internal Communication · Internship', title: 'Minute Media',
+    body: "During my internship at Minute Media, I led a project focused on optimizing internal communication. My team and I conducted extensive research to redefine and enhance Voltax, the company's internal communication and collaboration system.",
+    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg' },
+  { id: 'healthsme', imgId: 'proj-health', kicker: 'Healthcare', title: "Health'sme",
+    body: "Health'sme connects patients with a network of doctors nationwide, streamlining appointment bookings and follow-ups. It empowers users with quick access to their medical status, supporting informed health decisions.",
+    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg' },
+  { id: 'wolt', imgId: 'proj-wolt', kicker: 'Payments & Purchasing', title: 'Wolt Case Study',
+    body: 'In my Wolt case study, I explored innovative strategies to enhance the payment and purchasing experience within the app. My recommendations stem from user research and hands-on support experiences, ensuring they reflect real user needs.',
+    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png' },
+  { id: 'bankme', imgId: 'proj-bankme', kicker: 'Digital Banking', title: 'Bankme',
+    body: 'In my digital banking case study, I explored minimalist design strategies to simplify complex financial data and reduce cognitive load within the app. Drawing from my background in psychology and HCI, my design decisions stem from a deep understanding of human behavior, ensuring the interface reflects real user needs and prevents critical errors.',
+    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg' }
+];
+
+const POSTS = [
+  { id: 'motorcycle', imgId: 'post-moto', title: 'The Art Of Motorcycle And UX', body: 'The art of motorcycle and User Experience.', link: 'The Art Of Motorcycle And UX.dc.html', img: 'https://static.wixstatic.com/media/310b09_111b35c40d574c51933a03379f2da38d~mv2.jpg' },
+  { id: 'six-hats', imgId: 'post-hats', title: 'Applying the Six Thinking Hats Method to UX Design', body: 'A look at applying the Six Thinking Hats method within a UX design process.', link: 'Six Thinking Hats.dc.html', img: 'https://static.wixstatic.com/media/310b09_7bc56f20893f486ab7da2b41c0e01d2c~mv2.avif' }
+];
+
+const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 5px;border-radius:999px;font-family:var(--font-body);font-size:12px;letter-spacing:0.01em;cursor:pointer;transition:background .2s ease,border-color .2s ease,color .2s ease;';
+const NUM_BASE = 'width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex:none;font-variant-numeric:tabular-nums;';
+const STYLES = {
+  done: { btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);', num: NUM_BASE + 'background:var(--color-accent-700);color:#fff;' },
+  active: { btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);', num: NUM_BASE + 'background:var(--color-accent-900);color:#fff;' },
+  upcoming: { btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 78%, transparent);', num: NUM_BASE + 'border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 78%, transparent);' }
+};
+
+class Component extends DCLogic {
+  state = { active: {} };
+  canvasRef = React.createRef();
+
+  componentDidMount() {
+    this.reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    this.startWave();
+    setTimeout(() => this.setupMotion(), 0);
+  }
+
+  componentWillUnmount() {
+    this.stopped = true;
+    clearTimeout(this.waveT);
+    window.removeEventListener('resize', this.onResize);
+    if (this.io) this.io.disconnect();
+  }
+
+  startWave() {
+    const c = this.canvasRef.current;
+    if (!c) return;
+    const ctx = c.getContext('2d');
+    this.onResize = () => {
+      const d = Math.min(2, window.devicePixelRatio || 1);
+      c.width = window.innerWidth * d;
+      c.height = window.innerHeight * d;
+      ctx.setTransform(d, 0, 0, d, 0, 0);
+      if (this.reduce) draw(0);
+    };
+    const GAP = 26;
+    const P = { w: 0, h: 0, pts: [] };
+    const seed = (n) => {
+      const w = window.innerWidth, h = window.innerHeight;
+      if (P.w === w && P.h === h && P.pts.length === n) return;
+      P.w = w; P.h = h; P.pts = [];
+      let r = 7;
+      const rnd = () => { r = (r * 16807) % 2147483647; return r / 2147483647; };
+      for (let i = 0; i < n; i++) P.pts.push({ x: rnd() * w, y: rnd() * h, vx: (rnd() - 0.5) * 6, vy: (rnd() - 0.5) * 4 - 1.5, s: 0.6 + rnd() * 1.4, p: rnd() * 6.28 });
+    };
+    const drift = (dt) => {
+      P.pts.forEach((q) => {
+        q.x += q.vx * dt; q.y += q.vy * dt;
+        if (q.x < -20) q.x = P.w + 20; if (q.x > P.w + 20) q.x = -20;
+        if (q.y < -20) q.y = P.h + 20; if (q.y > P.h + 20) q.y = -20;
+      });
+    };
+    let last = 0;
+    const THEMES = {
+      'Dot wave': (t, w, h, amp) => {
+        const sy = window.scrollY * 0.12;
+        for (let y = 0; y < h + GAP; y += GAP) for (let x = 0; x < w + GAP; x += GAP) {
+          const yy = y + sy;
+          const wv = Math.sin(x * 0.0065 + yy * 0.0035 - t * 0.55) + 0.6 * Math.sin(x * 0.0028 - yy * 0.006 + t * 0.35);
+          const k = Math.max(0, Math.min(1, (wv + 1.6) / 3.2));
+          ctx.globalAlpha = (0.05 + k * 0.26) * amp;
+          ctx.beginPath(); ctx.arc(x, y + Math.sin(x * 0.009 - t * 0.7) * 3 * k, 0.55 + k * 1.15, 0, 6.2832); ctx.fill();
+        }
+      },
+      'Contour lines': (t, w, h, amp) => {
+        const sy = (window.scrollY * 0.08) % 34;
+        ctx.lineWidth = 0.7;
+        for (let k = -2, y0 = -sy; y0 < h + 40; k++, y0 += 34) {
+          ctx.globalAlpha = (0.08 + 0.06 * Math.sin(k * 0.9 + t * 0.2)) * amp;
+          ctx.beginPath();
+          for (let x = 0; x <= w + 12; x += 12) {
+            const y = y0 + 11 * Math.sin(x * 0.0042 + k * 0.45 + t * 0.28) + 6 * Math.sin(x * 0.0095 - t * 0.17 + k * 1.3);
+            x ? ctx.lineTo(x, y) : ctx.moveTo(x, y);
+          }
+          ctx.stroke();
+        }
+      },
+      'Drifting dust': (t, w, h, amp, dt) => {
+        seed(110); drift(dt);
+        P.pts.forEach((q) => {
+          ctx.globalAlpha = (0.12 + 0.18 * (0.5 + 0.5 * Math.sin(t * 0.6 + q.p))) * amp;
+          ctx.beginPath(); ctx.arc(q.x, q.y, q.s, 0, 6.2832); ctx.fill();
+        });
+      },
+      'Ruled paper': (t, w, h, amp) => {
+        const sy = (window.scrollY * 0.1) % 32;
+        const band = ((t * 38) % (h + 500)) - 250;
+        for (let y = -sy; y < h + 32; y += 32) {
+          const near = Math.exp(-Math.pow(y - band, 2) / (2 * 110 * 110));
+          ctx.globalAlpha = (0.06 + 0.2 * near) * amp;
+          ctx.fillRect(0, Math.round(y), w, 1);
+        }
+        ctx.globalAlpha = 0.16 * amp;
+        ctx.fillRect(Math.round(w * 0.06), 0, 1, h);
+      },
+      'Constellation': (t, w, h, amp, dt) => {
+        seed(56); drift(dt * 0.8);
+        ctx.lineWidth = 0.6;
+        for (let i = 0; i < P.pts.length; i++) for (let j = i + 1; j < P.pts.length; j++) {
+          const A = P.pts[i], B = P.pts[j], d = Math.hypot(A.x - B.x, A.y - B.y);
+          if (d > 150) continue;
+          ctx.globalAlpha = (1 - d / 150) * 0.2 * amp;
+          ctx.beginPath(); ctx.moveTo(A.x, A.y); ctx.lineTo(B.x, B.y); ctx.stroke();
+        }
+        P.pts.forEach((q) => { ctx.globalAlpha = 0.4 * amp; ctx.beginPath(); ctx.arc(q.x, q.y, 1.3, 0, 6.2832); ctx.fill(); });
+      }
+    };
+    const draw = (t) => {
+      const w = window.innerWidth, h = window.innerHeight;
+      const amp = this.props.waveStrength ?? 1.6;
+      const fn = THEMES[this.props.bgTheme] || THEMES['Dot wave'];
+      const dt = Math.min(0.1, Math.max(0, t - last)); last = t;
+      ctx.clearRect(0, 0, w, h);
+      ctx.fillStyle = '#b68235'; ctx.strokeStyle = '#b68235';
+      fn(t, w, h, amp, dt);
+      ctx.globalAlpha = 1;
+    };
+    this.onResize();
+    window.addEventListener('resize', this.onResize);
+    if (this.reduce) { draw(0); return; }
+    const t0 = performance.now();
+    const loop = () => {
+      if (this.stopped) return;
+      if (!document.hidden) draw((performance.now() - t0) / 1000);
+      this.waveT = setTimeout(loop, 40);
+    };
+    loop();
+  }
+
+  setupMotion() {
+    const ease = 'cubic-bezier(.2,.7,.2,1)';
+    if (this.reduce) return;
+    document.querySelectorAll('[data-intro]').forEach((el) => {
+      const d = (+el.getAttribute('data-intro') || 1) * 110;
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(14px)';
+      el.style.transition = 'opacity .9s ' + ease + ' ' + d + 'ms, transform .9s ' + ease + ' ' + d + 'ms';
+      setTimeout(() => { el.style.opacity = '1'; el.style.transform = 'none'; }, 30);
+    });
+    if (!('IntersectionObserver' in window)) return;
+    const vh = window.innerHeight;
+    const els = [...document.querySelectorAll('[data-reveal]')].filter((el) => el.getBoundingClientRect().top > vh * 0.9);
+    els.forEach((el) => {
+      el.style.opacity = '0';
+      el.style.transform = 'translateY(18px)';
+      el.style.transition = 'opacity .8s ' + ease + ', transform .8s ' + ease;
+    });
+    this.io = new IntersectionObserver((entries) => entries.forEach((e) => {
+      if (!e.isIntersecting) return;
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'none';
+      this.io.unobserve(e.target);
+      setTimeout(() => { e.target.style.transform = ''; e.target.style.transition = ''; }, 900);
+    }), { rootMargin: '0px 0px -6% 0px' });
+    els.forEach((el) => this.io.observe(el));
+  }
+
+  setStep(id, i) { this.setState((s) => ({ active: { ...s.active, [id]: i } })); }
+
+  renderVals() {
+    const active = this.state.active;
+    const projects = PROJECTS.map((p, n) => {
+      const idx = active[p.id] ?? 0;
+      const steps = STEP_DEFS.map((s, i) => {
+        const status = i < idx ? 'done' : i === idx ? 'active' : 'upcoming';
+        return { label: s.label, numDisplay: status === 'done' ? '✓' : String(i + 1), current: i === idx ? 'step' : undefined, onClick: () => this.setStep(p.id, i), style: STYLES[status].btn, numStyle: STYLES[status].num };
+      });
+      return { ...p, num: String(n + 1).padStart(2, '0') };
+    });
+    return { projects, posts: POSTS, canvasRef: this.canvasRef };
+  }
+}
+</script>
+</body>
+</html>
