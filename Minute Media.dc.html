@@ -3,171 +3,40 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-  window.__resources = {
-    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
-    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
-  };
-</script>
 <script src="./support.js"></script>
-<script src="./fit-images.js"></script>
-<script src="./contour-bg.js"></script>
-<script src="./site-meta.js"></script>
 </head>
 <body>
 <x-dc>
 <helmet>
   <link rel="stylesheet" href="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/styles.css">
   <script src="_ds/classical-25b7da1b-0c0e-4ab5-af38-9794854e9d36/_ds_bundle.js"></script>
+  <script src="./site-meta.js"></script>
   <script src="./image-slot.js"></script>
+  <script src="./fit-images.js"></script>
+  <script src="./contour-bg.js"></script>
   <style>
     body { margin: 0; text-wrap: pretty; }
-    a { color: var(--color-accent-700); text-decoration: none; }
-    a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
+    a { color: var(--color-accent-800); text-decoration: none; }
+    a:hover { color: var(--color-accent-900); text-decoration: underline; text-underline-offset: 3px; }
     ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
     button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
+    /* darker-ground contrast */
+    .btn-primary, .btn-secondary, .btn-ghost { color: var(--color-accent-800); }
+    .btn-primary:hover, .btn-secondary:hover, .btn-ghost:hover { color: var(--color-accent-900); }
   </style>
 </helmet>
 
 <nav ref="{{ navRef }}" class="nav" style="position:sticky;top:0;z-index:20;box-shadow:0 1px 0 var(--color-divider),0 10px 24px rgba(32,31,29,0.025);flex-wrap:wrap;row-gap:10px;padding:16px clamp(20px,5vw,64px)">
   <span class="nav-brand">Itai Steinberg</span>
-  <a href="Portfolio Redesign.dc.html">Home</a>
-  <a href="Portfolio Redesign.dc.html#about">About Me</a>
-  <a href="Portfolio Redesign.dc.html#projects" aria-current="location">My Projects</a>
-  <a href="Portfolio Redesign.dc.html#posts">Posts</a>
+  <a href="Portfolio v3.dc.html">Home</a>
+  <a href="Portfolio v3.dc.html#projects" aria-current="location">My Projects</a>
+  <a href="Portfolio v3.dc.html#about">About Me</a>
+  <a href="Portfolio v3.dc.html#posts">Posts</a>
   <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-left:8px">Contact me</a>
 </nav>
 
-<main style="max-width:940px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 168px">
-
-  <a href="Portfolio Redesign.dc.html#projects" class="btn btn-ghost" style="padding-inline:0;margin-top:32px">
-    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
-    Back to My Projects
-  </a>
-
-  <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin:28px 0 12px">Internal Communication · Internship</span>
-  <h1 style="font-size:clamp(36px,4.8vw,54px);font-weight:400;letter-spacing:-0.015em;line-height:1.06;margin:0 0 22px">Minute Media</h1>
-
-  <figure class="plate" style="margin:0 0 40px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 24px 48px rgba(32,31,29,0.025)">
-    <image-slot id="mm-cover" shape="rect" fit="contain" style="width:100%;aspect-ratio:16/9" placeholder="Project cover" src="https://static.wixstatic.com/media/310b09_f424e256d07b4f0b9e5b1f616b38b16b~mv2.jpg"></image-slot>
-  </figure>
-
-  <div ref="{{ contentRef }}">
-  <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="5">
-    <section style="{{ phase.panelStyle }}">
-      <div style="display:flex;align-items:baseline;gap:14px;margin:0 0 26px;padding-bottom:14px;border-bottom:1px solid var(--color-accent-200)">
-        <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-700);flex:none;padding-bottom:4px">{{ phase.stepTag }}</span>
-        <h2 style="font-size:29px;font-weight:700;letter-spacing:-0.01em;line-height:1.15;margin:0">{{ phase.heading }}</h2>
-      </div>
-      <sc-for list="{{ phase.blocks }}" as="block" hint-placeholder-count="3">
-        <sc-if value="{{ block.isText }}" hint-placeholder-val="{{ true }}">
-          <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">{{ block.text }}</p>
-        </sc-if>
-        <sc-if value="{{ block.isList }}" hint-placeholder-val="{{ false }}">
-          <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 12px">{{ block.lead }}</p>
-          <ol style="margin:0 0 24px;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:10px">
-            <sc-for list="{{ block.items }}" as="item" hint-placeholder-count="3">
-              <li style="display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:14.5px;line-height:1.7;color:color-mix(in srgb, var(--color-text) 85%, transparent)">
-                <span style="font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:0.06em;color:var(--color-accent-700);padding-top:3px">{{ item.n }}</span>
-                <span>{{ item.text }}</span>
-              </li>
-            </sc-for>
-          </ol>
-        </sc-if>
-      </sc-for>
-      <sc-if value="{{ phase.hasPlates }}" hint-placeholder-val="{{ false }}">
-        <div style="display:flex;align-items:baseline;justify-content:space-between;gap:16px;margin:4px 0 12px">
-          <div style="font-size:11.5px;letter-spacing:0.14em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 55%, transparent)">{{ phase.plateLabel }}</div>
-          <div style="display:flex;align-items:center;gap:10px;flex:none">
-            <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:color-mix(in srgb, var(--color-text) 50%, transparent)">{{ phase.plateCount }}</span>
-            <sc-if value="{{ phase.isCarousel }}" hint-placeholder-val="{{ false }}">
-              <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous plates" onClick="{{ scrollPlatesBack }}">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
-              </button>
-              <button type="button" class="btn btn-secondary btn-icon" aria-label="Next plates" onClick="{{ scrollPlatesForward }}">
-                <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
-              </button>
-            </sc-if>
-          </div>
-        </div>
-      </sc-if>
-      <sc-if value="{{ phase.hasStrips }}" hint-placeholder-val="{{ false }}">
-        <div style="display:grid;gap:30px;margin:2px 0 30px">
-          <sc-for list="{{ phase.strips }}" as="wide" hint-placeholder-count="1">
-            <figure style="margin:0;max-width:760px">
-              <div class="plate" style="background:var(--color-surface, #fbfaf9);box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
-                <image-slot id="{{ wide.id }}" shape="rect" fit="contain" style="{{ wide.slotStyle }}" placeholder="Project screen" src="{{ wide.src }}"></image-slot>
-              </div>
-              <figcaption style="margin:0;padding:10px 0 12px;border-bottom:1px solid var(--color-divider)">
-                <span style="display:block;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-bottom:4px">{{ wide.figTag }}</span>
-                <span style="font-size:12.5px;line-height:1.6;font-style:italic;letter-spacing:0.01em;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ wide.caption }}</span>
-              </figcaption>
-              <sc-if value="{{ wide.hasDesc }}" hint-placeholder-val="{{ false }}">
-                <div style="margin-top:12px;padding:12px 14px;border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:color-mix(in srgb, var(--color-accent) 4%, transparent)">
-                  <span style="display:block;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Note</span>
-                  <span style="font-size:12.5px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ wide.desc }}</span>
-                </div>
-              </sc-if>
-            </figure>
-          </sc-for>
-        </div>
-      </sc-if>
-      <sc-if value="{{ phase.hasRow }}" hint-placeholder-val="{{ false }}">
-        <div style="{{ phase.gridStyle }}">
-          <sc-for list="{{ phase.gallery }}" as="shot" hint-placeholder-count="2">
-            <figure style="{{ shot.figStyle }}">
-              <div class="plate" style="background:var(--color-surface, #fbfaf9);box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
-                <image-slot id="{{ shot.id }}" shape="rect" fit="contain" style="{{ shot.slotStyle }}" placeholder="Project screen" src="{{ shot.src }}"></image-slot>
-              </div>
-              <sc-if value="{{ shot.hasCaption }}" hint-placeholder-val="{{ true }}">
-                <figcaption style="margin:0;padding:10px 0 12px;border-bottom:1px solid var(--color-divider)">
-                <span style="display:block;font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-700);margin-bottom:4px">{{ shot.figTag }}</span>
-                <span style="font-size:12.5px;line-height:1.6;font-style:italic;letter-spacing:0.01em;color:color-mix(in srgb, var(--color-text) 70%, transparent)">{{ shot.caption }}</span>
-              </figcaption>
-              </sc-if>
-              <sc-if value="{{ shot.hasDesc }}" hint-placeholder-val="{{ false }}">
-                <div style="margin-top:12px;padding:12px 14px;border:1px solid var(--color-divider);border-radius:var(--radius-sm);background:color-mix(in srgb, var(--color-accent) 4%, transparent)">
-                  <span style="display:block;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;color:var(--color-accent-700);margin-bottom:6px">Note</span>
-                  <span style="font-size:12.5px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ shot.desc }}</span>
-                </div>
-              </sc-if>
-            </figure>
-          </sc-for>
-        </div>
-      </sc-if>
-      <sc-if value="{{ phase.hasBullets }}" hint-placeholder-val="{{ false }}">
-        <ul style="margin:0 0 24px;padding-left:22px">
-          <sc-for list="{{ phase.bullets }}" as="b" hint-placeholder-count="3">
-            <li style="font-size:14px;line-height:1.72;max-width:66ch;color:color-mix(in srgb, var(--color-text) 82%, transparent);margin-bottom:8px">{{ b }}</li>
-          </sc-for>
-        </ul>
-      </sc-if>
-      <sc-if value="{{ phase.hasImage }}" hint-placeholder-val="{{ false }}">
-        <figure class="plate" style="margin:0 0 24px;box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
-          <image-slot id="{{ phase.imgId }}" shape="rect" fit="contain" style="width:100%;aspect-ratio:16/9" placeholder="Reference image" src="{{ phase.image }}"></image-slot>
-        </figure>
-      </sc-if>
-    </section>
-  </sc-for>
-  </div>
-
-  <hr class="hr" style="margin:48px 0 0" />
-  <footer style="padding:40px 0 0;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
-    <div>
-      <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;margin-bottom:6px">Itai Steinberg</div>
-      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 65%, transparent)">UX Research &amp; Design</div>
-    </div>
-    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
-      <a href="tel:+972523018080" style="color:var(--color-text)">Phone: +972 52 301 8080</a>
-      <div style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Tel Aviv, IL</div>
-      <a href="https://wa.me/972523018080" target="_blank" rel="noopener">WhatsApp</a>
-      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener">LinkedIn</a>
-    </div>
-  </footer>
-</main>
-
-<div ref="{{ barRef }}" style="position:fixed;left:0;right:0;bottom:0;z-index:30;border-top:1px solid var(--color-divider);box-shadow:0 -6px 24px rgba(32,31,29,0.06),0 -1px 2px rgba(32,31,29,0.025);padding:12px clamp(20px,5vw,64px) 14px">
-  <div style="max-width:940px;margin:0 auto;display:flex;flex-direction:column;align-items:center;gap:10px">
+<div ref="{{ barRef }}" style="position:sticky;top:64px;z-index:19;border-bottom:1px solid var(--color-divider);box-shadow:0 8px 22px rgba(32,31,29,0.05);padding:10px clamp(20px,5vw,64px)">
+  <div style="max-width:940px;margin:0 auto;display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:10px 18px">
     <div style="display:flex;gap:8px;flex-wrap:wrap;justify-content:center">
       <sc-for list="{{ steps }}" as="step" hint-placeholder-count="5">
         <button type="button" style="{{ step.style }}" onClick="{{ step.onClick }}" aria-current="{{ step.current }}">
@@ -177,17 +46,150 @@
     </div>
     <div style="display:flex;align-items:center;gap:14px">
       <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous step" onClick="{{ goPrev }}" disabled="{{ isFirst }}">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg>
       </button>
-      <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent);white-space:nowrap;font-feature-settings:'tnum' 1;min-width:104px;text-align:center">{{ progressLabel }}</span>
+      <span style="font-size:12px;letter-spacing:0.04em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 78%, transparent);white-space:nowrap;font-feature-settings:'tnum' 1;min-width:104px;text-align:center">{{ progressLabel }}</span>
       <button type="button" class="btn btn-primary btn-icon" aria-label="Next step" onClick="{{ goNext }}" disabled="{{ isLast }}">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+        <svg aria-hidden="true" focusable="false" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
       </button>
     </div>
   </div>
 </div>
+
+<main id="content" style="max-width:940px;margin:0 auto;padding:0 clamp(20px,5vw,64px) 72px">
+
+  <a href="Portfolio v3.dc.html#projects" class="btn btn-ghost" style="padding-inline:0;margin-top:32px">
+    <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 12H5"/><path d="m12 19-7-7 7-7"/></svg>
+    Back to My Projects
+  </a>
+
+  <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-800);margin:36px 0 16px">File 01 · Internal Communication · Internship</span>
+  <h1 style="font-size:clamp(52px,8vw,104px);font-weight:400;letter-spacing:-0.035em;line-height:0.94;margin:0 0 36px">Minute Media</h1>
+
+  <figure class="plate" style="margin:0 0 40px;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 24px 48px rgba(32,31,29,0.025)">
+    <image-slot id="mm-cover" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Project cover" src="https://static.wixstatic.com/media/310b09_f424e256d07b4f0b9e5b1f616b38b16b~mv2.jpg"></image-slot>
+  </figure>
+
+  <div ref="{{ contentRef }}">
+  <sc-for list="{{ phases }}" as="phase" hint-placeholder-count="5">
+    <section style="{{ phase.panelStyle }}">
+      <div style="display:flex;align-items:baseline;gap:14px;margin:0 0 26px;padding-bottom:14px;border-bottom:1px solid var(--color-accent-200)">
+        <span style="font-family:var(--font-body);font-size:12px;letter-spacing:0.14em;font-variant-numeric:tabular-nums;color:var(--color-accent-800);flex:none;padding-bottom:4px">{{ phase.stepTag }}</span>
+        <h2 style="font-size:29px;font-weight:400;letter-spacing:-0.01em;line-height:1.15;margin:0">{{ phase.heading }}</h2>
+      </div>
+      <sc-if value="{{ phase.showFlow }}" hint-placeholder-val="{{ true }}">
+      <sc-for list="{{ phase.flow }}" as="block" hint-placeholder-count="4">
+        <sc-if value="{{ block.isText }}" hint-placeholder-val="{{ true }}">
+          <p style="font-size:14.5px;line-height:1.78;max-width:68ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);text-align:justify;hyphens:auto;margin:0 0 20px">{{ block.text }}</p>
+        </sc-if>
+        <sc-if value="{{ block.isList }}" hint-placeholder-val="{{ false }}">
+          <ol style="margin:0 0 24px;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:10px">
+            <sc-for list="{{ block.items }}" as="item" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:26px 1fr;gap:12px;font-size:14.5px;line-height:1.7;color:color-mix(in srgb, var(--color-text) 85%, transparent)">
+                <span style="font-variant-numeric:tabular-nums;font-size:12px;letter-spacing:0.06em;color:var(--color-accent-800);padding-top:3px">{{ item.n }}</span>
+                <span>{{ item.text }}</span>
+              </li>
+            </sc-for>
+          </ol>
+        </sc-if>
+        <sc-if value="{{ block.isBullets }}" hint-placeholder-val="{{ false }}">
+          <ul style="margin:0 0 24px;padding-left:0;list-style:none;max-width:68ch;display:grid;gap:10px">
+            <sc-for list="{{ block.items }}" as="b" hint-placeholder-count="3">
+              <li style="display:grid;grid-template-columns:14px 1fr;gap:12px;font-size:14.5px;line-height:1.7;color:color-mix(in srgb, var(--color-text) 85%, transparent)">
+                <span style="width:5px;height:5px;border-radius:50%;background:var(--color-accent);margin-top:11px"></span>
+                <span>{{ b }}</span>
+              </li>
+            </sc-for>
+          </ul>
+        </sc-if>
+        <sc-if value="{{ block.isPlates }}" hint-placeholder-val="{{ false }}">
+          <div data-plates="1" style="display:grid;gap:28px;margin:4px 0 36px">
+            <sc-for list="{{ block.strips }}" as="wide" hint-placeholder-count="1">
+                <figure style="{{ wide.figStyle }}">
+                  <div class="plate" style="margin:0;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 14px 30px rgba(32,31,29,0.03)">
+                    <image-slot id="{{ wide.id }}" shape="rect" fit="contain" style="{{ wide.slotStyle }}" placeholder="Project screen" src="{{ wide.src }}"></image-slot>
+                  </div>
+                  <figcaption style="margin:0;padding:12px 0 0;display:grid;gap:8px">
+                    <span style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                      <span style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-800);flex:none">{{ wide.figTag }}</span>
+                      <span style="font-size:13px;line-height:1.5;font-style:italic;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ wide.caption }}</span>
+                    </span>
+                    <sc-if value="{{ wide.hasDesc }}" hint-placeholder-val="{{ false }}">
+                      <span style="display:block;padding-left:12px;border-left:2px solid var(--color-accent-300);font-size:13px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 84%, transparent)">{{ wide.desc }}</span>
+                    </sc-if>
+                  </figcaption>
+                </figure>
+            </sc-for>
+            <sc-if value="{{ block.hasRow }}" hint-placeholder-val="{{ false }}">
+              <div style="display:grid;gap:12px">
+                <sc-if value="{{ block.isCarousel }}" hint-placeholder-val="{{ false }}">
+                  <div style="display:flex;align-items:center;justify-content:flex-end;gap:10px">
+                    <span style="font-size:11px;letter-spacing:0.1em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:color-mix(in srgb, var(--color-text) 78%, transparent)">{{ block.rowCount }}</span>
+                    <button type="button" class="btn btn-secondary btn-icon" aria-label="Previous plates" onClick="{{ scrollPlatesBack }}"><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m15 18-6-6 6-6"/></svg></button>
+                    <button type="button" class="btn btn-secondary btn-icon" aria-label="Next plates" onClick="{{ scrollPlatesForward }}"><svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg></button>
+                  </div>
+                </sc-if>
+                <div data-track="1" style="{{ block.gridStyle }}">
+                  <sc-for list="{{ block.row }}" as="shot" hint-placeholder-count="2">
+                <figure style="{{ shot.figStyle }}">
+                  <div class="plate" style="margin:0;box-shadow:0 1px 2px rgba(45,43,43,0.08),0 14px 30px rgba(32,31,29,0.03)">
+                    <image-slot id="{{ shot.id }}" shape="rect" fit="contain" style="{{ shot.slotStyle }}" placeholder="Project screen" src="{{ shot.src }}"></image-slot>
+                  </div>
+                  <figcaption style="margin:0;padding:12px 0 0;display:grid;gap:8px">
+                    <span style="display:flex;align-items:baseline;gap:10px;flex-wrap:wrap">
+                      <span style="font-size:10.5px;letter-spacing:0.14em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-800);flex:none">{{ shot.figTag }}</span>
+                      <span style="font-size:13px;line-height:1.5;font-style:italic;color:color-mix(in srgb, var(--color-text) 82%, transparent)">{{ shot.caption }}</span>
+                    </span>
+                    <sc-if value="{{ shot.hasDesc }}" hint-placeholder-val="{{ false }}">
+                      <span style="display:block;padding-left:12px;border-left:2px solid var(--color-accent-300);font-size:13px;line-height:1.65;color:color-mix(in srgb, var(--color-text) 84%, transparent)">{{ shot.desc }}</span>
+                    </sc-if>
+                  </figcaption>
+                </figure>
+                  </sc-for>
+                </div>
+              </div>
+            </sc-if>
+          </div>
+        </sc-if>
+      </sc-for>
+      </sc-if>
+      <sc-if value="{{ phase.hasImage }}" hint-placeholder-val="{{ false }}">
+        <figure class="plate" style="margin:0 0 24px;box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 32px rgba(32,31,29,0.025)">
+          <image-slot id="{{ phase.imgId }}" shape="rect" style="width:100%;aspect-ratio:16/9" placeholder="Reference image" src="{{ phase.image }}"></image-slot>
+        </figure>
+      </sc-if>
+    </section>
+  </sc-for>
+  </div>
+
+  <a href="Healthsme.dc.html" style="display:grid;grid-template-columns:minmax(0,1fr) auto;align-items:end;gap:20px;margin:56px 0 0;padding:28px 0;border-top:1px solid var(--color-accent-300);border-bottom:1px solid var(--color-divider);color:var(--color-text)" style-hover="color:var(--color-accent-800)">
+    <span style="display:flex;flex-direction:column;gap:8px">
+      <span style="font-size:11.5px;letter-spacing:0.16em;text-transform:uppercase;font-variant-numeric:tabular-nums;color:var(--color-accent-800)">Next project · File 02</span>
+      <span style="font-family:var(--font-heading);font-size:clamp(30px,4vw,44px);line-height:1">Health'sme</span>
+    </span>
+    <svg aria-hidden="true" focusable="false" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+  </a>
+  <hr class="hr" style="margin:48px 0 0" />
+  <footer style="padding:40px 0 0;display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between">
+    <div>
+      <div style="font-family:var(--font-heading);font-weight:600;font-size:18px;margin-bottom:6px">Itai Steinberg</div>
+      <div style="font-size:13px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">UX Research &amp; Design</div>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
+      <a href="tel:+972523018080" style="color:var(--color-text)">Phone: +972 52 301 8080</a>
+      <div style="color:color-mix(in srgb, var(--color-text) 78%, transparent)">Tel Aviv, IL</div>
+      <a href="https://wa.me/972523018080" target="_blank" rel="noopener">WhatsApp</a>
+      <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </footer>
+  <div style="display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;margin-top:40px;padding:20px 0 0;border-top:1px solid var(--color-divider);font-size:12px;letter-spacing:0.04em;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
+    <span style="display:inline-flex;align-items:center;gap:8px"><span style="width:5px;height:5px;border-radius:50%;background:var(--color-accent)"></span>Built with Claude</span>
+    <a href="Portfolio Redesign.dc.html" style="color:inherit">View the previous version</a>
+  </div>
+</main>
+
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#e6ebf2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Page&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#f6f2ea&quot;,&quot;#efe9df&quot;,&quot;#e9e2d3&quot;,&quot;#e6ebf2&quot;]},&quot;wizardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Numbered pills&quot;,&quot;options&quot;:[&quot;Numbered pills&quot;,&quot;Compact dots&quot;,&quot;Labels only&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Step bar&quot;},&quot;showCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;},&quot;showDescriptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;}}">
+<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#e6ebf2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Page&quot;,&quot;options&quot;:[&quot;#e6ebf2&quot;,&quot;#eef1f5&quot;,&quot;#e6ebf2&quot;,&quot;#f6f2ea&quot;]},&quot;wizardStyle&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;default&quot;:&quot;Numbered pills&quot;,&quot;options&quot;:[&quot;Numbered pills&quot;,&quot;Compact dots&quot;,&quot;Labels only&quot;],&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Step bar&quot;},&quot;showCaptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;},&quot;showDescriptions&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Plates&quot;}}">
 const PHASES = [
   {
     num: '1', label: 'Discover', heading: 'Introduction & The Problem',
@@ -247,7 +249,7 @@ const PHASES = [
     ]
   },
   {
-    num: '5', label: 'Final Design', heading: 'Develop & Deliver — The Final Design',
+    num: '5', label: 'Deliver', heading: 'Develop & Deliver',
     paragraphs: [
       "Initially, we proposed two possible solutions: Collaboration and work management — we focused on this solution because it aligned well with our user research outcomes and the problem definition (HMW). Chat and instant communication on the platform — after team discussions and consulting with the company's product team, we ultimately decided not to develop this solution due to existing efficient tools like Slack and Gmail. However, we considered how to integrate these existing solutions into our product, specifically aiming for a smart integration between Slack and similar tools with the Voltax system.",
       "Subsequently, we focused on resolving the collaboration and work management issues on the platform, using two main principles: Prioritization and Workload Management — the main issue repeatedly highlighted was the inefficient daily routine that wastes the time of editors and writers, delaying their actual work; an integrated system that supports these processes can reduce unnecessary workload and maximize actual work. System Status Visibility — the platform will display the status of articles and tasks, considering key parameters, thereby creating a clear hierarchy of importance.",
@@ -346,10 +348,75 @@ const figFor = (i, shot, R, n) => n > 3
 const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:6px 14px 6px 6px;border-radius:999px;font-family:var(--font-body);font-size:13px;letter-spacing:0.01em;white-space:nowrap;cursor:pointer;';
 const NUM_BASE = 'width:20px;height:20px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10.5px;flex:none;font-variant-numeric:tabular-nums;font-family:var(--font-body);';
 const STYLES = {
-  done: { btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);', num: NUM_BASE + 'background:var(--color-accent-500);color:#fff;' },
-  active: { btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);box-shadow:0 1px 3px rgba(182,130,53,0.2);', num: NUM_BASE + 'background:var(--color-accent);color:#fff;' },
-  upcoming: { btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 55%, transparent);', num: NUM_BASE + 'border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 55%, transparent);' }
+  done: { btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);', num: NUM_BASE + 'background:var(--color-accent-700);color:#fff;' },
+  active: { btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);box-shadow:0 1px 3px rgba(182,130,53,0.2);', num: NUM_BASE + 'background:var(--color-accent-900);color:#fff;' },
+  upcoming: { btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 78%, transparent);', num: NUM_BASE + 'border:1px solid var(--color-divider);color:color-mix(in srgb, var(--color-text) 78%, transparent);' }
 };
+
+const STOP = new Set('this that with from into have were they their there what when where which while your about after before being between could would should these those then than them also only very more most some such each over under used using user users screen screens page design'.split(' '));
+const toks = (t) => new Set(String(t || '').toLowerCase().replace(/[^a-z0-9\u05d0-\u05ea ]/g, ' ').split(/\s+/).filter((w) => w.length > 3 && !STOP.has(w)));
+// every plate goes directly under the paragraph that talks about it (reading order kept)
+function attachPlates(ph, i, R) {
+  const all = [];
+  (ph.strips || []).forEach((x) => all.push(Object.assign({}, x, { wide: true })));
+  (ph.gallery || []).forEach((x) => all.push(Object.assign({}, x, { wide: false })));
+  const G = GALLERIES[i] || [];
+  const orig = (x) => G.find((g) => g.src === x.src) || x;
+  all.sort((a, b) => G.indexOf(orig(a)) - G.indexOf(orig(b)));
+  const blocks = (ph.blocks || []).slice();
+  const textIdx = blocks.map((b, k) => (b.isText || b.isList) ? k : -1).filter((k) => k >= 0);
+  const slot = {};
+  let prev = 0;
+  all.forEach((x, n) => {
+    const w = toks(x.caption + ' ' + (x.desc || ''));
+    let best = -1, bestScore = 0;
+    textIdx.forEach((k, ti) => {
+      if (ti < prev) return;
+      const pt = toks(blocks[k].text || (blocks[k].items || []).map((it) => it.text).join(' '));
+      let sc = 0; w.forEach((t) => { if (pt.has(t)) sc++; });
+      if (sc > bestScore) { bestScore = sc; best = ti; }
+    });
+    if (best < 0) best = Math.max(prev, Math.min(textIdx.length - 1, Math.floor(n * textIdx.length / Math.max(1, all.length))));
+    prev = best;
+    const key = textIdx.length ? textIdx[best] : -1;
+    (slot[key] = slot[key] || []).push(x);
+  });
+  // first step of every project: the story is read first, all its pictures follow at the bottom
+  if (i === 0 && textIdx.length) {
+    const merged = [].concat(...Object.keys(slot).map(Number).sort((x, y) => x - y).map((k) => slot[k]));
+    Object.keys(slot).forEach((k) => delete slot[k]);
+    if (merged.length) slot[textIdx[textIdx.length - 1]] = merged;
+  }
+  const num = String(ph.stepTag || '').replace('Step ', '');
+  let fig = 0;
+  const group = (list) => {
+    const strips = list.filter((x) => x.wide).map((x) => Object.assign({}, x, { figStyle: 'margin:0;max-width:760px' }));
+    const rowSrc = list.filter((x) => !x.wide);
+    const m = rowSrc.length;
+    const row = rowSrc.map((x) => { const g = orig(x); return Object.assign({}, x, {
+      figStyle: figFor(i, g, R, m),
+      slotStyle: m > 3 ? 'width:' + plateWidth(i, g, R) + 'px;height:' + plateH(i, R) + 'px' : 'width:100%;aspect-ratio:' + ratioOf(g, R).toFixed(3)
+    }); });
+    const ordered = list.map((x) => x.wide ? strips.find((s) => s.src === x.src) : row.find((s) => s.src === x.src));
+    ordered.forEach((o) => { fig++; o.figTag = 'Fig. ' + num + '.' + fig; o.hasDesc = !!o.hasDesc && !!o.desc; });
+    return { isPlates: true, strips, row, hasRow: m > 0, isCarousel: m > 3, rowCount: m + ' screens', gridStyle: gridFor(m) };
+  };
+  const flow = [];
+  if (slot[-1]) flow.push(group(slot[-1]));
+  const lastText = textIdx.length ? textIdx[textIdx.length - 1] : -1;
+  blocks.forEach((b, k) => {
+    flow.push(b);
+    if (k === lastText && ph.bullets && ph.bullets.length && ph.showBulletsInFlow !== false) flow.push({ isBullets: true, items: ph.bullets });
+    if (slot[k]) flow.push(group(slot[k]));
+  });
+  if (lastText < 0 && ph.bullets && ph.bullets.length) flow.push({ isBullets: true, items: ph.bullets });
+  ph.flow = flow;
+  ph.showFlow = ph.isNormal !== false;
+  return ph;
+}
+
+// one plain sequence: the bar, the step tags and the figure numbers all count 1…N
+PHASES.forEach((p, i) => { p.num = String(i + 1); });
 
 class Component extends DCLogic {
   state = { active: 0 };
@@ -360,14 +427,19 @@ class Component extends DCLogic {
   componentDidUpdate() { this.applyTint(); }
 
   applyTint() {
-    const T = this.props.bgTint || '#f3f2f2';
-    document.body.style.background = T;
+    if (this.barRef.current && this.navRef.current) this.barRef.current.style.top = this.navRef.current.offsetHeight + 'px';
+    // sticky chrome needs its wrappers to grow with the page, not stop at the viewport
+    for (let p = this.navRef.current && this.navRef.current.parentElement; p && p !== document.documentElement; p = p.parentElement) { if (p.style.height !== 'auto') { p.style.height = 'auto'; p.style.minHeight = '100%'; } }
+    if (!this._rz) { this._rz = () => this.applyTint(); window.addEventListener('resize', this._rz); }
+    const T = '#e6ebf2';
     const glass = 'color-mix(in srgb, ' + T + ' 80%, transparent)';
     if (this.navRef.current) { this.navRef.current.style.background = glass; this.navRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)'; this.navRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)'; }
     if (this.barRef.current) { this.barRef.current.style.background = glass; this.barRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)'; this.barRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)'; }
   }
 
   componentDidMount() {
+    const hm = (location.hash || '').match(/step-(\d+)/);
+    if (hm) { const n = +hm[1] - 1; if (n > 0 && n < PHASES.length) this.setState({ active: n }); }
     this.applyTint();
     this.loadRatios();
     this._onKey = (e) => {
@@ -377,10 +449,9 @@ class Component extends DCLogic {
     };
     window.addEventListener('keydown', this._onKey);
   }
-  scrollPlates(dir) {
-    const root = this.contentRef.current;
-    if (!root) return;
-    const el = [...root.querySelectorAll('div[style*="scroll-snap-type"]')].find(t => t.clientWidth > 0);
+  scrollPlates(dir, e) {
+    const host = e && e.currentTarget && e.currentTarget.closest('[data-plates]');
+    const el = host && host.querySelector('[data-track]');
     if (!el) return;
     const step = (el.firstElementChild ? el.firstElementChild.getBoundingClientRect().width : 280) + 28;
     // snap + animated scrolling are both unreliable here — step synchronously
@@ -400,7 +471,10 @@ class Component extends DCLogic {
       im.onload = () => {
         if (!im.naturalWidth || !im.naturalHeight) return;
         const r = (im.naturalWidth / im.naturalHeight).toFixed(4);
-        this.setState((st) => ({ ratios: Object.assign({}, st.ratios, { [shot.src]: r }) }));
+        // batch: one re-render for all ratios that arrive together, not one per image
+        (this._rq = this._rq || {})[shot.src] = r;
+        clearTimeout(this._rt);
+        this._rt = setTimeout(() => { const q = this._rq; this._rq = {}; this.setState((st) => ({ ratios: Object.assign({}, st.ratios, q) })); }, 150);
       };
       im.src = shot.src;
     }));
@@ -410,10 +484,11 @@ class Component extends DCLogic {
 
   go(i) {
     if (i < 0 || i >= PHASES.length) return;
+    try { history.replaceState(null, '', '#step-' + (i + 1)); } catch (e) {}
     this.setState({ active: i }, () => {
       const el = this.contentRef.current;
       if (!el) return;
-      const top = el.getBoundingClientRect().top + window.scrollY - 96;
+      const top = el.getBoundingClientRect().top + window.scrollY - ((this.navRef.current ? this.navRef.current.offsetHeight : 64) + (this.barRef.current ? this.barRef.current.offsetHeight : 56) + 20);
       window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
     });
   }
@@ -443,11 +518,12 @@ class Component extends DCLogic {
       gallery: rowOf(i, R).map((s, j) => ({ src: s.src, caption: s.caption, id: SLUG + '-s' + i + '-' + j, figTag: 'Fig. ' + (p.num || (i + 1)) + '.' + (stripsOf(i, R).length + j + 1), figStyle: figFor(i, s, R, rowOf(i, R).length), slotStyle: rowOf(i, R).length > 3 ? 'width:' + plateWidth(i, s, R) + 'px;height:' + plateH(i, R) + 'px' : 'width:100%;aspect-ratio:' + ratioOf(s, R).toFixed(3), desc: DESCS[s.src] || '', hasDesc: showDescriptions && !!DESCS[s.src], hasCaption: showCaptions })),
       hasImage: !!p.image
     }));
+    phases.forEach((ph, i) => attachPlates(ph, i, R));
     return {
       phases, steps,
-      scrollPlatesBack: () => this.scrollPlates(-1),
-      scrollPlatesForward: () => this.scrollPlates(1), contentRef: this.contentRef, navRef: this.navRef, barRef: this.barRef,
-      progressLabel: 'Step ' + (PHASES[idx].num || (idx + 1)) + ' of ' + PHASES.length,
+      scrollPlatesBack: (e) => this.scrollPlates(-1, e),
+      scrollPlatesForward: (e) => this.scrollPlates(1, e), contentRef: this.contentRef, navRef: this.navRef, barRef: this.barRef,
+      progressLabel: 'Step ' + (idx + 1) + ' of ' + PHASES.length,
       goPrev: () => this.go(idx - 1),
       goNext: () => this.go(idx + 1),
       isFirst: idx === 0,

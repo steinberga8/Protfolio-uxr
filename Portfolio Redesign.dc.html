@@ -3,16 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<script>
-  window.__resources = {
-    'https://unpkg.com/react@18.3.1/umd/react.production.min.js': './vendor/react.production.min.js',
-    'https://unpkg.com/react-dom@18.3.1/umd/react-dom.production.min.js': './vendor/react-dom.production.min.js'
-  };
-</script>
 <script src="./support.js"></script>
-<script src="./fit-images.js"></script>
-<script src="./contour-bg.js"></script>
-<script src="./site-meta.js"></script>
 </head>
 <body>
 <x-dc>
@@ -26,9 +17,6 @@
     a:hover { color: var(--color-accent); text-decoration: underline; text-underline-offset: 3px; }
     ::selection { background: color-mix(in srgb, var(--color-accent) 30%, transparent); }
     button:focus-visible, a:focus-visible { outline: 2px solid var(--color-accent); outline-offset: 2px; }
-    @keyframes tools-scroll { from { transform: translateX(0); } to { transform: translateX(-50%); } }
-    .tools-marquee:hover { animation-play-state: paused; }
-    @media (prefers-reduced-motion: reduce) { .tools-marquee { animation: none !important; } }
   </style>
 </helmet>
 
@@ -39,6 +27,7 @@
   <a href="#about">About Me</a>
   <a href="#projects">My Projects</a>
   <a href="#posts">Posts</a>
+  <a href="Portfolio v3.dc.html" style="margin-left:auto;font-size:12.5px;letter-spacing:0.04em">New version →</a>
   <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" class="btn btn-primary" style="margin-left:8px">Contact me</a>
 </nav>
 
@@ -60,7 +49,7 @@
   </section>
 
   <section aria-label="Site notice" style="display:flex;align-items:flex-start;gap:12px;padding:16px 20px;border:1px solid var(--color-divider);border-radius:var(--radius-md);background:color-mix(in srgb, var(--color-accent) 5%, transparent);margin-bottom:56px">
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent-700);flex:none;margin-top:2px"><path d="M21.73 18 13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+    <svg aria-hidden="true" focusable="false" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:var(--color-accent-700);flex:none;margin-top:2px"><path d="M21.73 18 13.73 4a2 2 0 0 0-3.46 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3Z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
     <p style="margin:0;font-size:14px;line-height:1.55;color:color-mix(in srgb, var(--color-text) 78%, transparent)">This site is under construction — a few sections are still being finished. For the best experience, please view on a desktop.</p>
   </section>
 
@@ -73,14 +62,14 @@
       <sc-for list="{{ projects }}" as="project" hint-placeholder-count="4">
         <article class="card" style="padding:0;border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:0 1px 2px rgba(45,43,43,0.06),0 20px 44px rgba(32,31,29,0.025);overflow:hidden;gap:0;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-3px);box-shadow:0 2px 6px rgba(45,43,43,0.1),0 28px 56px rgba(32,31,29,0.06)">
           <a href="{{ project.link }}" style="display:block"><figure class="plate" style="margin:0;border-width:0 0 6px 0">
-            <image-slot id="{{ project.imgId }}" shape="rect" fit="contain" style="width:100%;aspect-ratio:16/10" placeholder="Project cover image" src="{{ project.img }}"></image-slot>
+            <image-slot id="{{ project.imgId }}" shape="rect" style="width:100%;aspect-ratio:16/10" placeholder="Project cover image" src="{{ project.img }}"></image-slot>
           </figure></a>
           <div style="padding:24px 24px 8px;flex:1">
             <span class="card-kicker">{{ project.kicker }}</span>
             <h3 style="font-size:23px;margin:8px 0 12px"><a href="{{ project.link }}" style="color:inherit;text-decoration:none">{{ project.title }}</a></h3>
-            <p style="font-size:15px;line-height:1.6;color:color-mix(in srgb, var(--color-text) 80%, transparent);margin:0 0 16px">{{ project.body }}</p>
+            <p style="font-size:15px;line-height:1.6;text-align:justify;hyphens:auto;color:color-mix(in srgb, var(--color-text) 80%, transparent);margin:0 0 16px">{{ project.body }}</p>
             <a href="{{ project.link }}" class="btn btn-ghost" style="padding-inline:0;align-self:flex-start">{{ project.linkLabel }}
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
           <div style="border-top:1px solid var(--color-divider);padding:16px 24px 20px;background:color-mix(in srgb, var(--color-text) 2%, transparent)">
@@ -98,23 +87,6 @@
     </div>
   </section>
 
-  <hr class="hr" style="margin:0 0 40px" />
-
-  <section aria-label="Tools" style="padding-bottom:64px">
-    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px;text-align:center">Toolkit</span>
-    <h3 style="font-size:20px;font-weight:400;letter-spacing:-0.01em;margin:0 0 28px;text-align:center;color:color-mix(in srgb, var(--color-text) 75%, transparent)">Tools I Work With</h3>
-    <div style="overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent);mask-image:linear-gradient(90deg,transparent,black 6%,black 94%,transparent)">
-      <div class="tools-marquee" style="display:flex;width:max-content;gap:20px;animation:tools-scroll 26s linear infinite">
-        <sc-for list="{{ toolsLoop }}" as="tool" hint-placeholder-count="10">
-          <div style="display:inline-flex;align-items:center;gap:10px;padding:12px 22px;border:1px solid var(--color-divider);border-radius:999px;background:var(--color-bg);white-space:nowrap">
-            <span style="{{ tool.iconWrap }}">{{ tool.icon }}</span>
-            <span style="font-family:var(--font-heading);font-weight:600;font-size:15px;color:var(--color-text)">{{ tool.name }}</span>
-          </div>
-        </sc-for>
-      </div>
-    </div>
-  </section>
-
   <hr class="hr" style="margin:0 0 56px" />
 
   <section id="about" style="padding-bottom:64px">
@@ -122,17 +94,17 @@
     <h2 style="font-size:36px;font-weight:400;letter-spacing:-0.015em;line-height:1.12;margin:0 0 36px;padding-bottom:16px;border-bottom:1px solid var(--color-accent-200)">Psychology, HCI, and a camera</h2>
     <div style="display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:start">
       <figure class="plate" style="margin:0;box-shadow:0 1px 2px rgba(45,43,43,0.14),0 20px 44px rgba(32,31,29,0.025)">
-        <image-slot id="about-portrait" shape="rect" fit="contain" style="width:100%;aspect-ratio:140/177" placeholder="Portrait" src="https://static.wixstatic.com/media/310b09_81fb21260d3b4409b7dfb6ecbf6d7bcb~mv2.jpg"></image-slot>
+        <image-slot id="about-portrait" shape="rect" style="width:100%;aspect-ratio:140/177" placeholder="Portrait" src="https://static.wixstatic.com/media/310b09_81fb21260d3b4409b7dfb6ecbf6d7bcb~mv2.jpg"></image-slot>
       </figure>
       <div>
-        <p style="font-size:15.5px;line-height:1.78;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">I'm a UX enthusiast with a B.A. in Psychology and Human-Computer Interaction, passionate about blending psychological insights with research to design intuitive, engaging experiences. I love uncovering what drives user behavior and using that understanding to create designs that feel effortless and human-centered.</p>
-        <p style="font-size:15.5px;line-height:1.78;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">Outside of UX, I'm a dedicated cinephile who enjoys analyzing films almost as much as watching them. One of my favorite design analogies comes from Inception of Christopher Nolan:</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">I'm a UX enthusiast with a B.A. in Psychology and Human-Computer Interaction, passionate about blending psychological insights with research to design intuitive, engaging experiences. I love uncovering what drives user behavior and using that understanding to create designs that feel effortless and human-centered.</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">Outside of UX, I'm a dedicated cinephile who enjoys analyzing films almost as much as watching them. One of my favorite design analogies comes from Inception of Christopher Nolan:</p>
         <blockquote style="margin:0 0 20px;padding:0 0 0 20px;border-left:2px solid var(--color-accent);font-family:var(--font-heading);font-size:22px;font-weight:400;line-height:1.4;font-style:italic;color:var(--color-text)">
           <p style="margin:0 0 8px">"We create the world of the dream. We bring the subject into that dream, and we fill it with their subconscious."</p>
           <footer style="font-family:var(--font-body);font-style:normal;font-size:11.5px;letter-spacing:0.12em;text-transform:uppercase;color:color-mix(in srgb, var(--color-text) 62%, transparent)">Dom Cobb</footer>
         </blockquote>
-        <p style="font-size:15.5px;line-height:1.78;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">To me, great UX is just like that — building a world shaped by the user's needs, then guiding them through it seamlessly.</p>
-        <p style="font-size:15.5px;line-height:1.78;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">In my free time, I enjoy the mental challenge and social energy of board games, the calming rhythm of early-morning water sports, and capturing candid human moments through photography during my travels. The lens helps me see the world — and people — in a more intentional, creative way.</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0 0 20px">To me, great UX is just like that — building a world shaped by the user's needs, then guiding them through it seamlessly.</p>
+        <p style="font-size:15.5px;line-height:1.78;text-align:justify;hyphens:auto;max-width:66ch;color:color-mix(in srgb, var(--color-text) 85%, transparent);margin:0">In my free time, I enjoy the mental challenge and social energy of board games, the calming rhythm of early-morning water sports, and capturing candid human moments through photography during my travels. The lens helps me see the world — and people — in a more intentional, creative way.</p>
       </div>
     </div>
 
@@ -140,31 +112,16 @@
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:32px;margin-top:28px">
       <figure style="margin:0">
         <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 36px rgba(32,31,29,0.025)">
-          <image-slot id="about-photo-1" shape="rect" fit="contain" style="width:100%;aspect-ratio:147/108" placeholder="Sapa, Vietnam" src="https://static.wixstatic.com/media/310b09_7da319a6362d4c12b402fa4f1b384014~mv2.jpg"></image-slot>
+          <image-slot id="about-photo-1" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Sapa, Vietnam" src="https://static.wixstatic.com/media/310b09_7da319a6362d4c12b402fa4f1b384014~mv2.jpg"></image-slot>
         </div>
         <figcaption style="font-size:13px;line-height:1.65;font-style:italic;text-align:left;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:14px">Several years ago, I traveled through Southeast Asia. During my time in Vietnam, I spent three days in Sapa province and took a trek from the backpacker town down into the villages in the valley below. Along the way, I came across children playing together and captured this moment. This photograph remains one of my favorites.</figcaption>
       </figure>
       <figure style="margin:0">
         <div class="plate" style="box-shadow:0 1px 2px rgba(45,43,43,0.1),0 16px 36px rgba(32,31,29,0.025)">
-          <image-slot id="about-photo-2" shape="rect" fit="contain" style="width:100%;aspect-ratio:147/108" placeholder="Vigeland Park, Oslo" src="https://static.wixstatic.com/media/310b09_f8f29dba6c654cfdb0e5f70fc38203ec~mv2.jpg"></image-slot>
+          <image-slot id="about-photo-2" shape="rect" style="width:100%;aspect-ratio:147/108" placeholder="Vigeland Park, Oslo" src="https://static.wixstatic.com/media/310b09_f8f29dba6c654cfdb0e5f70fc38203ec~mv2.jpg"></image-slot>
         </div>
         <figcaption style="font-size:13px;line-height:1.65;font-style:italic;text-align:left;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin-top:14px">I captured this photo during my visit to Oslo, Norway several years ago. The sculpture is located in the renowned Vigeland Park, one of the city's most famous attractions. What drew me to this particular piece was its intimate portrayal of two figures embracing, and I composed the shot to emphasize their tender, affectionate pose.</figcaption>
       </figure>
-    </div>
-  </section>
-
-  <hr class="hr" style="margin:0 0 56px" />
-
-  <section id="skills" style="padding-bottom:64px">
-    <span style="display:block;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-feature-settings:'tnum' 1;color:var(--color-accent-700);margin-bottom:10px">Expertise</span>
-    <h2 style="font-size:36px;font-weight:400;letter-spacing:-0.015em;line-height:1.12;margin:0 0 36px;padding-bottom:16px;border-bottom:1px solid var(--color-accent-200)">Skills</h2>
-    <div style="display:flex;flex-wrap:wrap;gap:10px">
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">UX Research</span>
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">UX Writing</span>
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">Prototyping</span>
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">Creative Writing</span>
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">HCI Fundamentals</span>
-      <span class="tag tag-outline" style="font-size:13px;padding:7px 16px">Psychology</span>
     </div>
   </section>
 
@@ -177,13 +134,13 @@
       <sc-for list="{{ posts }}" as="post" hint-placeholder-count="2">
         <article class="card" style="padding:0;border:1px solid var(--color-divider);border-radius:var(--radius-md);box-shadow:0 1px 2px rgba(45,43,43,0.06),0 16px 36px rgba(32,31,29,0.025);overflow:hidden;gap:0;transition:transform .2s ease,box-shadow .2s ease" style-hover="transform:translateY(-3px);box-shadow:0 2px 6px rgba(45,43,43,0.1),0 24px 48px rgba(32,31,29,0.06)">
           <a href="{{ post.link }}" style="display:block"><figure class="plate" style="margin:0;border-width:0 0 6px 0">
-            <image-slot id="{{ post.imgId }}" shape="rect" fit="contain" style="width:100%;aspect-ratio:3/2" placeholder="Post cover image" src="{{ post.img }}"></image-slot>
+            <image-slot id="{{ post.imgId }}" shape="rect" style="width:100%;aspect-ratio:3/2" placeholder="Post cover image" src="{{ post.img }}"></image-slot>
           </figure></a>
           <div style="padding:22px 24px 26px;flex:1">
             <h3 style="font-size:19px;margin:0 0 10px"><a href="{{ post.link }}" style="color:inherit;text-decoration:none">{{ post.title }}</a></h3>
             <p style="font-size:14.5px;line-height:1.6;color:color-mix(in srgb, var(--color-text) 78%, transparent);margin:0 0 14px">{{ post.body }}</p>
             <a href="{{ post.link }}" class="btn btn-ghost" style="padding-inline:0">Read post
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+              <svg aria-hidden="true" focusable="false" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
             </a>
           </div>
         </article>
@@ -200,19 +157,19 @@
     </div>
     <div style="display:flex;flex-direction:column;gap:10px;font-size:14px">
       <a href="tel:+972523018080" style="display:flex;align-items:center;gap:8px;color:var(--color-text)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 16.6 15h3.4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3.4a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384Z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 16.6 15h3.4a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3.4a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384Z"/></svg>
         Phone: +972 52 301 8080
       </a>
       <div style="display:flex;align-items:center;gap:8px;color:color-mix(in srgb, var(--color-text) 78%, transparent)">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
         Tel Aviv, IL
       </div>
       <a href="https://wa.me/972523018080" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z"/></svg>
         WhatsApp
       </a>
       <a href="https://www.linkedin.com/in/itai-steinberg-653330229/" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px">
-        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.4A5 5 0 0 1 16 8Z"/></svg>
+        <svg aria-hidden="true" focusable="false" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4V9h4v1.4A5 5 0 0 1 16 8Z"/></svg>
         LinkedIn
       </a>
     </div>
@@ -227,72 +184,43 @@
 </main>
 </div>
 </x-dc>
-<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#e6ebf2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#f6f2ea&quot;,&quot;#efe9df&quot;,&quot;#e9e2d3&quot;,&quot;#e6ebf2&quot;],&quot;section&quot;:&quot;Background&quot;}}">
-// each project's mini step-wizard mirrors that project's own page — same steps, same order, same count
+<script type="text/x-dc" data-dc-script data-props="{&quot;bgTint&quot;:{&quot;editor&quot;:&quot;color&quot;,&quot;default&quot;:&quot;#f3f2f2&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;options&quot;:[&quot;#f3f2f2&quot;,&quot;#eef1f5&quot;,&quot;#e9edf3&quot;,&quot;#e6ebf2&quot;],&quot;section&quot;:&quot;Background&quot;}}">
+const STEP_DEFS = [
+  { label: 'Research', desc: 'Interviews, competitive audits and data review to frame the real problem.' },
+  { label: 'Define', desc: "Synthesizing findings into problem statements and success metrics." },
+  { label: 'Ideate', desc: 'Exploring directions through sketches, flows and design principles.' },
+  { label: 'Design', desc: 'High-fidelity UI and interaction design refined through iteration.' },
+  { label: 'Test', desc: 'Usability testing and feedback loops to validate and refine the solution.' }
+];
+
 const PROJECTS = [
   {
     id: 'minute-media', imgId: 'proj-minute',
     kicker: 'Internal Communication · Internship',
     title: 'Minute Media',
     body: "During my internship at Minute Media, I led a project focused on optimizing internal communication. My team and I conducted extensive research to redefine and enhance Voltax, the company's internal communication and collaboration system.",
-    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg',
-    stepDefs: [
-      { num: '1', label: 'Discover', desc: 'Understanding the communication problem within Voltax and the company.' },
-      { num: '2a', label: 'Strategy', desc: 'The Double Diamond approach and competitor research plan.' },
-      { num: '2b', label: 'Findings', desc: 'What the competitor research revealed.' },
-      { num: '3a', label: 'Interviews', desc: 'Writer and editor interviews on daily workflows.' },
-      { num: '3b', label: 'Personas', desc: 'Motivations and pain points for each role.' },
-      { num: '4', label: 'Define', desc: 'How Might We questions and success KPIs.' },
-      { num: '5', label: 'Final Design', desc: 'Building the solution, and the finished Voltax prototype on its own.' },
-      { num: '6', label: 'Conclusions', desc: 'Team feedback and next steps.' }
-    ]
+    linkLabel: 'Read this project', link: 'Minute Media.dc.html', img: 'https://static.wixstatic.com/media/310b09_a67fe9ab0ed04fee9f8ebe4e2b6df204~mv2.jpg'
   },
   {
     id: 'healthsme', imgId: 'proj-health',
     kicker: 'Healthcare',
     title: "Health'sme",
     body: "Health'sme connects patients with a network of doctors nationwide, streamlining appointment bookings and follow-ups. It empowers users with quick access to their medical status, supporting informed health decisions.",
-    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg',
-    stepDefs: [
-      { label: 'Intro', desc: 'What an mHealth system is and the problem it solves.' },
-      { label: 'Strategy', desc: 'The research plan behind the project.' },
-      { label: 'Findings', desc: 'What the research and surveys revealed.' },
-      { label: 'Define', desc: 'Persona and user flows.' },
-      { label: 'Final Design', desc: 'The UI guide, design rationale, and the finished interface on its own.' },
-      { label: 'Test', desc: 'Usability testing and conclusions.' }
-    ]
+    linkLabel: 'View this project', link: 'Healthsme.dc.html', img: 'https://static.wixstatic.com/media/310b09_b87fc68841d84c049f38fb2bb12b69b2~mv2.jpg'
   },
   {
     id: 'wolt', imgId: 'proj-wolt',
     kicker: 'Payments & Purchasing',
     title: 'Wolt Case Study',
     body: "In my Wolt case study, I explored innovative strategies to enhance the payment and purchasing experience within the app. My recommendations stem from user research and hands-on support experiences, ensuring they reflect real user needs.",
-    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png',
-    stepDefs: [
-      { label: 'Intro', desc: 'What Wolt is and where the case study comes from.' },
-      { label: 'Problem', desc: 'Defining the substitution and refund problem.' },
-      { label: 'Strategy', desc: 'What may be causing the problem.' },
-      { label: 'Findings', desc: 'Research findings behind the problem.' },
-      { label: 'Persona', desc: 'Meet Tami, the user persona.' },
-      { label: 'Ideate', desc: 'Suggested solutions and direction.' },
-      { label: 'Final Design', desc: 'The redesigned checkout flow, screen by screen, with the rationale behind each one.' },
-      { label: 'Conclusion', desc: 'Next steps and conclusion.' }
-    ]
+    linkLabel: 'Read this project', link: 'Wolt Case Study.dc.html', img: 'https://static.wixstatic.com/media/310b09_e9426a710c0947b2b180eff9f817103e~mv2.png'
   },
   {
     id: 'bankme', imgId: 'proj-bankme',
     kicker: 'Digital Banking',
     title: 'Bankme',
     body: "In my digital banking case study, I explored minimalist design strategies to simplify complex financial data and reduce cognitive load within the app. Drawing from my background in psychology and HCI, my design decisions stem from a deep understanding of human behavior, ensuring the interface reflects real user needs and prevents critical errors.",
-    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg',
-    stepDefs: [
-      { label: 'Background', desc: "The problem with today's financial apps." },
-      { label: 'Strategy', desc: 'Research on motivation and Open Banking.' },
-      { label: 'Findings', desc: 'What the research revealed.' },
-      { label: 'Ideate', desc: 'Defining the integrated assistant solution.' },
-      { label: 'Final Design', desc: "The design guide and Bankme's finished screens on their own." },
-      { label: 'Test', desc: 'User testing and conclusions.' }
-    ]
+    linkLabel: 'Read this project', link: 'Bankme.dc.html', img: 'https://static.wixstatic.com/media/310b09_9e20c0cdd1264c6cbfaebe5560012e9a~mv2.jpg'
   }
 ];
 
@@ -301,44 +229,17 @@ const POSTS = [
   { id: 'six-hats', imgId: 'post-hats', title: 'Applying the Six Thinking Hats Method to UX Design', body: 'A look at applying the Six Thinking Hats method within a UX design process.', link: 'Six Thinking Hats.dc.html', img: 'https://static.wixstatic.com/media/310b09_7bc56f20893f486ab7da2b41c0e01d2c~mv2.avif' }
 ];
 
-const svgProps = (extra) => Object.assign({ viewBox: '0 0 24 24', width: 22, height: 22 }, extra);
-const ICONS = {
-  figma: () => React.createElement('svg', { viewBox: '0 0 38 57', width: 15, height: 22 },
-    React.createElement('path', { key: 1, d: 'M19 28.5C19 23.2533 23.2533 19 28.5 19C33.7467 19 38 23.2533 38 28.5C38 33.7467 33.7467 38 28.5 38C23.2533 38 19 33.7467 19 28.5Z', fill: '#1ABCFE' }),
-    React.createElement('path', { key: 2, d: 'M0 47.5C0 42.2533 4.25329 38 9.5 38H19V47.5C19 52.7467 14.7467 57 9.5 57C4.25329 57 0 52.7467 0 47.5Z', fill: '#0ACF83' }),
-    React.createElement('path', { key: 3, d: 'M19 0V19H28.5C33.7467 19 38 14.7467 38 9.5C38 4.25329 33.7467 0 28.5 0H19Z', fill: '#FF7262' }),
-    React.createElement('path', { key: 4, d: 'M0 9.5C0 14.7467 4.25329 19 9.5 19H19V0H9.5C4.25329 0 0 4.25329 0 9.5Z', fill: '#F24E1E' }),
-    React.createElement('path', { key: 5, d: 'M0 28.5C0 33.7467 4.25329 38 9.5 38H19V19H9.5C4.25329 19 0 23.2533 0 28.5Z', fill: '#A259FF' })
-  ),
-  claude: () => React.createElement('svg', svgProps({ fill: 'currentColor' }),
-    React.createElement('path', { d: 'M13.827 3.52h3.603L24 20h-3.603l-6.57-16.48zm-7.258 0h3.767L16.906 20h-3.674l-1.343-3.461H5.017L3.674 20H0L6.57 3.52zm4.132 9.751L8.453 7.687l-2.248 5.584h4.496z' })
-  ),
-  openai: () => React.createElement('svg', svgProps({ fill: 'currentColor' }),
-    React.createElement('path', { d: 'M22.2819 9.8211a5.9847 5.9847 0 0 0-.5157-4.9108 6.0462 6.0462 0 0 0-6.5098-2.9A6.0651 6.0651 0 0 0 4.9807 4.1818a5.9847 5.9847 0 0 0-3.9977 2.9 6.0462 6.0462 0 0 0 .7427 7.0966 5.98 5.98 0 0 0 .511 4.9107 6.051 6.051 0 0 0 6.5146 2.9001A5.9847 5.9847 0 0 0 13.2599 24a6.0557 6.0557 0 0 0 5.7718-4.2058 5.9894 5.9894 0 0 0 3.9977-2.9001 6.0557 6.0557 0 0 0-.7475-7.0729zm-9.022 12.6081a4.4755 4.4755 0 0 1-2.8764-1.0408l.1419-.0804 4.7783-2.7582a.7948.7948 0 0 0 .3927-.6813v-6.7369l2.02 1.1686a.071.071 0 0 1 .038.052v5.5826a4.504 4.504 0 0 1-4.4945 4.4944zm-9.6607-4.1254a4.4708 4.4708 0 0 1-.5346-3.0137l.142.0852 4.783 2.7582a.7712.7712 0 0 0 .7806 0l5.8428-3.3685v2.3324a.0804.0804 0 0 1-.0332.0615L9.74 19.9502a4.4992 4.4992 0 0 1-6.1408-1.6464zM2.3408 7.8956a4.485 4.485 0 0 1 2.3655-1.9728V11.6a.7664.7664 0 0 0 .3879.6765l5.8144 3.3543-2.0201 1.1685a.0757.0757 0 0 1-.071 0l-4.8303-2.7865A4.504 4.504 0 0 1 2.3408 7.872zm16.5963 3.8558L13.1038 8.364 15.1192 7.2a.0757.0757 0 0 1 .071 0l4.8303 2.7913a4.4944 4.4944 0 0 1-.6765 8.1042v-5.6772a.79.79 0 0 0-.4069-.6813zm2.0107-3.0231l-.142-.0852-4.7735-2.7818a.7759.7759 0 0 0-.7854 0L9.409 9.2297V6.8974a.0662.0662 0 0 1 .0284-.0615l4.8303-2.7866a4.4992 4.4992 0 0 1 6.6802 4.66zM8.3065 12.863l-2.02-1.1638a.0804.0804 0 0 1-.038-.0567V6.0742a4.4992 4.4992 0 0 1 7.3757-3.4537l-.142.0805L8.704 5.4592a.7948.7948 0 0 0-.3927.6813zm1.0976-2.3654l2.602-1.4998 2.6069 1.4998v2.9994l-2.5974 1.4997-2.6067-1.4997z' })
-  ),
-  github: () => React.createElement('svg', svgProps({ fill: 'currentColor' }),
-    React.createElement('path', { fillRule: 'evenodd', clipRule: 'evenodd', d: 'M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.833.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.269 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.295 2.747-1.026 2.747-1.026.546 1.378.202 2.397.1 2.65.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2Z' })
-  )
-};
-const TOOLS = [
-  { name: 'Figma', icon: ICONS.figma },
-  { name: 'Claude Code', icon: ICONS.claude },
-  { name: 'Claude Design', icon: ICONS.claude },
-  { name: 'ChatGPT', icon: ICONS.openai },
-  { name: 'GitHub', icon: ICONS.github }
-];
-
 const BTN_BASE = 'display:inline-flex;align-items:center;gap:6px;padding:5px 12px 5px 5px;border-radius:999px;font-family:var(--font-body);font-size:12px;letter-spacing:0.01em;cursor:pointer;';
 const NUM_BASE = 'width:18px;height:18px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;font-size:10px;flex:none;font-family:var(--font-body);';
 
 const STYLES = {
   done: {
     btn: BTN_BASE + 'border:1px solid var(--color-accent-300);background:var(--color-accent-100);color:var(--color-accent-800);',
-    num: NUM_BASE + 'background:var(--color-accent-500);color:#fff;'
+    num: NUM_BASE + 'background:var(--color-accent-700);color:#fff;'
   },
   active: {
     btn: BTN_BASE + 'border:1px solid var(--color-accent);background:color-mix(in srgb, var(--color-accent) 14%, transparent);color:var(--color-accent-800);box-shadow:0 1px 3px rgba(182,130,53,0.2);',
-    num: NUM_BASE + 'background:var(--color-accent);color:#fff;'
+    num: NUM_BASE + 'background:var(--color-accent-900);color:#fff;'
   },
   upcoming: {
     btn: BTN_BASE + 'border:1px solid var(--color-divider);background:transparent;color:color-mix(in srgb, var(--color-text) 55%, transparent);',
@@ -356,14 +257,9 @@ class Component extends DCLogic {
   }
 
   applyBg() {
-    const tint = this.props.bgTint || 'var(--color-bg)';
-    const glass = 'color-mix(in srgb, ' + tint + ' 80%, transparent)';
+    const tint = this.props.bgTint ?? '#eef1f5';
     if (this.pageRef.current) this.pageRef.current.style.background = tint;
-    if (this.navRef.current) {
-      this.navRef.current.style.background = glass;
-      this.navRef.current.style.backdropFilter = 'blur(14px) saturate(1.2)';
-      this.navRef.current.style.webkitBackdropFilter = 'blur(14px) saturate(1.2)';
-    }
+    if (this.navRef.current) this.navRef.current.style.background = tint;
     document.body.style.background = tint;
   }
   componentDidMount() { this.applyBg(); }
@@ -373,21 +269,20 @@ class Component extends DCLogic {
     const active = this.state.active;
     const projects = PROJECTS.map(p => {
       const idx = active[p.id] ?? 0;
-      const steps = p.stepDefs.map((s, i) => {
+      const steps = STEP_DEFS.map((s, i) => {
         const status = i < idx ? 'done' : i === idx ? 'active' : 'upcoming';
         return {
           label: s.label,
-          numDisplay: status === 'done' ? '✓' : (s.num || String(i + 1)),
+          numDisplay: status === 'done' ? '✓' : String(i + 1),
           current: i === idx ? 'step' : undefined,
           onClick: () => this.setStep(p.id, i),
           style: STYLES[status].btn,
           numStyle: STYLES[status].num
         };
       });
-      return { ...p, steps, activeLabel: p.stepDefs[idx].label, activeDesc: p.stepDefs[idx].desc };
+      return { ...p, steps, activeLabel: STEP_DEFS[idx].label, activeDesc: STEP_DEFS[idx].desc };
     });
-    const toolsLoop = [...TOOLS, ...TOOLS].map((t, i) => ({ name: t.name, icon: t.icon(), iconWrap: 'display:inline-flex;color:var(--color-text)' }));
-    return { projects, posts: POSTS, toolsLoop, pageRef: this.pageRef, navRef: this.navRef };
+    return { projects, posts: POSTS, pageRef: this.pageRef, navRef: this.navRef };
   }
 }
 </script>
